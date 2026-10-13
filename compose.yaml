@@ -1,0 +1,31 @@
+services:
+  db:
+    #Uses PostgreSQL version 17
+    image: postgres:17
+    restart: unless-stopped
+
+    environment:
+      #Creates a database user named elevate
+      POSTGRES_USER: elevate
+      #Loads the password from an environment variable
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:git a?Set POSTGRES_PASSWORD in the root .env file}
+      #Creates a database named elevate_dev
+      POSTGRES_DB: elevate_dev
+
+    ports:
+      # Makes PostgreSQL accessible from my machine, and limits the port to my machine
+      - "127.0.0.1:5432:5432"
+
+    volumes:
+      #Keeps database files even when the container stops
+      - postgres_data:/var/lib/postgresql/data
+
+    #Checks whether PostgreSQL is rea
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U elevate -d elevate_dev"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+
+volumes:
+  postgres_data:
