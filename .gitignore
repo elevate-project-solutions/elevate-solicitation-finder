@@ -165,6 +165,9 @@ venv.bak/
 .env.*
 !.env.example
 
+#Python virtual environments
+.venv/
+
 # Spyder project settings
 .spyderproject
 .spyproject

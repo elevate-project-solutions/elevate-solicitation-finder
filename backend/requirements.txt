@@ -3,3 +3,4 @@ uvicorn[standard]
 ruff
 pytest
 httpx
+pydantic-settings
