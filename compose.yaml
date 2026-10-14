@@ -8,7 +8,7 @@ services:
       #Creates a database user named elevate
       POSTGRES_USER: elevate
       #Loads the password from an environment variable
-      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:git a?Set POSTGRES_PASSWORD in the root .env file}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:?Set POSTGRES_PASSWORD in the root .env file}
       #Creates a database named elevate_dev
       POSTGRES_DB: elevate_dev
 
