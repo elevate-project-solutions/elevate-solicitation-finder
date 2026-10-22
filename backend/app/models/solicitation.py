@@ -14,23 +14,18 @@ class Solicitation(Base):
         primary_key=True,
     )
 
-    source: Mapped[str] = mapped_column(Text)
-    agency: Mapped[str] = mapped_column(Text)
-    title: Mapped[str] = mapped_column(Text)
+    source: Mapped[str] = mapped_column(Text, nullable=False)
+    agency: Mapped[str] = mapped_column(Text, nullable=False)
+    title: Mapped[str] = mapped_column(Text, nullable=False)
 
-    solicitation_number: Mapped[str | None] = mapped_column(
-        Text,
-        nullable=True,
-    )
+    solicitation_number: Mapped[str | None] = mapped_column(Text)
 
     published_at: Mapped[datetime | None] = mapped_column(
-        DateTime(timezone=True),
-        nullable=True,
+        DateTime(timezone=True)
     )
 
     due_at: Mapped[datetime | None] = mapped_column(
-        DateTime(timezone=True),
-        nullable=True,
+        DateTime(timezone=True)
     )
 
     source_url: Mapped[str] = mapped_column(
@@ -40,7 +35,18 @@ class Solicitation(Base):
 
     status: Mapped[str] = mapped_column(
         Text,
-        unique=True,
+        nullable=False,
+        server_default="unknown"
+    )
+
+    first_seen_at: Mapped[datetime] = mapped_column(
+        DateTime(timezone=True),
+        server_default=func.now()
+    )
+
+    last_seen_at: Mapped[datetime] = mapped_column(
+        DateTime(timezone=True),
+        server_default=func.now()
     )
 
     created_at: Mapped[datetime] = mapped_column(
