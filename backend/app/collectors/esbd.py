@@ -1,31 +1,21 @@
 import csv
 import io
 import json
-from datetime import datetime
 from pathlib import Path
 from typing import Any
 from urllib.error import HTTPError, URLError
 from urllib.request import Request, urlopen
 
 from app.collectors.base import BaseCollector, CollectedSolicitation
+from app.collectors.esbd_extraction import (
+    REQUIRED_COLUMNS,
+    extract_esbd_solicitation,
+)
 
 ESBD_EXPORT_URL = (
     "https://www.txsmartbuy.gov/app/extensions/"
     "CPA/CPAMain/1.0.0/services/ESBD.Service.ss"
 )
-
-REQUIRED_COLUMNS = {
-    "Name",
-    "Solicitation ID",
-    "Due Date",
-    "Due Time",
-    "Agency/Texas SmartBuy Member Number",
-    "Status",
-    "Posting Date",
-    "Created",
-    "Last Modified",
-    "NIGP Codes",
-}
 
 class ESBDCollector(BaseCollector):
     """Retrieves ESBD listings from CSV data or an export response."""
@@ -102,35 +92,6 @@ class ESBDCollector(BaseCollector):
         return csv_text
 
     @staticmethod
-    def _parse_due_at(
-        due_date: str,
-        due_time: str,
-    ) -> datetime | None:
-        if not due_date.strip():
-            return None
-
-        value = f"{due_date.strip()} {due_time.strip()}"
-
-        for date_format in (
-            "%m/%d/%Y %I:%M %p",
-            "%m/%d/%Y %H:%M",
-        ):
-            try:
-                return datetime.strptime(value, date_format)
-            except ValueError:
-                continue
-
-        if not due_time.strip():
-            try:
-                return datetime.strptime(
-                    due_date.strip(), "%m/%d/%Y"
-                )
-            except ValueError:
-                pass
-
-        raise ValueError(f"Invalid ESBD due date/time: {value}")
-
-    @staticmethod
     def _parse_csv(
         csv_text: str,
     ) -> list[CollectedSolicitation]:
@@ -145,6 +106,7 @@ class ESBDCollector(BaseCollector):
         ]
 
         missing = REQUIRED_COLUMNS - set(reader.fieldnames)
+        
         if missing:
             raise ValueError(
                 f"ESBD CSV missing columns: {sorted(missing)}"
@@ -158,50 +120,16 @@ class ESBDCollector(BaseCollector):
                     f"Malformed ESBD CSV row{row_number}."
                 )
 
-            row = {
-                key: (value or "").strip()
-                for key, value in row.items()
-            }
+            normalized_row = {
+               key: (value or "").strip()
+               for key, value in row.items()
+           }
 
-            #print("DEBUG FULL ROW:", repr(row))
-            #print("DEBUG NIGP:", repr(row["NIGP Codes"]))
-
-            title = row["Name"]
-            solicitation_id = row["Solicitation ID"]
-            agency = row[
-                "Agency/Texas SmartBuy Member Number"
-            ]
-
-            if not title or not solicitation_id or not agency:
-                raise ValueError(
-                    f"Missing required data on row {row_number}."
-                )
-
-            # ESBD solicitation numbers may repeat across agencies.
-            # Uses an agency scoped source ID to prevent collisions.
-            source_record_id = f"{agency}:{solicitation_id}"
-
-            solicitations.append(
-                CollectedSolicitation(
-                    source_record_id=source_record_id,
-                    title=title,
-                    agency_name=None,
-                    solicitation_number=solicitation_id,
-                    due_at=ESBDCollector._parse_due_at(
-                        row["Due Date"],
-                        row["Due Time"],
-                    ),
-                    status=row["Status"] or None,
-                    raw_data={
-                        **row,
-                        "agency_member_number": agency,
-                        "nigp_codes": [
-                            code.strip()
-                            for code in row["NIGP Codes"].split(";")
-                            if code.strip()
-                        ],
-                    },
-                )
+            solicitation = extract_esbd_solicitation(
+                normalized_row,
+                row_number,
             )
+
+            solicitations.append(solicitation)
 
         return solicitations
