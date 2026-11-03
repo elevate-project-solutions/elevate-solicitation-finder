@@ -1,4 +1,4 @@
-from datetime import datetime
+from datetime import datetime, timezone
 
 import pytest
 
@@ -6,6 +6,7 @@ from app.collectors.esbd_extraction import (
     extract_esbd_solicitation,
     parse_esbd_datetime,
 )
+from app.utils.timestamps import normalize_esbd_timestamp
 
 
 @pytest.fixture
@@ -43,27 +44,41 @@ def test_extract_agency_identifier(sample_row):
 def test_extract_due_date(sample_row):
     record = extract_esbd_solicitation(sample_row, 2)
 
-    assert record.due_at == datetime(2026, 11, 12, 15, 0)
+    assert record.due_at == datetime(
+        2026, 11, 12, 21, 0, tzinfo=timezone.utc
+    )
 
 def test_extract_posting_date(sample_row):
     record = extract_esbd_solicitation(sample_row, 2)
 
-    assert record.raw_data["posting_at"] == datetime(
-        2026, 10, 21
+    expected = normalize_esbd_timestamp(
+        parse_esbd_datetime(sample_row["Posting Date"])
+    )
+
+    assert record.raw_data["posting_at"] == (
+        expected.isoformat() if expected else None
     )
 
 def test_extract_created_date(sample_row):
     record = extract_esbd_solicitation(sample_row, 2)
 
-    assert record.raw_data["created_at"] == datetime(
-        2026, 10, 21, 17, 26
+    expected = normalize_esbd_timestamp(
+        parse_esbd_datetime(sample_row["Created"])
     )
 
+    assert record.raw_data["created_at"] == (
+        expected.isoformat() if expected else None
+    )
+    
 def test_extract_modified_date(sample_row):
     record = extract_esbd_solicitation(sample_row, 2)
 
-    assert record.raw_data["modified_at"] == datetime(
-        2026, 10, 22, 9, 30
+    expected = normalize_esbd_timestamp(
+        parse_esbd_datetime(sample_row["Last Modified"])
+    )
+
+    assert record.raw_data["modified_at"] == (
+        expected.isoformat() if expected else None
     )
 
 def test_url_is_not_invented(sample_row):

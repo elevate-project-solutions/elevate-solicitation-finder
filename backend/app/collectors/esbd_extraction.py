@@ -4,6 +4,7 @@ from datetime import datetime
 from typing import Any
 
 from app.collectors.base import CollectedSolicitation
+from app.utils.timestamps import normalize_esbd_timestamp
 
 REQUIRED_COLUMNS = {
     "Name",
@@ -87,6 +88,11 @@ def extract_esbd_solicitation(
         str(row.get("Last Modified") or "")
     )
 
+    due_at_utc = normalize_esbd_timestamp(due_at)
+    posting_at_utc = normalize_esbd_timestamp(posting_at)
+    created_at_utc = normalize_esbd_timestamp(created_at)
+    modified_at_utc = normalize_esbd_timestamp(modified_at)
+
     nigp_codes = [
         code.strip()
         for code in str(row.get("NIGP Codes") or "").split(";")
@@ -96,9 +102,9 @@ def extract_esbd_solicitation(
     normalized_data = {
         **row,
         "agency_member_number": agency_number,
-        "posting_at": posting_at,
-        "created_at": created_at,
-        "modified_at": modified_at,
+        "posting_at": posting_at_utc.isoformat() if posting_at_utc else None,
+        "created_at": created_at_utc.isoformat() if created_at_utc else None,
+        "modified_at": modified_at_utc.isoformat() if modified_at_utc else None,
         "nigp_codes": nigp_codes,
     }
 
@@ -112,7 +118,7 @@ def extract_esbd_solicitation(
         agency_name=None,
         solicitation_number=solicitation_number,
         source_url=None,
-        due_at=due_at,
+        due_at=due_at_utc,
         status=str(row.get("Status") or "").strip() or None,
         raw_data=normalized_data,
     )

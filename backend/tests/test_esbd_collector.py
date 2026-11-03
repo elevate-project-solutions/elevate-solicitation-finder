@@ -1,5 +1,5 @@
 import json
-from datetime import datetime
+from datetime import datetime, timezone
 from urllib.error import URLError
 
 import pytest
@@ -34,7 +34,9 @@ def test_collector_reads_csv_file(tmp_path):
     assert record.status == "Posted"
     assert record.agency_name is None
     assert record.source_url is None
-    assert record.due_at == datetime(2026, 11, 12, 15, 0)
+    assert record.due_at == datetime(
+        2026, 11, 12, 21, 0, tzinfo=timezone.utc
+    )
     assert len(record.raw_data["nigp_codes"]) == 2
 
 def test_collector_supports_empty_csv(tmp_path):
@@ -134,3 +136,28 @@ def test_collector_reports_network_failure(monkeypatch):
 
     with pytest.raises(RuntimeError, match="request failed"):
         ESBDCollector(export_payload={}).run()
+
+def test_collector_normalizes_deadline_to_utc(tmp_path):
+    path = tmp_path / "timezone_test.csv"
+    path.write_text(CSV_TEXT)
+
+    result = ESBDCollector(csv_path=path).run()
+
+    assert result.solicitations
+
+    solicitation = result.solicitations[0]
+
+    assert solicitation.due_at is not None
+    assert solicitation.due_at.tzinfo is not None
+    assert solicitation.due_at.utcoffset().total_seconds() == 0
+
+def test_collector_preserves_original_deadline(tmp_path):
+    path = tmp_path / "original_deadline.csv"
+    path.write_text(CSV_TEXT)
+
+    result = ESBDCollector(csv_path=path).run()
+
+    solicitation = result.solicitations[0]
+
+    assert solicitation.raw_data["Due Date"] == "11/12/2026"
+    assert solicitation.raw_data["Due Time"] == "3:00 PM"
