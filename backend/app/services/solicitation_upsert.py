@@ -1,11 +1,12 @@
 from dataclasses import dataclass
 from datetime import datetime, timezone
 
-from sqlalchemy import select
+from sqlalchemy import func, select
 from sqlalchemy.orm import Session
 
 from app.collectors.base import CollectedSolicitation
 from app.models.solicitation import Solicitation
+from app.services.solicitation_deduplication import add_duplicate_candidate
 
 
 @dataclass
@@ -29,6 +30,25 @@ def normalize_status(status: str | None) -> str:
     }
 
     return status_map.get(normalized, "unknown")
+
+def find_possible_duplicates(
+        session: Session,
+        solicitation: Solicitation,
+) -> list[Solicitation]:
+    """Finds potential duplicates without automatically merging them."""
+
+    if not solicitation.agency or not solicitation.solicitation_number:
+        return []
+
+    statement = select(Solicitation).where(
+        Solicitation.id != solicitation.id,
+        func.lower(func.trim(Solicitation.agency))
+        == solicitation.agency.strip().lower(),
+        func.lower(func.trim(Solicitation.solicitation_number))
+        == solicitation.solicitation_number.strip().lower(),
+    )
+
+    return list(session.scalars(statement))
 
 def save_or_update_solicitations(
     session: Session,
