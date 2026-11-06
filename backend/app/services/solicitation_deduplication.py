@@ -190,7 +190,7 @@ def import_solicitation(
                     func.lower(
                         func.trim(Solicitation.solicitation_number)
                     )
-                    == solicitation_number.lower(),
+                    == solicitation_number.casefold(),
                 )
             )
         )
