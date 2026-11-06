@@ -105,6 +105,18 @@ def save_or_update_solicitations(
             )
 
             session.add(record)
+            session.flush()
+
+            possible_duplicates = find_possible_duplicates(session, record)
+
+            for duplicate in possible_duplicates:
+                add_duplicate_candidate(
+                    session=session,
+                    first_id=duplicate.id,
+                    second_id=record_id,
+                    reason="Same agency and solicitation number",
+                )
+
             result.inserted += 1
 
         else:
