@@ -13,6 +13,9 @@ from app.models import (
 from app.services.solicitation_deduplication import (
     import_solicitation,
 )
+from app.services.solicitation_cleanup import (
+    delete_confirmed_duplicate,
+)
 
 @pytest.fixture
 def db():
@@ -149,3 +152,56 @@ def test_different_agencies_do_not_auto_merge(db, source):
 
     assert second.outcome == "created"
     assert second.solicitation_id != first.solicitation_id
+
+def test_existing_url_without_id_is_reused(db, source):
+    first = import_solicitation(
+        db,
+        **sample(
+            source,
+            "401",
+            external_id=None,
+        ),
+    )
+
+    second = import_solicitation(
+        db,
+        **sample(
+            source,
+            "401",
+            external_id=None,
+        ),
+    )
+
+    assert second.outcome == "existing"
+    assert second.solicitation_id == first.solicitation_id
+
+def test_existing_url_can_gain_external_id(db, source):
+    first = import_solicitation(
+        db,
+        **sample(
+            source,
+            "402",
+            external_id=None,
+        ),
+    )
+
+    second = import_solicitation(
+        db,
+        **sample(
+            source,
+            "402",
+            external_id="new-external-id",
+        ),
+    )
+
+    assert second.outcome == "existing"
+    assert second.solicitation_id == first.solicitation_id
+
+    reference = db.scalar(
+        select(SolicitationExternalRef).where(
+            SolicitationExternalRef.solicitation_id
+            == first.solicitation_id
+        )
+    )
+
+    assert reference.external_id == "new-external-id"
