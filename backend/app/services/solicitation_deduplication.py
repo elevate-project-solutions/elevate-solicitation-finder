@@ -20,49 +20,6 @@ class ImportResult:
 def normalized(value: str | None) -> str:
     return " ".join((value or "").casefold().split())
 
-def find_extract_reference(
-    session: Session,
-    source_id: int,
-    external_id: str | None,
-    external_url: str,
-) -> SolicitationExternalRef | None:
-    by_id = None
-
-    if external_id:
-        by_id = session.scalar(
-            select(SolicitationExternalRef).where(
-                SolicitationExternalRef.source_id == source_id,
-                SolicitationExternalRef.external_id == external_id,
-            )
-        )
-
-    by_url = session.scalar(
-        select(SolicitationExternalRef).where(
-            SolicitationExternalRef.source_id == source_id,
-            SolicitationExternalRef.external_url == external_url,
-        )
-    )
-
-    if by_id and by_url and by_id.id != by_url.id:
-        raise ValueError(
-            "Identifier conflict: external ID and URL "
-            "belong to different references"
-        )
-
-    if by_id and by_id.external_url != external_url:
-        raise ValueError(
-            "Identifier conflict: known external ID has a "
-            "different URL; manual review required"
-        )
-
-    if by_url and external_id:
-        if by_url.external_id not in (None, external_id):
-            raise ValueError(
-                "Identifier conflict: URL has a different external ID"
-            )
-
-    return by_id or by_url
-
 def add_duplicate_candidate(
         session: Session,
         first_id: int,
