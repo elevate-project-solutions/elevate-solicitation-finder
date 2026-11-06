@@ -111,7 +111,7 @@ def find_exact_reference(
     by_url = session.scalar(
         select(SolicitationExternalRef).where(
             SolicitationExternalRef.source_id == source_id,
-            SolicitationExternalRef.external_id == external_id,
+            SolicitationExternalRef.external_id == external_url,
         )
     )
 
