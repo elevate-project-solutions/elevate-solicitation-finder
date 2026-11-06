@@ -1,12 +1,21 @@
 from datetime import datetime
 
-from sqlalchemy import BigInteger, DateTime, Identity, Text, func
+from sqlalchemy import BigInteger, DateTime, Identity, Text, UniqueConstraint, func
 from sqlalchemy.orm import Mapped, mapped_column
 
 from app.db.base import Base
 
+
 class Solicitation(Base):
     __tablename__ = "solicitations"
+
+    __table_args__ = (
+        UniqueConstraint(
+            "source",
+            "source_record_id",
+            name="uq_solicitations_source_record_id",
+        ),
+    )
 
     id: Mapped[int] = mapped_column(
         BigInteger,
@@ -15,7 +24,14 @@ class Solicitation(Base):
     )
 
     source: Mapped[str] = mapped_column(Text, nullable=False)
-    agency: Mapped[str] = mapped_column(Text, nullable=False)
+    source_record_id: Mapped[str | None] = mapped_column(
+        Text,
+        nullable=True,
+    )
+    agency: Mapped[str | None] = mapped_column(
+        Text,
+        nullable=True,
+    )
     title: Mapped[str] = mapped_column(Text, nullable=False)
 
     solicitation_number: Mapped[str | None] = mapped_column(Text)
@@ -30,6 +46,7 @@ class Solicitation(Base):
 
     source_url: Mapped[str] = mapped_column(
         Text,
+        nullable=True,
         unique=True,
     )
 

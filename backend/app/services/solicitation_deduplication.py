@@ -11,6 +11,7 @@ from app.models import (
     SolicitationSource,
 )
 
+
 @dataclass(frozen=True)
 class ImportResult:
     outcome: str
