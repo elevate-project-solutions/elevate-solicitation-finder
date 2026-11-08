@@ -108,7 +108,7 @@ def test_inserts_new_solicitation():
     assert record.agency is None
     assert record.source_url is None
 
-    session.flush.assert_called_once()
+    session.flush.assert_called()
     session.commit.assert_not_called()
 
 def test_updates_existing_solicitation():

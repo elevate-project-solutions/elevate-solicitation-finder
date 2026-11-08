@@ -113,7 +113,7 @@ def save_or_update_solicitations(
                 add_duplicate_candidate(
                     session=session,
                     first_id=duplicate.id,
-                    second_id=record_id,
+                    second_id=record.id,
                     reason="Same agency and solicitation number",
                 )
 
