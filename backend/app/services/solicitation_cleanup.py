@@ -64,7 +64,7 @@ def delete_confirmed_duplicate(
                 )
 
             # Review candidates are handled separately below.
-            if table_name == "solicitation_duplication_candidates":
+            if table_name == "solicitation_duplicate_candidates":
                 continue
 
             from sqlalchemy import MetaData, Table
