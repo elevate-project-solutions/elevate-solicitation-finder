@@ -84,7 +84,7 @@ def delete_confirmed_duplicate(
             if related is not None:
                 raise ValueError(
                     f"Cannot delete solicitation {delete_id}: "
-                    f"realted records exist in {table_name}"
+                    f"related records exist in {table_name}"
                 )
 
     # Removes review candidates referencing the redundant record.
