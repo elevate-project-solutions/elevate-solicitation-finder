@@ -10,7 +10,7 @@ def make_response(status_code: int) -> httpx.Response:
         "GET",
         "https://example.test/bids",
     )
-    return https.Response(
+    return httpx.Response(
         status_code,
         request=request,
     )
@@ -102,7 +102,7 @@ def test_retries_timeout(mock_sleep):
         assert response.status_code == 200
         assert client.client.get.call_count == 2
 
-@patch("app.core.https_client.time.sleep")
+@patch("app.core.http_client.time.sleep")
 def test_throttles_repeated_host(mock_sleep):
     with CollectorHTTPClient(
         min_request_interval=2,

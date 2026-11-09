@@ -77,7 +77,7 @@ class CollectorHTTPClient:
                 time.sleep(remaining)
         self._last_request_by_host[host] = time.monotonic()
 
-    def __retry_delay(
+    def _retry_delay(
             self,
             attempt: int,
             response: httpx.Response | None = None,
@@ -111,93 +111,93 @@ class CollectorHTTPClient:
                             "Invalid Retry-After header received"
                         )
 
-            exponential_delay = self.backoff_factor * (2 ** (attempt - 1))
-            jitter = random.uniform(0, 0.25)
+        exponential_delay = self.backoff_factor * (2 ** (attempt - 1))
+        jitter = random.uniform(0, 0.25)
 
-            return min(
-                exponential_delay + jitter,
-                self.max_retry_delay,
-            )
+        return min(
+            exponential_delay + jitter,
+            self.max_retry_delay,
+        )
 
-        def get(self, url: str, **kwargs) -> httpx.Response:
-            """GET a url with throttling, retries, and logging"""
+    def get(self, url: str, **kwargs) -> httpx.Response:
+        """GET a url with throttling, retries, and logging"""
 
-            host = urlsplit(url).netloc.lower()
+        host = urlsplit(url).netloc.lower()
 
-            for attempt in range(1, self.max_retries + 2):
-                self.throttle(url)
+        for attempt in range(1, self.max_retries + 2):
+            self._throttle(url)
 
-                try:
-                    response = self.client.get(url, **kwargs)
+            try:
+                response = self.client.get(url, **kwargs)
 
-                    if response.status_code not in RETRYABLE_STATUS_CODES:
-                        response.raise_for_status()
-                        return response
+                if response.status_code not in RETRYABLE_STATUS_CODES:
+                    response.raise_for_status()
+                    return response
 
-                    response.rate_for_status()
+                response.raise_for_status()
 
-                except httpx.HTTPStatusError as exc:
-                    status_code = exc.response.status_code
+            except httpx.HTTPStatusError as exc:
+                status_code = exc.response.status_code
 
-                    if (
-                        status_code not in RETRYABLE_STATUS_CODES
-                        or attempt > self.max_retries
-                    ):
-                        logger.error(
-                            "HTTP request failed host=%s status=%s attempt=%s",
-                            host,
-                            status_code,
-                            attempt,
-                        )
-                        raise
-
-                    delay = self._retry_delay(
-                        attempt,
-                        exc.response,
-                    )
-
-                    logger.warning(
-                        "Retryable HTTP error host=%s status=%s "
-                        "attempt=%s retry_in=%s",
+                if (
+                    status_code not in RETRYABLE_STATUS_CODES
+                    or attempt > self.max_retries
+                ):
+                    logger.error(
+                        "HTTP request failed host=%s status=%s attempt=%s",
                         host,
                         status_code,
                         attempt,
-                        delay,
                     )
+                    raise
 
-                    time.sleep(delay)
+                delay = self._retry_delay(
+                    attempt,
+                    exc.response,
+                )
 
-                except (httpx.TimeoutException, httpx.NetworkError) as exc:
-                    if attempt > self.max_retries:
-                        logger.error(
-                            "Network request failed host=%s "
-                            "error_type=%s attempt=%s",
-                            host,
-                            type(exc).__name__,
-                            attempt,
-                        )
-                        raise
+                logger.warning(
+                    "Retryable HTTP error host=%s status=%s "
+                    "attempt=%s retry_in=%s",
+                    host,
+                    status_code,
+                    attempt,
+                    delay,
+                )
 
-                    delay = self._retry_delay(attempt)
+                time.sleep(delay)
 
-                    logger.warning(
-                        "Network error host=%s error_type=%s "
-                        "attempt=%s retry_in=%.2fs",
+            except (httpx.TimeoutException, httpx.NetworkError) as exc:
+                if attempt > self.max_retries:
+                    logger.error(
+                        "Network request failed host=%s "
+                        "error_type=%s attempt=%s",
                         host,
                         type(exc).__name__,
                         attempt,
-                        delay,
                     )
+                    raise
 
-                    time.sleep(delay)
+                delay = self._retry_delay(attempt)
 
-            raise RuntimeError("Unexpected retry loop termination")
+                logger.warning(
+                    "Network error host=%s error_type=%s "
+                    "attempt=%s retry_in=%.2fs",
+                    host,
+                    type(exc).__name__,
+                    attempt,
+                    delay,
+                )
 
-        def close(self) -> None:
-            self.client.close()
+                time.sleep(delay)
 
-        def __enter__(self):
-            return self
+        raise RuntimeError("Unexpected retry loop termination")
 
-        def __exit__(self, exc_type, exc_value, traceback):
-            self.close()
+    def close(self) -> None:
+        self.client.close()
+
+    def __enter__(self):
+        return self
+
+    def __exit__(self, exc_type, exc_value, traceback):
+        self.close()
