@@ -21,11 +21,9 @@ def main() -> None:
 
     result = import_esbd_csv(args.csv_path)
 
-    print(
-        f"Collected: {result.collected}\n"
-        f"Inserted: {result.inserted}\n"
-        f"Updated: {result.updated}"
-    )
+    print(f"Collected: {result.collected}")
+    print(f"Inserted: {result.inserted}")
+    print(f"Updated: {result.updated}")
 
-    if __name__ == "__main__":
-        main()
+if __name__ == "__main__":
+    main()

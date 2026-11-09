@@ -4,7 +4,7 @@ from pathlib import Path
 
 def configure_logging(
         log_level: int = logging.INFO,
-        log_directory: Path | None,
+        log_directory: Path | None = None,
 ) -> None:
     """
     Configures console and rotating file logging.
