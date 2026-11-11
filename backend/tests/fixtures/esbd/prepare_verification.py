@@ -5,7 +5,7 @@ from pathlib import Path
 DIRECTORY = Path(__file__).resolve().parent
 
 CSV_PATH = DIRECTORY / "verified_export.csv"
-JSON_PATH = DIRECTORY / "verified_listing.json"
+JSON_PATH = DIRECTORY / "verified_listings.json"
 
 def main() -> None:
     if JSON_PATH.exists():
