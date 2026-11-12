@@ -234,3 +234,4 @@ dist/
 .vite/
 
 backend/logs/
+backend/.local/
