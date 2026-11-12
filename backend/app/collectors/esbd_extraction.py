@@ -5,6 +5,7 @@ from typing import Any
 
 from app.collectors.base import CollectedSolicitation
 from app.utils.timestamps import normalize_esbd_timestamp
+from app.collectors.esbd_urls import build_esbd_url
 
 REQUIRED_COLUMNS = {
     "Name",
@@ -117,7 +118,7 @@ def extract_esbd_solicitation(
         title=title,
         agency_name=None,
         solicitation_number=solicitation_number,
-        source_url=None,
+        source_url=build_esbd_url(solicitation_number),
         due_at=due_at_utc,
         status=str(row.get("Status") or "").strip() or None,
         raw_data=normalized_data,
