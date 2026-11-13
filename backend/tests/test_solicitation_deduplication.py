@@ -13,9 +13,7 @@ from app.models import (
 from app.services.solicitation_deduplication import (
     import_solicitation,
 )
-from app.services.solicitation_cleanup import (
-    delete_confirmed_duplicate,
-)
+
 
 @pytest.fixture
 def db():
@@ -100,8 +98,10 @@ def test_same_agency_and_number_requires_review(db, source):
 
     candidate = db.scalar(
         select(SolicitationDuplicateCandidate).where(
-            SolicitationDuplicateCandidate.solicitation_id_1 == min(first.solicitation_id, second.solicitation_id),
-            SolicitationDuplicateCandidate.solicitation_id_2 == max(first.solicitation_id, second.solicitation_id),
+            SolicitationDuplicateCandidate.solicitation_id_1 
+            == min(first.solicitation_id, second.solicitation_id),
+            SolicitationDuplicateCandidate.solicitation_id_2 
+            == max(first.solicitation_id, second.solicitation_id),
         )
     )
 

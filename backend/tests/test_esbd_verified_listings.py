@@ -1,10 +1,8 @@
 import csv
 import json
 from datetime import datetime
-from zoneinfo import ZoneInfo
 from pathlib import Path
-
-import pytest
+from zoneinfo import ZoneInfo
 
 from app.collectors.esbd import ESBDCollector
 

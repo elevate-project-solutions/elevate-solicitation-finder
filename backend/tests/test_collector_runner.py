@@ -5,6 +5,7 @@ import pytest
 from app.collectors.base import CollectionResult
 from app.services.collector_runner import run_collector
 
+
 def test_runner_returns_collection_result():
     collector = Mock()
     collector.source_name = "test_source"

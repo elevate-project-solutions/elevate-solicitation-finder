@@ -2,13 +2,20 @@ from datetime import datetime
 from decimal import Decimal
 
 from sqlalchemy import (
-    BigInteger, CheckConstraint, DateTime,
-    ForeignKey, Identity, Numeric, Text,
-    UniqueConstraint, func,
+    BigInteger,
+    CheckConstraint,
+    DateTime,
+    ForeignKey,
+    Identity,
+    Numeric,
+    Text,
+    UniqueConstraint,
+    func,
 )
 from sqlalchemy.orm import Mapped, mapped_column
 
 from app.db.base import Base
+
 
 class SolicitationDuplicateCandidate(Base):
     __tablename__ = "solicitation_duplicate_candidates"

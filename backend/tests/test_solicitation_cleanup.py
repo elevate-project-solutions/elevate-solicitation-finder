@@ -1,6 +1,6 @@
 import pytest
-
 from sqlalchemy import delete
+from test_solicitation_deduplication import sample
 
 from app.models import Solicitation, SolicitationExternalRef
 from app.services.solicitation_cleanup import (
@@ -9,8 +9,6 @@ from app.services.solicitation_cleanup import (
 from app.services.solicitation_deduplication import (
     import_solicitation,
 )
-
-from test_solicitation_deduplication import sample
 
 pytest_plugins = ["test_solicitation_deduplication"]
 

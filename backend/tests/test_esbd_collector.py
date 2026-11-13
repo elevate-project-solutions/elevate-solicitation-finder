@@ -33,7 +33,7 @@ def test_collector_reads_csv_file(tmp_path):
     assert record.solicitation_number == "RFP-123"
     assert record.status == "Posted"
     assert record.agency_name is None
-    assert record.source_url is None
+    assert record.source_url == "https://www.txsmartbuy.gov/esbd/RFP-123"
     assert record.due_at == datetime(
         2026, 11, 12, 21, 0, tzinfo=timezone.utc
     )

@@ -5,6 +5,7 @@ from sqlalchemy.orm import Mapped, mapped_column
 
 from app.db.base import Base
 
+
 class SolicitationSource(Base):
     __tablename__ = "solicitation_sources"
 

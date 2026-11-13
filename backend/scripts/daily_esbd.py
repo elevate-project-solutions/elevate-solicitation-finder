@@ -4,9 +4,7 @@ import argparse
 import fcntl
 import json
 import logging
-import os
 import tempfile
-
 from contextlib import contextmanager
 from datetime import datetime
 from pathlib import Path

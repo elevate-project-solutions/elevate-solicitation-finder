@@ -4,6 +4,7 @@ from pathlib import Path
 from app.core.logging_config import configure_logging
 from app.services.esbd_import import import_esbd_csv
 
+
 def main() -> None:
     parser = argparse.ArgumentParser(
         description="Import ESBD solicitations from CSV"

@@ -81,10 +81,10 @@ def test_extract_modified_date(sample_row):
         expected.isoformat() if expected else None
     )
 
-def test_url_is_not_invented(sample_row):
+def test_esbd_source_url_is_generated(sample_row):
     record = extract_esbd_solicitation(sample_row, 2)
 
-    assert record.source_url is None
+    assert record.source_url == "https://www.txsmartbuy.gov/esbd/RFP-123"
 
 def test_extract_nigp_codes(sample_row):
     record = extract_esbd_solicitation(sample_row, 2)

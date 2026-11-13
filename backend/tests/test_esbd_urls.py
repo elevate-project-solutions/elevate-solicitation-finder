@@ -2,6 +2,7 @@ import pytest
 
 from app.collectors.esbd_urls import build_esbd_url
 
+
 def test_builds_official_esbd_url():
     assert build_esbd_url("27-0011101") == (
         "https://www.txsmartbuy.gov/esbd/27-0011101"

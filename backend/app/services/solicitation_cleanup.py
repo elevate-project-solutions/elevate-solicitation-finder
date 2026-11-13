@@ -3,6 +3,7 @@ from sqlalchemy.orm import Session
 
 from app.models import Solicitation, SolicitationDuplicateCandidate
 
+
 def normalize(value: str | None) -> str:
     return " ".join((value or "").casefold().split())
 

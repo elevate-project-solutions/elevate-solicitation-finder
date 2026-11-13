@@ -5,6 +5,7 @@ import pytest
 
 from app.core.http_client import CollectorHTTPClient
 
+
 def make_response(status_code: int) -> httpx.Response:
     request = httpx.Request(
         "GET",

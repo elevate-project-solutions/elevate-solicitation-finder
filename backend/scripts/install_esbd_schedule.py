@@ -7,7 +7,6 @@ import os
 import plistlib
 import subprocess
 import sys
-
 from pathlib import Path
 
 BACKEND_DIR = Path(__file__).resolve().parents[1]
@@ -93,7 +92,7 @@ def main() -> None:
         [
             "launchctl",
             "bootstrap",
-            f"fui/{uid}",
+            f"gui/{uid}",
             str(PLIST_PATH),
         ],
         check=True,

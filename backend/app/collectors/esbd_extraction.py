@@ -2,10 +2,11 @@
 
 from datetime import datetime
 from typing import Any
+from urllib.parse import quote
 
 from app.collectors.base import CollectedSolicitation
-from app.utils.timestamps import normalize_esbd_timestamp
 from app.collectors.esbd_urls import build_esbd_url
+from app.utils.timestamps import normalize_esbd_timestamp
 
 REQUIRED_COLUMNS = {
     "Name",
@@ -109,6 +110,11 @@ def extract_esbd_solicitation(
         "nigp_codes": nigp_codes,
     }
 
+    source_url = (
+        "https://www.txsmartbuy.gov/esbd/"
+        f"{quote(solicitation_number, safe='')}"
+    )
+
     # CSV does not contain agency name, just agency number
     # CSV lacks solicitation URL
     return CollectedSolicitation(
@@ -118,7 +124,7 @@ def extract_esbd_solicitation(
         title=title,
         agency_name=None,
         solicitation_number=solicitation_number,
-        source_url=build_esbd_url(solicitation_number),
+        source_url=source_url,
         due_at=due_at_utc,
         status=str(row.get("Status") or "").strip() or None,
         raw_data=normalized_data,
