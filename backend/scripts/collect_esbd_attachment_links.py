@@ -1,7 +1,8 @@
-import os
 import time
 
-import psycopg
+from sqlalchemy import text
+
+from app.db.session import engine
 
 from app.collectors.esbd_attachments import collect_esbd_attachments
 from app.collectors.esbd_attachment_storage import (
@@ -9,21 +10,26 @@ from app.collectors.esbd_attachment_storage import (
 )
 
 def main():
-    database_url = os.environ["DATABASE_URL"]
-
-    with psycopg.connect(database_url) as connection:
-        with connection.cursor() as cursor:
-            cursor.execute(
+    with engine.connect() as connection:
+        result = connection.execute (
+            text(
+            #    """
+            #    SELECT id, solicitation_number
+            #    FROM solicitation
+            #    WHERE source = 'esbd'
+            #        AND solicitation_number IS NOT NULL
+            #        AND status = 'open'
+            #    ORDER BY last_seen_at DESC
+            #    """
                 """
                 SELECT id, solicitation_number
-                FROM solicitation
-                WHERE source = 'esbd'
-                    AND solicitation_number IS NOT NULL
-                    AND status = 'open'
-                ORDER BY last_seen_at DESC
+                FROM solicitations
+                WHERE solicitation_number = '26-15352-001'
+                LIMIT 1
                 """
             )
-            solicitations = cursor.fetchall()
+        )
+        solicitations = result.fetchall()
 
     print(f"Solicitations to check: {len(solicitations)}")
 
@@ -37,9 +43,9 @@ def main():
                 solicitation_number
             )
 
-            with psycopg.connect(database_url) as connection:
+            with engine.begin() as connection:
                 result = save_esbd_attachments(
-                    connection, 
+                    connection.connection.dbapi_connection, 
                     solicitation_id,
                     attachments,
                 )
@@ -60,7 +66,7 @@ def main():
                 f"ERROR {solicitation_number}: {exc}"
             )
 
-        time.sleep()
+        time.sleep(1)
 
     print()
     print("Collection complete")
