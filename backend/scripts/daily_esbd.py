@@ -12,6 +12,9 @@ from zoneinfo import ZoneInfo
 
 from app.collectors.esbd import ESBDCollector
 from app.services.esbd_import import import_esbd_csv
+from scripts.collect_esbd_attachment_links import (
+    main as collect_attachment_links,
+)
 
 logger = logging.getLogger(__name__)
 
@@ -241,6 +244,12 @@ def main() -> None:
         print(f"Collected: {result.collected}")
         print(f"Inserted: {result.inserted}")
         print(f"Updated: {result.updated}")
+
+        logger.info("Starting daily ESBD attachment collection")
+
+        collect_attachment_links()
+
+        logger.info("Daily ESBD attachment collection complete.")
 
 if __name__ == "__main__":
     main()

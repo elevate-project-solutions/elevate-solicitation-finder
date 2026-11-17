@@ -13,20 +13,22 @@ def main():
     with engine.connect() as connection:
         result = connection.execute (
             text(
-            #    """
-            #    SELECT id, solicitation_number
-            #    FROM solicitation
-            #    WHERE source = 'esbd'
-            #        AND solicitation_number IS NOT NULL
-            #        AND status = 'open'
-            #    ORDER BY last_seen_at DESC
-            #    """
                 """
                 SELECT id, solicitation_number
                 FROM solicitations
-                WHERE solicitation_number = '26-15352-001'
-                LIMIT 1
+                WHERE LOWER(TRIM(status)) IN (
+                    'posted',
+                    'addendum posted'
+                )
+                    AND solicitation_number IS NOT NULL
+                ORDER BY last_seen_at DESC
                 """
+            #    """
+            #    SELECT id, solicitation_number
+            #    FROM solicitations
+            #   WHERE solicitation_number = '26-15352-001'
+            #    LIMIT 1
+            #    """
             )
         )
         solicitations = result.fetchall()
