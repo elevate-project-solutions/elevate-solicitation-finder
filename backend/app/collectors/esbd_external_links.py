@@ -1,13 +1,11 @@
 """Extracts external procurement URLs from ESBD details JSON"""
 
 import html
-import json
 import re
 from dataclasses import dataclass
 from html.parser import HTMLParser
 from urllib.parse import urlparse, urlunparse
 
-from app.collectors.esbd_attachments import ESBD_BASE_URL
 
 @dataclass(frozen=True)
 class ExternalLink:
@@ -163,4 +161,4 @@ def extract_external_links(data):
                 provider=identify_provider(url),
             )
 
-    return list(found.value())
+    return list(found.values())

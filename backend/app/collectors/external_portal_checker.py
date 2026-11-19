@@ -138,7 +138,7 @@ def check_external_link(url):
         return LinkCheck(
             destination_url=None,
             provider=identify_provider(url),
-            access_status="check_failed"
+            access_status="check_failed",
             http_status=None,
             error_message=str(exc) [:500],
         )

@@ -9,9 +9,11 @@ from urllib.parse import urlencode
 
 from sqlalchemy import text
 
-from app.db.session import engine
 from app.collectors.esbd_attachments import (
     ESBD_DETAILS_URL,
+)
+from app.collectors.esbd_external_link_storage import (
+    save_external_links,
 )
 from app.collectors.esbd_external_links import (
     PROVIDERS,
@@ -22,9 +24,7 @@ from app.collectors.external_portal_checker import (
     LinkCheck,
     check_external_link,
 )
-from app.collectors.esbd_external_link_storage import (
-    save_external_links,
-)
+from app.db.session import engine
 
 logger = logging.getLogger(__name__)
 
@@ -88,7 +88,7 @@ def check_discovered_link(link):
         return LinkCheck(
             destination_url=None,
             provider=link.provider,
-            access_status="discovered,"
+            access_status="discovered",
             http_status=None,
             error_message=None,
         )
