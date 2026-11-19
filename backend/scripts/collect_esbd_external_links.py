@@ -11,6 +11,7 @@ from sqlalchemy import text
 
 from app.collectors.esbd_attachments import (
     ESBD_DETAILS_URL,
+    collect_esbd_attachments,
 )
 from app.collectors.esbd_external_link_storage import (
     save_external_links,
@@ -23,6 +24,9 @@ from app.collectors.esbd_external_links import (
 from app.collectors.external_portal_checker import (
     LinkCheck,
     check_external_link,
+)
+from app.collectors.esbd_document_links import (
+    collect_docx_external_links,
 )
 from app.db.session import engine
 
@@ -53,6 +57,13 @@ def fetch_esbd_details(solicitation_number):
             "--silent",
             "--show-error",
             "--fail",
+            "--retry",
+            "3",
+            "--retry-delay",
+            "2",
+            "--retry-all-errors",
+            "--connect-timeout",
+            "10",
             "--max-time",
             "30",
             request_url,
@@ -102,11 +113,9 @@ def run_collection():
                 """
                 SELECT id, solicitation_number
                 FROM solicitations
-                WHERE solicitation_number IS NOT NULL
-                    AND LOWER(TRIM(status)) IN (
-                        'posted',
-                        'addendum posted'
-                    )
+                WHERE source = 'texas_esbd'
+                    AND status = 'open'
+                    AND solicitation_number IS NOT NULL
                 ORDER BY last_seen_at DESC
                 """
             )
@@ -154,6 +163,13 @@ def run_collection():
             )
 
         time.sleep(1)
+
+    attachments = collect_esbd_attachments(solicitation_number)
+
+    for attachment in attachments:
+        links.extend(collect_docx_external_links(attachment))
+
+    links = list({link.url: link for link in links}.values())
 
     result = CollectionResult(
         solicitations=len(rows),
