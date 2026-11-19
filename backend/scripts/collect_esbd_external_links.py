@@ -111,14 +111,31 @@ def run_collection():
         rows = connection.execute(
             text(
                 """
-                SELECT id, solicitation_number
-                FROM solicitations
-                WHERE source = 'texas_esbd'
-                    AND status = 'open'
-                    AND solicitation_number IS NOT NULL
-                ORDER BY last_seen_at DESC
-                """
-            )
+                SELECT
+                    s.id,
+                    s.solicitation_number
+                FROM solicitations s
+                LEFT JOIN solicitation_external_link_checks c
+                    ON c.solicitation_id = s.id
+                WHERE s.source = 'texas_esbd'
+                    AND s.status = 'open'
+                    AND s.solicitation_number IS NOT NULL
+                    AND (
+                        c.solicitation_id IS NULL
+                        
+                        OR (
+                            c.last_status = 'success'
+                            AND c.last_success at < NOW() - INTERVAL '7 days'
+                        )
+                        
+                        OR (
+                            c.last_status = 'failed'
+                            AND c.next_retry_at <= NOW()
+                        )
+                    )
+                ORDER BY
+                    c.last_checked_at ASC NULLS FIRST
+            """)
         ).fetchall()
 
     logger.info(
