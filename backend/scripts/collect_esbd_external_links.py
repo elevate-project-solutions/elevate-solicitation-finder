@@ -181,6 +181,38 @@ def run_collection():
 
         time.sleep(1)
 
+    connection.execute(
+        text("""
+            INSERT INTO solicitation_external_link_checks (
+                solicitation_id,
+                last_checked_at,
+                last_success_at,
+                last_status,
+                failure_count,
+                next_retry_at,
+                last_error
+            )
+            VALUES (
+                :solicitation_id,
+                NOW(),
+                NOW(),
+                'success',
+                0,
+                NULL,
+                NULL
+            )
+            ON CONFLICT (solicitation_id)
+            DO UPDATE SET
+                last_checked_at = NOW(),
+                last_success_at = NOW(),
+                last_status = 'success',
+                failure_count = 0,
+                next_retry_at = NULL,
+                last_error = NULL
+        """),
+        {"solicitation_id": solicitation_id},
+    )
+
     attachments = collect_esbd_attachments(solicitation_number)
 
     for attachment in attachments:
