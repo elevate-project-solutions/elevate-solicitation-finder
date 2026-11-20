@@ -172,7 +172,7 @@ def run_collection():
                 saved,
             )
 
-        except Exception:
+        except Exception as exc:
             failures += 1
             logger.exception(
                 "External link collection failed for %s",
@@ -217,10 +217,17 @@ def run_collection():
                             last_error = EXCLUDED.last_error
                     """),
                     {
-                        "soliciation_id": solicitation_id,
+                        "solicitation_id": solicitation_id,
                         "error": str(exc)[:1000],
                     },
                 )
+        time.sleep(1)
+
+    if failures:
+        logger.warning(
+            "%s solicitations failed and were scheduled for retry",
+            failures,
+        )
 
     connection.execute(
         text("""
