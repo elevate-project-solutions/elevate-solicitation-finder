@@ -71,7 +71,7 @@ def fetch_esbd_details(solicitation_number):
         capture_output=True,
         text=True,
         check=True,
-        timeout=35,
+        timeout=140,
     )
 
     data = json.loads(result.stdout)
