@@ -175,11 +175,52 @@ def run_collection():
         except Exception:
             failures += 1
             logger.exception(
-                "External link col;ection failed for %s",
+                "External link collection failed for %s",
                 solicitation_number,
             )
 
-        time.sleep(1)
+            with engine.begin() as connection:
+                connection.execute(
+                    text("""
+                        INSERT INTO solicitation_external_link_checks(
+                            solicitation_id,
+                            last_checked_at,
+                            last_status,
+                            failure_count,
+                            next_retry_at,
+                            last_error
+                        )
+                        VALUES (
+                            :solicitation_id,
+                            NOW(),
+                            'failed',
+                            1,
+                            NOW() + INTERVAL '1 hour',
+                            :error
+                        )
+                        ON CONFLICT (solicitation_id)
+                        DO UPDATE SET
+                            last_checked_at = NOW(),
+                            last_status = 'failed',
+                            failure_count =
+                                solicitation_external_link_checks.failure_count + 1,
+                            next_retry_at =
+                                NOW() + (
+                                    LEAST(
+                                        POWER(
+                                            2,
+                                            solicitation_external_link_checks.failure_count
+                                        ),
+                                        24
+                                    ) * INTERVAL '1 hour'
+                                ),
+                            last_error = EXCLUDED.last_error
+                    """),
+                    {
+                        "soliciation_id": solicitation_id,
+                        "error": str(exc)[:1000],
+                    },
+                )
 
     connection.execute(
         text("""
