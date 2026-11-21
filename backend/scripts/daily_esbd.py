@@ -15,6 +15,9 @@ from app.services.esbd_import import import_esbd_csv
 from scripts.collect_esbd_attachment_links import (
     main as collect_attachment_links,
 )
+from scripts.collect_esbd_external_links import (
+    run_collection as collect_external_links,
+)
 
 logger = logging.getLogger(__name__)
 
@@ -250,6 +253,17 @@ def main() -> None:
         collect_attachment_links()
 
         logger.info("Daily ESBD attachment collection complete.")
+
+        logger.info("Starting external procurement link collection")
+
+        external_result = collect_external_links()
+
+        logger.info(
+            "External procurement link collection complete: solicitations=%s, links=%s, failures=%s",
+            external_result.solicitations,
+            external_result.links_saved,
+            external_result.failures,
+        )
 
 if __name__ == "__main__":
     main()
