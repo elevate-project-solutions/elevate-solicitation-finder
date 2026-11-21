@@ -274,14 +274,6 @@ def run_collection():
         result.failures,
     )
 
-    if failures:
-        raise RuntimeError(
-            f"External link collection failed for "
-            f"{failures} solicitation"
-        )
-
-    return result
-
 def main():
     logging.basicConfig(level=logging.INFO)
     result = run_collection()
