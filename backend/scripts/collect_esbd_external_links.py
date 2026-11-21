@@ -171,13 +171,37 @@ def run_collection():
                     checked_links,
                 )
 
-            total_links += saved
-
-            logger.info(
-                "%s: %s external links",
-                solicitation_number,
-                saved,
-            )
+                connection.execute(
+                    text("""
+                        INSERT INTO solicitation_external_link_checks (
+                            solicitation_id,
+                            last_checked_at,
+                            last_success_at,
+                            last_status,
+                            failure_count,
+                            next_retry_at,
+                            last_error
+                        )
+                        VALUES (
+                            :solicitation_id,
+                            NOW(),
+                            NOW(),
+                            'success',
+                            0,
+                            NULL,
+                            NULL
+                        )
+                        ON CONFLICT (solicitation_id)
+                        DO UPDATE SET
+                            last_checked_at = NOW(),
+                            last_success_at = NOW(),
+                            last_status = 'success',
+                            failure_count = 0,
+                            next_retry_at = NULL,
+                            last_error = NULL
+                    """),
+                    {"solicitation_id": solicitation_id},
+                )
 
         except Exception as exc:
             failures += 1
