@@ -125,7 +125,7 @@ def run_collection():
                         
                         OR (
                             c.last_status = 'success'
-                            AND c.last_success at < NOW() - INTERVAL '7 days'
+                            AND c.last_success_at < NOW() - INTERVAL '7 days'
                         )
                         
                         OR (
@@ -151,6 +151,13 @@ def run_collection():
             data = fetch_esbd_details(solicitation_number)
 
             links = extract_external_links(data)
+
+            attachments = collect_esbd_attachments(solicitation_number)
+
+            for attachment in attachments:
+                links.extend(collect_docx_external_links(attachment))
+
+            links = list({link.url: link for link in links}.values())
 
             checked_links = [
                 (link, check_discovered_link(link))
