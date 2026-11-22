@@ -274,6 +274,8 @@ def run_collection():
         result.failures,
     )
 
+    return result
+
 def main():
     logging.basicConfig(level=logging.INFO)
     result = run_collection()
