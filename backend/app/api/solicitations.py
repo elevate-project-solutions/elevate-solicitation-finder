@@ -34,8 +34,10 @@ def list_solicitations(
 ):
     now = datetime.now(timezone.utc)
 
+    minimum_due_date = now + timedelta(days=30)
+
     filters = [
-        Solicitation.due_at > now
+        Solicitation.due_at > minimum_due_date
     ]
 
     normalized_status = status.strip().lower()
@@ -102,9 +104,10 @@ def list_solicitations(
 @router.get("/stats")
 def get_solicitation_stats(db: DbSession):
     now = datetime.now(timezone.utc)
-    seven_days_from_now = now + timedelta(days=7)
+    minimum_due_date = now + timedelta(days=30)
 
-    future_filter = Solicitation.due_at > now
+    eligible_filter = Solicitation.due_at > minimum_due_date
+
     open_filter = func.lower(
         func.trim(Solicitation.status)
     ) == "open"
@@ -118,35 +121,25 @@ def get_solicitation_stats(db: DbSession):
         | (func.trim(Solicitation.status) == "")
     )
 
-    future_opportunities = db.scalar(
+    eligible_opportunities = db.scalar(
         select(func.count(Solicitation.id))
-        .where(future_filter)
+        .where(eligible_filter)
     ) or 0
 
     open_opportunities = db.scalar(
         select(func.count(Solicitation.id))
-        .where(future_filter, open_filter)
-    ) or 0
-
-    closing_soon = db.scalar(
-        select(func.count(Solicitation.id))
-        .where(
-            future_filter,
-            open_filter,
-            Solicitation.due_at <= seven_days_from_now,
-        )
+        .where(eligible_filter, open_filter)
     ) or 0
 
     unknown_status = db.scalar(
         select(func.count(Solicitation.id))
-        .where(future_filter, unknown_filter)
+        .where(eligible_filter, unknown_filter)
     ) or 0
 
     return {
         "open_opportunities": open_opportunities,
-        "closing_soon": closing_soon,
         "unknown_status": unknown_status,
-        "future_opportunities": future_opportunities,
+        "eligible_opportunities": eligible_opportunities,
     }
 
 @router.get(

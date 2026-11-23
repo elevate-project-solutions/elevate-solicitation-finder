@@ -1,9 +1,17 @@
 
-import { useMemo, useState } from "react";
 import type { Solicitation, DocumentStatus } from "../lib/api";
 
 type Props = {
   solicitations: Solicitation[];
+  loading: boolean;
+  total: number;
+  page: number;
+  pageSize: number;
+  status: string;
+  search: string;
+  onStatusChange: (value: string) => void;
+  onSearchChange: (value: string) => void;
+  onPageChange: (page: number) => void;
 };
 
 const documentLabels: Record<DocumentStatus, string> = {
@@ -15,31 +23,22 @@ const documentLabels: Record<DocumentStatus, string> = {
 
 export default function OpportunityTable({
   solicitations,
+  loading,
+  total,
+  page,
+  pageSize,
+  status,
+  search,
+  onStatusChange,
+  onSearchChange,
+  onPageChange,
 }: Props) {
-  const [search, setSearch] = useState("");
-  const [status, setStatus] = useState("all");
+  const totalPages = Math.max(1, Math.ceil(total / pageSize));
 
-  const filtered = useMemo(() => {
-    const query = search.trim().toLowerCase();
+  const firstResult =
+    total === 0 ? 0 : (page - 1) * pageSize + 1;
 
-    return solicitations.filter((item) => {
-      const matchesSearch = [
-        item.title,
-        item.agency,
-        item.solicitation_number,
-      ]
-        .filter(Boolean)
-        .some((value) =>
-          String(value).toLowerCase().includes(query)
-        );
-
-      const matchesStatus =
-        status === "all" ||
-        item.status.toLowerCase() === status;
-
-      return matchesSearch && matchesStatus;
-    });
-  }, [solicitations, search, status]);
+  const lastResult = Math.min(page * pageSize, total);
 
   return (
     <section className="opportunity-panel">
@@ -48,8 +47,9 @@ export default function OpportunityTable({
           <h2>Find Opportunities</h2>
           <p>Explore government solicitations and documents.</p>
         </div>
+
         <span className="result-count">
-          {filtered.length} results
+          {loading ? "Loading..." : `${total} results`}
         </span>
       </div>
 
@@ -58,13 +58,17 @@ export default function OpportunityTable({
           aria-label="Search opportunities"
           placeholder="Search titles, agencies, solicitation numbers..."
           value={search}
-          onChange={(event) => setSearch(event.target.value)}
+          onChange={(event) =>
+            onSearchChange(event.target.value)
+          }
         />
 
         <select
           aria-label="Filter by status"
           value={status}
-          onChange={(event) => setStatus(event.target.value)}
+          onChange={(event) =>
+            onStatusChange(event.target.value)
+          }
         >
           <option value="all">All statuses</option>
           <option value="open">Open</option>
@@ -85,44 +89,102 @@ export default function OpportunityTable({
               <th>Status</th>
             </tr>
           </thead>
-          <tbody>
-            {filtered.map((item) => {
-              const docStatus =
-                item.document_status ?? "not_verified";
 
-              return (
-                <tr key={item.id}>
-                  <td>
-                    <strong>{item.title}</strong>
-                    <small>
-                      {item.solicitation_number ?? "—"}
-                    </small>
-                  </td>
-                  <td>{item.agency ?? "—"}</td>
-                  <td>
-                    {item.due_date
-                      ? item.due_date.slice(0, 10)
-                      : "Not listed"}
-                  </td>
-                  <td>
-                    <span
-                      className={`document-pill doc-${docStatus}`}
-                    >
-                      {documentLabels[docStatus]}
-                    </span>
-                  </td>
-                  <td>{item.status}</td>
-                </tr>
-              );
-            })}
+          <tbody>
+            {!loading &&
+              solicitations.map((item) => {
+                const docStatus =
+                  item.document_status ?? "not_verified";
+
+                return (
+                  <tr key={item.id}>
+                    <td>
+                      <strong>{item.title}</strong>
+                      <small>
+                        {item.solicitation_number ?? "—"}
+                      </small>
+                    </td>
+
+                    <td>{item.agency ?? "—"}</td>
+
+                    <td>
+                      {item.due_date
+                        ? item.due_date.slice(0, 10)
+                        : "Not listed"}
+                    </td>
+
+                    <td>
+                      <span
+                        className={`document-pill doc-${docStatus}`}
+                      >
+                        {documentLabels[docStatus]}
+                      </span>
+                    </td>
+
+                    <td>{item.status}</td>
+                  </tr>
+                );
+              })}
           </tbody>
         </table>
 
-        {filtered.length === 0 && (
+        {loading && (
+          <p className="empty-state" role="status">
+            Loading opportunities...
+          </p>
+        )}
+
+        {!loading && solicitations.length === 0 && (
           <p className="empty-state">
             No opportunities match your filters.
           </p>
         )}
+      </div>
+
+      <div
+        className="table-pagination"
+        style={{
+          display: "flex",
+          justifyContent: "space-between",
+          alignItems: "center",
+          flexWrap: "wrap",
+          gap: "12px",
+          paddingTop: "20px",
+        }}
+      >
+        <span className="result-count">
+          {loading
+            ? "Loading..."
+            : `Showing ${firstResult}–${lastResult} of ${total}`}
+        </span>
+
+        <div
+          style={{
+            display: "flex",
+            alignItems: "center",
+            gap: "12px",
+          }}
+        >
+          <button
+            type="button"
+            disabled={loading || page <= 1}
+            onClick={() => onPageChange(page - 1)}
+          >
+            Previous
+          </button>
+
+          <span>
+            Page {page} of {totalPages}
+          </span>
+
+          <button
+            type="button"
+            disabled={loading || page >= totalPages}
+            onClick={() => onPageChange(page + 1)}
+          >
+            Next
+          </button>
+        </div>
       </div>
     </section>
   );

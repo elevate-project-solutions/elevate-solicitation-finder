@@ -1,33 +1,61 @@
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useState } from "react";
 import {
     FolderOpen,
-    FileCheck2,
-    FileWarning,
+    CircleHelp,
+    ListFilter,
     CalendarDays,
 } from "lucide-react";
 
 import Sidebar from "../components/Sidebar";
 import StatCard from "../components/StatCard";
 import OpportunityTable from "../components/OpportunityTable";
+
 import {
     getSolicitations,
+    getSolicitationStats,
     type Solicitation,
+    type SolicitationStats,
 } from "../lib/api";
+
+const PAGE_SIZE = 50;
 
 export default function Dashboard() {
     const [solicitations, setSolicitations] =
         useState<Solicitation[]>([]);
+
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState<string | null>(null);
+
+    const [stats, setStats] = 
+        useState<SolicitationStats | null>(null);
+
+    const [statsError, setStatsError] = 
+        useState<string | null>(null);
+
+    const [status, setStatus] = useState("all");
+    const [search, setSearch] = useState("");
+    const [page, setPage] = useState(1);
+    const [total, setTotal] = useState(0)
 
     useEffect(() => {
         let active = true;
 
-        async function load(){
-            try{
-                const results = await getSolicitations();
+        async function loadOpportunities(){
+            setLoading(true);
+            setError(null);
 
-                if (active) setSolicitations(results.items);
+            try{
+                const results = await getSolicitations(
+                    page,
+                    PAGE_SIZE,
+                    status,
+                    search
+                );
+
+                if (active) {
+                    setSolicitations(results.items);
+                    setTotal(results.total)
+                }
             } catch (err) {
                 if (active) {
                     setError(
@@ -37,44 +65,56 @@ export default function Dashboard() {
                     );
                 }
             } finally {
-                if (active) setLoading(false);
+                if (active) {
+                    setLoading(false);
+                }
             }
         }
 
-        void load();
+        void loadOpportunities();
+
+        return () => {
+            active = false;
+        };
+    }, [page, status, search]);
+
+    useEffect(() => {
+        let active = true;
+        
+        async function loadStats() {
+            try {
+                const results = await getSolicitationStats();
+
+                if (active) {
+                    setStats(results);
+                }
+            } catch (err) {
+                if (active) {
+                    setStatsError(
+                        err instanceof Error
+                        ? err.message
+                        : "Unable to load dashboard stats"
+                    );
+                }
+            }
+        }
+
+        void loadStats();
 
         return () => {
             active = false;
         };
     }, []);
 
-    const stats = useMemo(() => {
-        const now = new Date();
-        const nextWeek = new Date(now);
-        nextWeek.setDate(now.getDate() + 7);
+    function handleStatusChange(value: string) {
+        setStatus(value);
+        setPage(1);
+    }
 
-        const open = solicitations.filter(
-            (item) => item.status.toLowerCase() === "open"
-        );
-
-        return {
-            open: open.length,
-            ready: open.filter(
-                (item) => item.document_status === "available"
-            ).length,
-            needsDocuments: open.filter(
-                (item) =>
-                    item.document_status === "incomplete" ||
-                    item.document_status === "access_required"
-            ).length,
-            deadlines: open.filter((item) => {
-                if (!item.due_date) return false;
-
-                const deadline = new Date(item.due_date);
-                return deadline >= now && deadline <= nextWeek;
-            }).length,
-        };
-    }, [solicitations]);
+    function handleSearchChange(value: string) {
+        setSearch(value);
+        setPage(1);
+    }
 
     return (
         <div className="app-shell">
@@ -91,37 +131,56 @@ export default function Dashboard() {
                     </div>
                 </header>
 
-                {loading && <p role="status">Loading opportunities...</p>}
-                {error && <p className="error-message" role="alert">{error}</p>}
-
-                {!loading && !error && (
-                    <>
-                        <div className="stats-grid">
-                            <StatCard
-                                title="Open Opportunities"
-                                value={stats.open}
-                                icon={FolderOpen}
-                            />
-                            <StatCard
-                                title="Ready for Review"
-                                value={stats.ready}
-                                icon={FileCheck2}
-                            />
-                            <StatCard
-                                title="Documents Needed"
-                                value={stats.needsDocuments}
-                                icon={FileWarning}
-                            />
-                            <StatCard
-                                title="Deadlines Within 7 Days"
-                                value={stats.deadlines}
-                                icon={CalendarDays}
-                            />
-                            </div>
-                            
-                            <OpportunityTable solicitations={solicitations} />
-                        </>
+                {statsError && (
+                    <p className="error-message" role="alert">
+                        {statsError}
+                    </p>
                 )}
+                    
+                <div className="stats-grid">
+                    <StatCard
+                        title="Open Opportunities"
+                        value={stats?.open_opportunities ?? "-"}
+                        icon={FolderOpen}
+                    />
+                    
+                    <StatCard
+                        title="Unknown Status"
+                        value={stats?.unknown_status ?? "-"}
+                        icon={CircleHelp}
+                    />
+                        
+                    <StatCard
+                        title="Future Opportunities"
+                        value={stats?.future_opportunities ?? "-"}
+                        icon={ListFilter}
+                    />
+                        
+                    <StatCard
+                        title="Deadlines Within 7 Days"
+                        value={stats?.closing_soon ?? "-"}
+                         icon={CalendarDays}
+                    />    
+                </div>
+
+                {error && (
+                    <p className="error-message" role="alert">
+                        {error}
+                    </p>
+                )}
+
+                <OpportunityTable 
+                    solicitations={solicitations}
+                    loading={loading}
+                    total={total}
+                    page={page}
+                    pageSize={PAGE_SIZE}
+                    status={status}
+                    search={search}
+                    onStatusChange={handleStatusChange}
+                    onSearchChange={handleSearchChange}
+                    onPageChange={setPage} 
+                />
             </main>
         </div>
     );
