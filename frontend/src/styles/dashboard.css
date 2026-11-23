@@ -378,3 +378,13 @@ button, input, select {
         flex-direction: column;
     }
 }
+
+.stats-grid-centered {
+    display: flex;
+    justify-content: center;
+}
+
+.stats-grid-centered > * {
+    width: 100%;
+    max-width: 800px;
+}

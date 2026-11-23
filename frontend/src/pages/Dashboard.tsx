@@ -1,9 +1,5 @@
 import { useEffect, useState } from "react";
-import {
-    FolderOpen,
-    CircleHelp,
-    CalendarDays,
-} from "lucide-react";
+import { CalendarCheck } from "lucide-react";
 
 import Sidebar from "../components/Sidebar";
 import StatCard from "../components/StatCard";
@@ -136,24 +132,12 @@ export default function Dashboard() {
                     </p>
                 )}
                     
-                <div className="stats-grid">
+                <div className="stats-grid stats-grid-centered">
                     <StatCard
-                        title="Open Opportunities"
-                        value={stats?.open_opportunities ?? "-"}
-                        icon={FolderOpen}
-                    />
-                    
-                    <StatCard
-                        title="Unknown Status"
-                        value={stats?.unknown_status ?? "-"}
-                        icon={CircleHelp}
-                    />
-                        
-                    <StatCard
-                        title="30+ Days Until Deadline"
+                        title="Opportunities to Explore"
                         value={stats?.eligible_opportunities ?? "-"}
-                        icon={CalendarDays}
-                    />  
+                        icon={CalendarCheck}
+                    /> 
                 </div>
 
                 {error && (
