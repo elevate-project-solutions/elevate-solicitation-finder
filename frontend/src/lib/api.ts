@@ -53,9 +53,8 @@ export async function getSolicitations(
 
 export type SolicitationStats = {
     open_opportunities: number;
-    closing_soon: number;
     unknown_status: number;
-    future_opportunities: number;
+    eligible_opportunities: number;
 };
 
 export async function getSolicitationStats(): Promise<SolicitationStats> {
