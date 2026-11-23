@@ -2,7 +2,7 @@ from typing import Annotated
 from datetime import datetime, timezone, timedelta
 
 from fastapi import APIRouter, Depends, HTTPException, Query
-from sqlalchemy import func, select, text
+from sqlalchemy import func, select, text, or_
 from sqlalchemy.orm import Session
 
 from app.db.dependencies import get_db
@@ -29,22 +29,45 @@ def list_solicitations(
     db: DbSession,
     page: int = Query(1, ge=1),
     page_size: int = Query(50, ge=1, le=100),
+    status: str = Query("all"),
+    search: str = Query(""),
 ):
     now = datetime.now(timezone.utc)
 
-    # Shows solicitations whose deadlines have not passed
-    active_filter = Solicitation.due_at > now
+    filters = [
+        Solicitation.due_at > now
+    ]
 
-    # Counts only future dated opportunities
+    normalized_status = status.strip().lower()
+
+    if normalized_status != "all":
+        filters.append(
+            func.lower(
+                func.trim(Solicitation.status)
+            ) == normalized_status
+        )
+
+    search_term = search.strip()
+
+    if search_term:
+        pattern = f"%{search_term}%"
+
+        filters.append(
+            or_(
+                Solicitation.title.ilike(pattern),
+                Solicitation.agency.ilike(pattern),
+                Solicitation.solicitation_number.ilike(pattern),
+            )
+        )
+
     total = db.scalar(
         select(func.count(Solicitation.id))
-        .where(active_filter)
+        .where(*filters)
     ) or 0
 
-    # Retrieves future dated opportunities, earliest deadline first.
     query = (
         select(Solicitation)
-        .where(active_filter)
+        .where(*filters)
         .order_by(
             Solicitation.due_at.asc(),
             Solicitation.id.desc(),
@@ -61,7 +84,7 @@ def list_solicitations(
             solicitation_number=item.solicitation_number,
             title=item.title,
             agency=item.agency,
-            status=item.status,
+            status=item.status or "unknown",
             due_date=item.due_at,
             source=item.source,
             document_status="not_verified",
