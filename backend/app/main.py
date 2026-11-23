@@ -24,6 +24,8 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
+app.include_router(solicitations_router)
+
 @app.get("/")
 def root():
     return {
