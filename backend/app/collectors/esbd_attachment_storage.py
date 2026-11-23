@@ -43,7 +43,7 @@ def save_esbd_attachments(
 
                 cursor.execute(
                     """
-                    UPDATE document_version
+                    UPDATE document_versions
                     SET file_name = %s,
                         source_url = %s
                     WHERE document_id = %s

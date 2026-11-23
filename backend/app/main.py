@@ -2,6 +2,7 @@ from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 
 from app.config import get_settings
+from app.api.solicitations import router as solicitations_router
 
 settings = get_settings()
 
