@@ -1,4 +1,5 @@
 from typing import Annotated
+from datetime import datetime, timezone
 
 from fastapi import APIRouter, Depends, HTTPException, Query
 from sqlalchemy import func, select, text
@@ -18,37 +19,44 @@ router = APIRouter(
     tags=["solicitations"],
 )
 
+DbSession = Annotated[Session, Depends(get_db)]
+
 @router.get(
     "",
     response_model=SolicitationListResponse,
 )
 def list_solicitations(
     db: DbSession,
-    page: int = Query(default=1, ge=1),
-    page_size: int = Query(default=50, ge=1, le=100),
+    page: int = Query(1, ge=1),
+    page_size: int = Query(50, ge=1, le=100),
 ):
+    now = datetime.now(timezone.utc)
+
+    # Shows solicitations whose deadlines have not passed
+    active_filter = Solicitation.due_at > now
+
+    # Counts only future dated opportunities
     total = db.scalar(
-        select(func.count()).select_from(Solicitation)
+        select(func.count(Solicitation.id))
+        .where(active_filter)
     ) or 0
 
-    offset = (page - 1) * page_size
-
-    records = db.scalars(
+    # Retrieves future dated opportunities, earliest deadline first.
+    query = (
         select(Solicitation)
+        .where(active_filter)
         .order_by(
-            Solicitation.due_at.asc().nulls_last(),
+            Solicitation.due_at.asc(),
             Solicitation.id.desc(),
         )
-        .offset(offset)
+        .offset((page - 1) * page_size)
         .limit(page_size)
-    ).all()
+    )
 
-    # Have not yet established verified document
-    # retrieval or package completeness.
-    # Please do not infer availability from a stored URL
+    solicitations = db.scalars(query).all()
 
     items = [
-        SoliciationDashboardItem(
+        SolicitationDashboardItem(
             id=item.id,
             solicitation_number=item.solicitation_number,
             title=item.title,
@@ -58,7 +66,7 @@ def list_solicitations(
             source=item.source,
             document_status="not_verified",
         )
-        for item in records
+        for item in solicitations
     ]
 
     return SolicitationListResponse(
