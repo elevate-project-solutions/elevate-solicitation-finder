@@ -2,7 +2,6 @@ import { useEffect, useState } from "react";
 import {
     FolderOpen,
     CircleHelp,
-    ListFilter,
     CalendarDays,
 } from "lucide-react";
 
@@ -151,16 +150,10 @@ export default function Dashboard() {
                     />
                         
                     <StatCard
-                        title="Future Opportunities"
-                        value={stats?.future_opportunities ?? "-"}
-                        icon={ListFilter}
-                    />
-                        
-                    <StatCard
-                        title="Deadlines Within 7 Days"
-                        value={stats?.closing_soon ?? "-"}
-                         icon={CalendarDays}
-                    />    
+                        title="30+ Days Until Deadline"
+                        value={stats?.eligible_opportunities ?? "-"}
+                        icon={CalendarDays}
+                    />  
                 </div>
 
                 {error && (
