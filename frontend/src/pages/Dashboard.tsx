@@ -27,7 +27,7 @@ export default function Dashboard() {
             try{
                 const results = await getSolicitations();
 
-                if (active) setSolicitations(results);
+                if (active) setSolicitations(results.items);
             } catch (err) {
                 if (active) {
                     setError(
