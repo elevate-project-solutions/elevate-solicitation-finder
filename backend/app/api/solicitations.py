@@ -1,5 +1,5 @@
 from typing import Annotated
-from datetime import datetime, timezone
+from datetime import datetime, timezone, timedelta
 
 from fastapi import APIRouter, Depends, HTTPException, Query
 from sqlalchemy import func, select, text
@@ -75,6 +75,56 @@ def list_solicitations(
         page=page,
         page_size=page_size,
     )
+
+@router.get("/stats")
+def get_solicitation_stats(db: DbSession):
+    now = datetime.now(timezone.utc)
+    seven_days_from_now = now + timedelta(days=7)
+
+    future_filter = Solicitation.due_at > now
+    open_filter = func.lower(
+        func.trim(Solicitation.status)
+    ) == "open"
+
+    unknown_filter = (
+        (Solicitation.status.is_(None))
+        | (
+            func.lower(func.trim(Solicitation.status))
+            == "unknown"
+        )
+        | (func.trim(Solicitation.status) == "")
+    )
+
+    future_opportunities = db.scalar(
+        select(func.count(Solicitation.id))
+        .where(future_filter)
+    ) or 0
+
+    open_opportunities = db.scalar(
+        select(func.count(Solicitation.id))
+        .where(future_filter, open_filter)
+    ) or 0
+
+    closing_soon = db.scalar(
+        select(func.count(Solicitation.id))
+        .where(
+            future_filter,
+            open_filter,
+            Solicitation.due_at <= seven_days_from_now,
+        )
+    ) or 0
+
+    unknown_status = db.scalar(
+        select(func.count(Solicitation.id))
+        .where(future_filter, unknown_filter)
+    ) or 0
+
+    return {
+        "open_opportunities": open_opportunities,
+        "closing_soon": closing_soon,
+        "unknown_status": unknown_status,
+        "future_opportunities": future_opportunities,
+    }
 
 @router.get(
     "/{solicitation_id}/documents",
