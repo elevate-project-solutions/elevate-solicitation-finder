@@ -27,7 +27,6 @@ export default function Dashboard() {
     const [statsError, setStatsError] = 
         useState<string | null>(null);
 
-    const [status, setStatus] = useState("all");
     const [search, setSearch] = useState("");
     const [page, setPage] = useState(1);
     const [total, setTotal] = useState(0)
@@ -43,7 +42,6 @@ export default function Dashboard() {
                 const results = await getSolicitations(
                     page,
                     PAGE_SIZE,
-                    status,
                     search
                 );
 
@@ -71,7 +69,7 @@ export default function Dashboard() {
         return () => {
             active = false;
         };
-    }, [page, status, search]);
+    }, [page, search]);
 
     useEffect(() => {
         let active = true;
@@ -100,11 +98,6 @@ export default function Dashboard() {
             active = false;
         };
     }, []);
-
-    function handleStatusChange(value: string) {
-        setStatus(value);
-        setPage(1);
-    }
 
     function handleSearchChange(value: string) {
         setSearch(value);
@@ -152,9 +145,7 @@ export default function Dashboard() {
                     total={total}
                     page={page}
                     pageSize={PAGE_SIZE}
-                    status={status}
                     search={search}
-                    onStatusChange={handleStatusChange}
                     onSearchChange={handleSearchChange}
                     onPageChange={setPage} 
                 />

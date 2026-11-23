@@ -28,13 +28,11 @@ export type SolicitationListResponse = {
 export async function getSolicitations(
     page = 1,
     pageSize = 50,
-    status = "all",
     search = ""
 ): Promise<SolicitationListResponse> {
     const params = new URLSearchParams({
         page: String(page),
         page_size: String(pageSize),
-        status,
         search,
     });
 

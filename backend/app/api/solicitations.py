@@ -29,7 +29,6 @@ def list_solicitations(
     db: DbSession,
     page: int = Query(1, ge=1),
     page_size: int = Query(50, ge=1, le=100),
-    status: str = Query("all"),
     search: str = Query(""),
 ):
     now = datetime.now(timezone.utc)
@@ -37,17 +36,11 @@ def list_solicitations(
     minimum_due_date = now + timedelta(days=30)
 
     filters = [
-        Solicitation.due_at > minimum_due_date
+        Solicitation.due_at > minimum_due_date,
+        func.lower(func.trim(Solicitation.status)).in_(
+            ["open", "unknown"]
+        ),
     ]
-
-    normalized_status = status.strip().lower()
-
-    if normalized_status != "all":
-        filters.append(
-            func.lower(
-                func.trim(Solicitation.status)
-            ) == normalized_status
-        )
 
     search_term = search.strip()
 

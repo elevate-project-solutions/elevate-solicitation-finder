@@ -7,9 +7,7 @@ type Props = {
   total: number;
   page: number;
   pageSize: number;
-  status: string;
   search: string;
-  onStatusChange: (value: string) => void;
   onSearchChange: (value: string) => void;
   onPageChange: (page: number) => void;
 };
@@ -27,9 +25,7 @@ export default function OpportunityTable({
   total,
   page,
   pageSize,
-  status,
   search,
-  onStatusChange,
   onSearchChange,
   onPageChange,
 }: Props) {
@@ -62,20 +58,6 @@ export default function OpportunityTable({
             onSearchChange(event.target.value)
           }
         />
-
-        <select
-          aria-label="Filter by status"
-          value={status}
-          onChange={(event) =>
-            onStatusChange(event.target.value)
-          }
-        >
-          <option value="all">All statuses</option>
-          <option value="open">Open</option>
-          <option value="closed">Closed</option>
-          <option value="awarded">Awarded</option>
-          <option value="unknown">Unknown</option>
-        </select>
       </div>
 
       <div className="table-scroll">
