@@ -120,7 +120,9 @@ def save_or_update_solicitations(
             result.inserted += 1
 
         else:
-            existing.agency = collected.agency_name
+            if collected.agency_name and collected.agency_name.strip():
+                existing.agency = collected.agency_name.strip()
+                
             existing.title = collected.title
             existing.solicitation_number = collected.solicitation_number
             existing.source_url = collected.source_url
