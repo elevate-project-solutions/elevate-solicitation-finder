@@ -7,6 +7,7 @@ from urllib.parse import quote
 from app.collectors.base import CollectedSolicitation
 from app.collectors.esbd_urls import build_esbd_url
 from app.utils.timestamps import normalize_esbd_timestamp
+from app.collectors.esbd_agencies import resolve_agency_name
 
 REQUIRED_COLUMNS = {
     "Name",
@@ -115,14 +116,13 @@ def extract_esbd_solicitation(
         f"{quote(solicitation_number, safe='')}"
     )
 
-    # CSV does not contain agency name, just agency number
-    # CSV lacks solicitation URL
+    # Resolves the agency using ESBD reference directory
     return CollectedSolicitation(
         source_record_id=(
             f"{agency_number}:{solicitation_number}"
         ),
         title=title,
-        agency_name=None,
+        agency_name=resolve_agency_name(agency_number),
         solicitation_number=solicitation_number,
         source_url=source_url,
         due_at=due_at_utc,

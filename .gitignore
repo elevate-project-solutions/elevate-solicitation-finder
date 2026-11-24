@@ -235,3 +235,5 @@ dist/
 
 backend/logs/
 backend/.local/
+
+smartbuy_members.csv
