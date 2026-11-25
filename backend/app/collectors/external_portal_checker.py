@@ -29,6 +29,50 @@ class LinkCheck:
     content_type: str | None = None
     access_evidence: str | None = None
 
+class AccessPageParser(HTMLParser):
+    """Extracts visible text and auth indicators"""
+
+    def __init__(self):
+        super().__init__(convert_charrefs=True)
+        self.text_parts = []
+        self.has_password_input = False
+        self.ignored_depth = 0
+
+    def handle_starttag(self, tag, attrs):
+        if tag in {"script", "style", "template"}:
+            self.ignored_depth += 1
+            return
+
+        if self.ignored_depth:
+            return
+
+        attributes = dict(attrs)
+
+        if tag == "input":
+            input_type = (
+                attributes.get("type") or ""
+            ).lower()
+
+            if input_type == "password":
+                self.has_password_input = True
+
+    def handle_endtag(self, tag):
+        if tag in {"script", "style", "template"}:
+            self.ignored_depth = max(
+                0,
+                self.ignored_depth - 1,
+            )
+
+    def handle_data(self, data):
+        if not self.ignored_depth:
+            self.text_parts.append(data)
+
+    @property
+    def visible_text(self):
+        return " ".join(
+            " ".join(self.text_parts).lower().split()
+        )
+
 def validate_public_url(url):
     parsed = urlparse(url)
 
