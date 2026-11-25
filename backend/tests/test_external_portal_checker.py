@@ -246,3 +246,23 @@ def test_redirect_to_login(portal_session):
     assert check.access_status == "login_required"
     assert check.destination_url.endswith("/login")
     assert len(check.redirect_history) == 1
+
+def test_detects_redirect_loop(portal_session):
+    portal_session.get.side_effect = [
+        make_response(
+            302,
+            headers={"Location": "/second"},
+        ),
+        make_response(
+            302,
+            headers={"Location": "/first"},
+        ),
+    ]
+
+    check = check_external_link(
+        "https://example.ionwave.net/first"
+    )
+
+    assert check.access_status == "redirect_loop"
+    assert len(check.redirect_history) == 2
+    assert portal_session.get.call_count == 2
