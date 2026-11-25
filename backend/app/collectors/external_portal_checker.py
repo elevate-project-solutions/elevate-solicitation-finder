@@ -73,6 +73,40 @@ class AccessPageParser(HTMLParser):
             " ".join(self.text_parts).lower().split()
         )
 
+LOGIN_INDICATORS = (
+    "login required",
+    "sign in required",
+    "authentication required",
+    "you must log in",
+    "you must sign in",
+    "please log in to access",
+    "please sign in to access",
+    "log in to download",
+    "sign in to download",
+    "login to download",
+)
+
+REGISTRATION_INDICATORS = (
+    "registration required",
+    "registration is required",
+    "you must register",
+    "must be registered to",
+    "register to download",
+    "register to access documents",
+    "registration is required to view",
+    "register to view documents",
+    "vendor registration is required",
+)
+
+BOT_PROTECTION_INDICATORS = (
+    "verify you are human",
+    "checking your browser",
+    "checkin if the site connection is secure",
+    "complete the security check",
+    "just a moment",
+    "enable javascript and cookies to continue",
+)
+
 def validate_public_url(url):
     parsed = urlparse(url)
 
