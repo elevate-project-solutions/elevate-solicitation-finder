@@ -299,3 +299,17 @@ def test_redirect_limit(portal_session):
     assert portal_session.get.call_count == (
         external_portal_checker.MAX_REDIRECTS + 1
     )
+
+def test_handles_timeout(portal_session):
+    portal_session.get.side_effect = requests.Timeout(
+        "Request timed out"
+    )
+
+    check = check_external_link(
+        "https://example.ionwave.net/bid"
+    )
+
+    assert check.access_status == "check_failed"
+    assert "timed out" in check.error_message.lower()
+
+    portal_session.close.assert_called_once()
