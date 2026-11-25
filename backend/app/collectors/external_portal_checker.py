@@ -2,8 +2,9 @@
 
 import ipaddress
 import socket
-from dataclasses import dataclass
-from urllib.parse import urljoin, urlparse
+from dataclasses import dataclass, field
+from html.parser import HTMLParser
+from urllib.parse import urljoin, urlparse, urldefrag
 
 import requests
 
@@ -13,6 +14,7 @@ from app.collectors.esbd_external_links import (
 
 REDIRECT_CODES = {301, 302, 303, 307, 308}
 MAX_REDIRECTS = 5
+MAX_INSPECTION_BYTES = 256 * 1024
 
 @dataclass(frozen=True)
 class LinkCheck:
@@ -21,6 +23,11 @@ class LinkCheck:
     access_status: str
     http_status: int | None
     error_message: str | None = None
+    redirect_history: list[dict] = field(
+        default_factory=list
+    )
+    content_type: str | None = None
+    access_evidence: str | None = None
 
 def validate_public_url(url):
     parsed = urlparse(url)
