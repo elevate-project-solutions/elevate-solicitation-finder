@@ -144,6 +144,125 @@ def validate_public_url(url):
                 "Non public network destination blocked"
             )
         
+def classify_access(
+        status_code: int,
+        content_type: str,
+        body: bytes,
+) -> tuple[str, str]:
+    """Classifies access using HTTP and page evidence"""
+
+    if status_code == 401:
+        return(
+            "login_required",
+            "HTTP 401 Unauthorized",
+        )
+
+    if status_code in {404, 410}:
+        return (
+            "unavailable",
+            f"HTTP {status_code}",
+        )
+
+    media_type = content_type.split(";")[0].strip().lower()
+
+    is_html = (
+        media_type in {
+            "text/html",
+            "application/xhtml+xml",
+        }
+        or body.lstrip().lower().startswith(
+            (b"<!doctype html", b"<html")
+        )
+    )
+
+    if is_html:
+        parser = AccessPageParser()
+
+        parser.feed(
+            body.decode(
+                "utf-8",
+                errors="replace",
+            )
+        )
+
+        page_text = parser.visible_text
+
+        for indicator in BOT_PROTECTION_INDICATORS:
+            if indicator in page_text:
+                return(
+                    "bot_protection",
+                    f"Page indicator: {indicator}",
+                )
+
+            if status_code == 403:
+                return (
+                    "restricted",
+                    "HTTP 403 Forbidden",
+                )
+
+            if 200 <= status_code < 300:
+                for indicator in REGISTRATION_INDICATORS:
+                    if indicator in page_text:
+                        return (
+                            "registration_required",
+                            f"Page indicator: {indicator}",
+                        )
+
+                for indicator in LOGIN_INDICATORS:
+                    if indicator in page_text:
+                        return (
+                            "login_required",
+                            f"Page indicator: {indicator}",
+                        )
+
+                    if parser.has_password_input:
+                        return (
+                            "unknown",
+                            "Password input detected; "
+                            "mandatory authentication not comfirmed",
+                        )
+
+                    return (
+                        "reachable",
+                        "HTML page reachable; "
+                        "document access not verified",
+                    )
+
+    if status_code == 403:
+        return (
+            "restricted",
+            "HTTP 403 Forbidden",
+        )
+
+    if not 200 <= status_code < 300:
+        return (
+            "http_error",
+            f"HTTP {status_code}",
+        )
+
+    if body.startswith(b"%PDF-"):
+        return (
+            "reachable",
+            "PDF file signature detected",
+        )
+
+    if body.startswith(b"PK\x03\x04"):
+        return (
+            "reachable",
+            "ZIP-based file signature detected",
+        )
+
+    if not body:
+        return (
+            "unknown",
+            "Successful response without content",
+        )
+
+    return (
+        "unknown",
+        "Successful response; content not identified",
+    )
+
 def check_external_link(url):
     current_url = url
 
