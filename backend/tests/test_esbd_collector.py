@@ -17,7 +17,15 @@ CSV_TEXT = (
     '"91438-Roofing; 91066-Roof Repair;"\n'
 )
 
-def test_collector_reads_csv_file(tmp_path):
+def test_collector_reads_csv_file(tmp_path, monkeypatch):
+    monkeypatch.setattr(
+        "app.collectors.esbd_extraction.resolve_agency_name",
+        lambda number: (
+            "Texas State Technical College System"
+            if number == "719"
+            else None
+        )
+    )
     path = tmp_path / "esbd.csv"
     path.write_text(CSV_TEXT, encoding="utf-8")
 
@@ -32,7 +40,7 @@ def test_collector_reads_csv_file(tmp_path):
     assert record.source_record_id == "719:RFP-123"
     assert record.solicitation_number == "RFP-123"
     assert record.status == "Posted"
-    assert record.agency_name is None
+    assert record.agency_name == "Texas State Technical College System"
     assert record.source_url == "https://www.txsmartbuy.gov/esbd/RFP-123"
     assert record.due_at == datetime(
         2026, 11, 12, 21, 0, tzinfo=timezone.utc

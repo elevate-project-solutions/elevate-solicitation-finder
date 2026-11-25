@@ -35,10 +35,18 @@ def test_extract_title(sample_row):
 
     assert record.title == "Roof Replacement"
 
-def test_extract_agency_identifier(sample_row):
+def test_extract_agency_identifier(sample_row, monkeypatch):
+    monkeypatch.setattr(
+        "app.collectors.esbd_extraction.resolve_agency_name",
+        lambda number: (
+            "Texas State Technical College System"
+            if number == "719"
+            else None
+        )
+    )
     record = extract_esbd_solicitation(sample_row, 2)
 
-    assert record.agency_name is None
+    assert record.agency_name == "Texas State Technical College System"
     assert record.raw_data["agency_member_number"] == "719"
 
 def test_extract_due_date(sample_row):

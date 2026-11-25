@@ -1,246 +1,2098 @@
 agency_number,agency_name
-"("
-    "('601', 'Texas Department of Transportation')"","
-    "('A0001', 'BAKERRIPLEY')"")",
-    "('000', 'Comptroller Central')",
-    "('001', 'System Generated Liquidation Transaction Agency')",
-    "('002', 'System Generated Payroll Agency')",
-    "('003', 'System Generated Year-End and Other Agency')",
-    "('004', 'USAS Year End Close Agency - Central Use Only')",
-    "('005', 'Cost Allocation Generated Transaction Agency')",
-    "('006', 'Financial Reporting, Statewide Adjustments - Other')",
-    "('007', 'Financial Reporting, Statewide Adjustments - Higher Education')",
-    "('012', 'Texas State Affordable Housing Corporation')",
-    "('013', 'Correctional Managed Health Care Committee')",
-    "('014', 'Texas A&M Research Foundation (Blended Component Unit)')",
-    "('016', ""Texas Council on Alzheimer's Disease and Related Disorders"")",
-    "('020', 'OneStar National Service Commission')",
-    "('090', 'Financial Reporting, Statewide Allocation - General')",
-    "('091', 'Financial Reporting, Statewide Allocation - Regulatory')",
-    "('092', 'Financial Reporting, Statewide Allocation - Health and Human Services')",
-    "('093', 'Financial Reporting, Statewide Allocation - Natural Resources')",
-    "('094', 'Financial Reporting, Statewide Allocation - Transportation')",
-    "('095', 'Financial Reporting, Statewide Allocation - Public Safety')",
-    "('096', 'Financial Reporting, Statewide Allocation - Education')",
-    "('097', 'Financial Reporting, Statewide Allocation - Teacher Retirement Benefits')",
-    "('098', 'Financial Reporting, Statewide Allocation - Employee Benefits')",
-    "('099', 'Security Shell Agency - Central Use Only')",
-    "('101', 'Senate')",
-    "('102', 'House of Representatives')",
-    "('103', 'Texas Legislative Council')",
-    "('104', 'Legislative Budget Board')",
-    "('105', 'Legislative Reference Library')",
-    "('107', 'Commission on Uniform State Laws')",
-    "('116', 'Sunset Advisory Commission')",
-    "('201', 'Supreme Court')",
-    "('202', 'State Bar of Texas')",
-    "('203', 'Board of Law Examiners')",
-    "('211', 'Court of Criminal Appeals')",
-    "('212', 'Office of Court Administration')",
-    "('213', 'State Prosecuting Attorney')",
-    "('215', 'Office of Capital and Forensic Writs')",
-    "('221', 'Court of Appeals - First Court of Appeals District')",
-    "('222', 'Court of Appeals - Second Court of Appeals District')",
-    "('223', 'Court of Appeals - Third Court of Appeals District')",
-    "('224', 'Court of Appeals - Fourth Court of Appeals District')",
-    "('225', 'Court of Appeals - Fifth Court of Appeals District')",
-    "('226', 'Court of Appeals - Sixth Court of Appeals District')",
-    "('227', 'Court of Appeals - Seventh Court of Appeals District')",
-    "('228', 'Court of Appeals - Eighth Court of Appeals District')",
-    "('229', 'Court of Appeals - Ninth Court of Appeals District')",
-    "('230', 'Court of Appeals - Tenth Court of Appeals District')",
-    "('231', 'Court of Appeals - Eleventh Court of Appeals District')",
-    "('232', 'Court of Appeals - Twelfth Court of Appeals District')",
-    "('233', 'Court of Appeals - Thirteenth Court of Appeals District')",
-    "('234', 'Court of Appeals - Fourteenth Court of Appeals District')",
-    "('235', 'Court of Appeals - Fifteenth Court of Appeals District')",
-    "('241', 'Comptroller - Judiciary Section')",
-    "('242', 'State Commission on Judicial Conduct')",
-    "('243', 'State Law Library')",
-    "('300', 'Governor - Fiscal')",
-    "('301', 'Governor - Executive')",
-    "('302', 'Attorney General')",
-    "('303', 'Texas Facilities Commission')",
-    "('304', 'Comptroller of Public Accounts')",
-    "('305', 'General Land Office')",
-    "('306', 'Texas State Library and Archives Commission')",
-    "('307', 'Secretary of State')",
-    "('308', 'State Auditor')",
-    "('311', 'Comptroller - Treasury Fiscal')",
-    "('312', 'State Securities Board')",
-    "('313', 'Department of Information Resources')",
-    "('315', 'Comptroller - Prepaid Higher Education Tuition Board')",
-    "('320', 'Texas Workforce Commission')",
-    "('323', 'Teacher Retirement System of Texas')",
-    "('326', 'Texas Emergency Services Retirement System')",
-    "('327', 'Employees Retirement System of Texas')",
-    "('328', 'Veterans Land Board')",
-    "('329', 'Texas Real Estate Commission')",
-    "('332', 'Texas Department of Housing and Community Affairs')",
-    "('333', 'Office of State-Federal Relations')",
-    "('338', 'State Pension Review Board')",
-    "('343', 'Inaugural Committee')",
-    "('347', 'Texas Public Finance Authority')",
-    "('352', 'Bond Review Board')",
-    "('356', 'Texas Ethics Commission')",
-    "('358', 'Texas Space Commission')",
-    "('359', 'Office of Public Insurance Counsel')",
-    "('360', 'State Office of Administrative Hearings')",
-    "('361', 'Office for the Prevention of Developmental Disabilities')",
-    "('363', 'Texas Workforce Investment Council')",
-    "('364', 'Health Professions Council')",
-    "('368', 'Motor Vehicle Crime Prevention Authority')",
-    "('371', 'Texas Cyber Command')",
-    "('401', 'Texas Military Department')",
-    "('403', 'Texas Veterans Commission')",
-    "('405', 'Department of Public Safety')",
-    "('407', 'Texas Commission on Law Enforcement')",
-    "('409', 'Commission on Jail Standards')",
-    "('411', 'Texas Commission on Fire Protection')",
-    "('448', 'Office of Injured Employee Counsel')",
-    "('450', 'Department of Savings and Mortgage Lending')",
-    "('451', 'Texas Department of Banking')",
-    "('452', 'Texas Department of Licensing and Regulation')",
-    "('454', 'Texas Department of Insurance')",
-    "('455', 'Railroad Commission of Texas')",
-    "('456', 'Texas State Board of Plumbing Examiners')",
-    "('457', 'Texas State Board of Public Accountancy')",
-    "('458', 'Texas Alcoholic Beverage Commission')",
-    "('459', 'Texas Board of Architectural Examiners')",
-    "('460', 'Texas Board of Professional Engineers and Land Surveyors')",
-    "('466', 'Office of Consumer Credit Commissioner')",
-    "('469', 'Credit Union Department')",
-    "('470', 'Motor Vehicle Board')",
-    "('473', 'Public Utility Commission of Texas')",
-    "('475', 'Office of Public Utility Counsel')",
-    "('476', 'Texas Racing Commission')",
-    "('477', 'Commission on State Emergency Communications')",
-    "('479', 'State Office of Risk Management')",
-    "('481', 'Texas Board of Professional Geoscientists')",
-    "('503', 'Texas Medical Board')",
-    "('504', 'State Board of Dental Examiners')",
-    "('506', 'University of Texas M. D. Anderson Cancer Center')",
-    "('507', 'Texas Board of Nursing')",
-    "('508', 'Texas Board of Chiropractic Examiners')",
-    "('510', 'Texas Behavioral Health Executive Council')",
-    "('513', 'Texas Funeral Service Commission')",
-    "('514', 'Texas Optometry Board')",
-    "('515', 'Texas State Board of Pharmacy')",
-    "('522', 'Texas Board of Physical Therapy Examiners')",
-    "('529', 'Health and Human Services Commission')",
-    "('530', 'Department of Family and Protective Services')",
-    "('533', 'Executive Council of Physical Therapy and Occupational Therapy Examiners')",
-    "('534', 'Texas Board of Occupational Therapy Examiners')",
-    "('535', 'Texas Low-Level Radioactive Waste Disposal Compact Commission')",
-    "('537', 'Department of State Health Services')",
-    "('542', 'Cancer Prevention and Research Institute of Texas')",
-    "('543', 'Dementia Prevention and Research Institute of Texas')",
-    "('544', 'Texas Civil Commitment Office')",
-    "('551', 'Department of Agriculture')",
-    "('554', 'Texas Animal Health Commission')",
-    "('555', 'Texas A&M AgriLife Extension Service')",
-    "('556', 'Texas A&M AgriLife Research')",
-    "('557', 'Texas A&M Veterinary Medical Diagnostic Laboratory')",
-    "('575', 'Texas Division of Emergency Management')",
-    "('576', 'Texas A&M Forest Service')",
-    "('578', 'State Board of Veterinary Medical Examiners')",
-    "('580', 'Texas Water Development Board')",
-    "('582', 'Texas Commission on Environmental Quality')",
-    "('592', 'Soil and Water Conservation Board')",
-    "('601', 'Texas Department of Transportation')",
-    "('608', 'Texas Department of Motor Vehicles')",
-    "('643', 'Office of Independent Ombudsman')",
-    "('644', 'Texas Juvenile Justice Department')",
-    "('646', 'Texas Correctional Office on Offenders with Medical or Mental Impairments')",
-    "('673', 'Texas Center for Infectious Disease')"
-    "('684', 'Rio Grande State Center')",
-    "('696', 'Texas Department of Criminal Justice')",
-    "('701', 'Texas Education Agency')",
-    "('703', 'Reserved - Legislative Budget Board')",
-    "('704', 'Public Community/Junior Colleges')",
-    "('705', 'State Board for Educator Certification')",
-    "('706', 'Texas Permanent School Fund Corporation')",
-    "('707', 'Texas A&M University System - Office of Technology Commercialization')",
-    "('708', 'Texas A&M University System - Shared Services Center')",
-    "('709', 'Texas A&M University System Health Science Center')",
-    "('710', 'Texas A&M University System')",
-    "('711', 'Texas A&M University')",
-    "('712', 'Texas A&M Engineering Experiment Station')",
-    "('713', 'Tarleton State University')",
-    "('714', 'University of Texas at Arlington')",
-    "('715', 'Prairie View A&M University')",
-    "('716', 'Texas A&M Engineering Extension Service')",
-    "('717', 'Texas Southern University')",
-    "('718', 'Texas A&M University at Galveston')",
-    "('719', 'Texas State Technical College System')",
-    "('720', 'University of Texas System')",
-    "('721', 'University of Texas at Austin')",
-    "('723', 'University of Texas Medical Branch at Galveston')",
-    "('724', 'University of Texas at El Paso')",
-    "('727', 'Texas A&M Transportation Institute')",
-    "('729', 'University of Texas Southwestern Medical Center')",
-    "('730', 'University of Houston')",
-    "('731', ""Texas Woman's University"")",
-    "('732', 'Texas A&M University - Kingsville')",
-    "('733', 'Texas Tech University')",
-    "('734', 'Lamar University')",
-    "('735', 'Midwestern State University')",
-    "('737', 'Angelo State University')",
-    "('738', 'University of Texas at Dallas')",
-    "('739', 'Texas Tech University Health Sciences Center')",
-    "('742', 'University of Texas of the Permian Basin')",
-    "('743', 'University of Texas at San Antonio')",
-    "('744', 'University of Texas Health Science Center at Houston')",
-    "('745', 'University of Texas Health Science Center at San Antonio')",
-    "('746', 'University of Texas Rio Grande Valley')",
-    "('749', 'Texas A&M University at San Antonio')",
-    "('750', 'University of Texas at Tyler')",
-    "('751', 'East Texas A&M University')",
-    "('752', 'University of North Texas')",
-    "('753', 'Sam Houston State University')",
-    "('754', 'Texas State University')",
-    "('755', 'Stephen F. Austin State University, a member of The University of Texas System')",
-    "('756', 'Sul Ross State University')",
-    "('757', 'West Texas A&M University')",
-    "('758', 'Texas State University System')",
-    "('759', 'University of Houston - Clear Lake')",
-    "('760', 'Texas A&M University - Corpus Christi')",
-    "('761', 'Texas A&M International University')",
-    "('763', 'University of North Texas Health Science Center at Fort Worth')",
-    "('764', 'Texas A&M University - Texarkana')",
-    "('765', 'Texas A&M University - Victoria')",
-    "('768', 'Texas Tech University System')",
-    "('769', 'University of North Texas System')",
-    "('770', 'Texas A&M University - Central Texas')",
-    "('771', 'Texas School for the Blind and Visually Impaired')",
-    "('772', 'Texas School for the Deaf')",
-    "('773', 'University of North Texas at Dallas')",
-    "('774', 'Texas Tech University Health Sciences Center - El Paso')",
-    "('775', ""Texas Woman's University System"")",
-    "('781', 'Texas Higher Education Coordinating Board')",
-    "('783', 'University of Houston System')",
-    "('784', 'University of Houston - Downtown')",
-    "('785', 'University of Texas Health Science Center at Tyler')",
-    "('787', 'Lamar State College - Orange')",
-    "('788', 'Lamar State College - Port Arthur')",
-    "('789', 'Lamar Institute of Technology')",
-    "('792', ""Reserved for Comptroller, ACFR Reporting (Texas Woman's University System)"")",
-    "('793', 'Reserved for Comptroller, ACFR Reporting (Texas Tech University System)')",
-    "('794', 'Reserved for Comptroller, ACFR Reporting (University of North Texas System)')",
-    "('795', 'Reserved for Comptroller, ACFR Reporting (Texas State University System)')",
-    "('797', 'Reserved for Comptroller, ACFR Reporting (University of Houston System)')",
-    "('798', 'Reserved for Comptroller, ACFR Reporting (Texas A&M University System)')",
-    "('799', 'Reserved for Comptroller, ACFR Reporting (University of Texas System)')",
-    "('802', 'Parks and Wildlife Department')",
-    "('808', 'Texas Historical Commission')",
-    "('809', 'State Preservation Board')",
-    "('813', 'Texas Commission on the Arts')",
-    "('897', 'Reserved - Employees Retirement System')",
-    "('898', 'Reserved - Employees Retirement System')",
-    "('902', 'Comptroller - State Fiscal')",
-    "('903', 'Comptroller - Funds Management')",
-    "('907', 'Comptroller - State Energy Conservation Office')",
-    "('908', 'Comptroller - Texas Bullion Depository')",
-    "('909', 'Comptroller - Texas Broadband Development Office')",
-    "('910', 'Comptroller - Education Programs')",
-    "('930', 'Texas Treasury Safekeeping Trust Company')"
+000,Comptroller Central
+001,System Generated Liquidation Transaction Agency
+002,System Generated Payroll Agency
+003,System Generated Year-End and Other Agency
+004,USAS Year End Close Agency - Central Use Only
+005,Cost Allocation Generated Transaction Agency
+006,"Financial Reporting, Statewide Adjustments - Other"
+007,"Financial Reporting, Statewide Adjustments - Higher Education"
+012,Texas State Affordable Housing Corporation
+013,Correctional Managed Health Care Committee
+014,Texas A&M Research Foundation (Blended Component Unit)
+016,Texas Council on Alzheimer's Disease and Related Disorders
+020,OneStar National Service Commission
+090,"Financial Reporting, Statewide Allocation - General"
+091,"Financial Reporting, Statewide Allocation - Regulatory"
+092,"Financial Reporting, Statewide Allocation - Health and Human Services"
+093,"Financial Reporting, Statewide Allocation - Natural Resources"
+094,"Financial Reporting, Statewide Allocation - Transportation"
+095,"Financial Reporting, Statewide Allocation - Public Safety"
+096,"Financial Reporting, Statewide Allocation - Education"
+097,"Financial Reporting, Statewide Allocation - Teacher Retirement Benefits"
+098,"Financial Reporting, Statewide Allocation - Employee Benefits"
+099,Security Shell Agency - Central Use Only
+101,Senate
+102,House of Representatives
+103,Texas Legislative Council
+104,Legislative Budget Board
+105,Legislative Reference Library
+107,Commission on Uniform State Laws
+116,Sunset Advisory Commission
+201,Supreme Court
+202,State Bar of Texas
+203,Board of Law Examiners
+211,Court of Criminal Appeals
+212,Office of Court Administration
+213,State Prosecuting Attorney
+215,Office of Capital and Forensic Writs
+221,Court of Appeals - First Court of Appeals District
+222,Court of Appeals - Second Court of Appeals District
+223,Court of Appeals - Third Court of Appeals District
+224,Court of Appeals - Fourth Court of Appeals District
+225,Court of Appeals - Fifth Court of Appeals District
+226,Court of Appeals - Sixth Court of Appeals District
+227,Court of Appeals - Seventh Court of Appeals District
+228,Court of Appeals - Eighth Court of Appeals District
+229,Court of Appeals - Ninth Court of Appeals District
+230,Court of Appeals - Tenth Court of Appeals District
+231,Court of Appeals - Eleventh Court of Appeals District
+232,Court of Appeals - Twelfth Court of Appeals District
+233,Court of Appeals - Thirteenth Court of Appeals District
+234,Court of Appeals - Fourteenth Court of Appeals District
+235,Court of Appeals - Fifteenth Court of Appeals District
+241,Comptroller - Judiciary Section
+242,State Commission on Judicial Conduct
+243,State Law Library
+300,Governor - Fiscal
+301,Governor - Executive
+302,Attorney General
+303,Texas Facilities Commission
+304,Comptroller of Public Accounts
+305,General Land Office
+306,Texas State Library and Archives Commission
+307,Secretary of State
+308,State Auditor
+311,Comptroller - Treasury Fiscal
+312,State Securities Board
+313,Department of Information Resources
+315,Comptroller - Prepaid Higher Education Tuition Board
+320,Texas Workforce Commission
+323,Teacher Retirement System of Texas
+326,Texas Emergency Services Retirement System
+327,Employees Retirement System of Texas
+328,Veterans Land Board
+329,Texas Real Estate Commission
+332,Texas Department of Housing and Community Affairs
+333,Office of State-Federal Relations
+338,State Pension Review Board
+343,Inaugural Committee
+347,Texas Public Finance Authority
+352,Bond Review Board
+356,Texas Ethics Commission
+358,Texas Space Commission
+359,Office of Public Insurance Counsel
+360,State Office of Administrative Hearings
+361,Office for the Prevention of Developmental Disabilities
+363,Texas Workforce Investment Council
+364,Health Professions Council
+368,Motor Vehicle Crime Prevention Authority
+371,Texas Cyber Command
+401,Texas Military Department
+403,Texas Veterans Commission
+405,Department of Public Safety
+407,Texas Commission on Law Enforcement
+409,Commission on Jail Standards
+411,Texas Commission on Fire Protection
+448,Office of Injured Employee Counsel
+450,Department of Savings and Mortgage Lending
+451,Texas Department of Banking
+452,Texas Department of Licensing and Regulation
+454,Texas Department of Insurance
+455,Railroad Commission of Texas
+456,Texas State Board of Plumbing Examiners
+457,Texas State Board of Public Accountancy
+458,Texas Alcoholic Beverage Commission
+459,Texas Board of Architectural Examiners
+460,Texas Board of Professional Engineers and Land Surveyors
+466,Office of Consumer Credit Commissioner
+469,Credit Union Department
+470,Motor Vehicle Board
+473,Public Utility Commission of Texas
+475,Office of Public Utility Counsel
+476,Texas Racing Commission
+477,Commission on State Emergency Communications
+479,State Office of Risk Management
+481,Texas Board of Professional Geoscientists
+503,Texas Medical Board
+504,State Board of Dental Examiners
+506,University of Texas M. D. Anderson Cancer Center
+507,Texas Board of Nursing
+508,Texas Board of Chiropractic Examiners
+510,Texas Behavioral Health Executive Council
+513,Texas Funeral Service Commission
+514,Texas Optometry Board
+515,Texas State Board of Pharmacy
+522,Texas Board of Physical Therapy Examiners
+529,Health and Human Services Commission
+530,Department of Family and Protective Services
+533,Executive Council of Physical Therapy and Occupational Therapy Examiners
+534,Texas Board of Occupational Therapy Examiners
+535,Texas Low-Level Radioactive Waste Disposal Compact Commission
+537,Department of State Health Services
+542,Cancer Prevention and Research Institute of Texas
+543,Dementia Prevention and Research Institute of Texas
+544,Texas Civil Commitment Office
+551,Department of Agriculture
+554,Texas Animal Health Commission
+555,Texas A&M AgriLife Extension Service
+556,Texas A&M AgriLife Research
+557,Texas A&M Veterinary Medical Diagnostic Laboratory
+575,Texas Division of Emergency Management
+576,Texas A&M Forest Service
+578,State Board of Veterinary Medical Examiners
+580,Texas Water Development Board
+582,Texas Commission on Environmental Quality
+592,Soil and Water Conservation Board
+601,Texas Department of Transportation
+608,Texas Department of Motor Vehicles
+643,Office of Independent Ombudsman
+644,Texas Juvenile Justice Department
+646,Texas Correctional Office on Offenders with Medical or Mental Impairments
+673,Texas Center for Infectious Disease
+684,Rio Grande State Center
+696,Texas Department of Criminal Justice
+701,Texas Education Agency
+703,Reserved - Legislative Budget Board
+704,Public Community/Junior Colleges
+705,State Board for Educator Certification
+706,Texas Permanent School Fund Corporation
+707,Texas A&M University System - Office of Technology Commercialization
+708,Texas A&M University System - Shared Services Center
+709,Texas A&M University System Health Science Center
+710,Texas A&M University System
+711,Texas A&M University
+712,Texas A&M Engineering Experiment Station
+713,Tarleton State University
+714,University of Texas at Arlington
+715,Prairie View A&M University
+716,Texas A&M Engineering Extension Service
+717,Texas Southern University
+718,Texas A&M University at Galveston
+719,Texas State Technical College System
+720,University of Texas System
+721,University of Texas at Austin
+723,University of Texas Medical Branch at Galveston
+724,University of Texas at El Paso
+727,Texas A&M Transportation Institute
+729,University of Texas Southwestern Medical Center
+730,University of Houston
+731,Texas Woman's University
+732,Texas A&M University - Kingsville
+733,Texas Tech University
+734,Lamar University
+735,Midwestern State University
+737,Angelo State University
+738,University of Texas at Dallas
+739,Texas Tech University Health Sciences Center
+742,University of Texas of the Permian Basin
+743,University of Texas at San Antonio
+744,University of Texas Health Science Center at Houston
+745,University of Texas Health Science Center at San Antonio
+746,University of Texas Rio Grande Valley
+749,Texas A&M University at San Antonio
+750,University of Texas at Tyler
+751,East Texas A&M University
+752,University of North Texas
+753,Sam Houston State University
+754,Texas State University
+755,"Stephen F. Austin State University, a member of The University of Texas System"
+756,Sul Ross State University
+757,West Texas A&M University
+758,Texas State University System
+759,University of Houston - Clear Lake
+760,Texas A&M University - Corpus Christi
+761,Texas A&M International University
+763,University of North Texas Health Science Center at Fort Worth
+764,Texas A&M University - Texarkana
+765,Texas A&M University - Victoria
+768,Texas Tech University System
+769,University of North Texas System
+770,Texas A&M University - Central Texas
+771,Texas School for the Blind and Visually Impaired
+772,Texas School for the Deaf
+773,University of North Texas at Dallas
+774,Texas Tech University Health Sciences Center - El Paso
+775,Texas Woman's University System
+781,Texas Higher Education Coordinating Board
+783,University of Houston System
+784,University of Houston - Downtown
+785,University of Texas Health Science Center at Tyler
+787,Lamar State College - Orange
+788,Lamar State College - Port Arthur
+789,Lamar Institute of Technology
+792,"Reserved for Comptroller, ACFR Reporting (Texas Woman's University System)"
+793,"Reserved for Comptroller, ACFR Reporting (Texas Tech University System)"
+794,"Reserved for Comptroller, ACFR Reporting (University of North Texas System)"
+795,"Reserved for Comptroller, ACFR Reporting (Texas State University System)"
+797,"Reserved for Comptroller, ACFR Reporting (University of Houston System)"
+798,"Reserved for Comptroller, ACFR Reporting (Texas A&M University System)"
+799,"Reserved for Comptroller, ACFR Reporting (University of Texas System)"
+802,Parks and Wildlife Department
+808,Texas Historical Commission
+809,State Preservation Board
+813,Texas Commission on the Arts
+897,Reserved - Employees Retirement System
+898,Reserved - Employees Retirement System
+902,Comptroller - State Fiscal
+903,Comptroller - Funds Management
+907,Comptroller - State Energy Conservation Office
+908,Comptroller - Texas Bullion Depository
+909,Comptroller - Texas Broadband Development Office
+910,Comptroller - Education Programs
+930,Texas Treasury Safekeeping Trust Company
+A0001,BAKERRIPLEY
+A0004,EL PASO CENTER FOR CHILDREN
+A0007,"WORKQUEST (FORMERLY TIBH, INC.)"
+A0025,UNITED WAY FOR GREATER AUSTIN
+A0026,MONTGOMERY CO YOUTH SERVICES
+A0028,MEALS ON WHEELS OF ERATH COUNTY SENIORS
+A0031,VOLUNTEERS OF AMERICA TEXAS
+A0039,PRESBYTERIAN CHILDRENS HOMES
+A0048,TEXAS ADVOCACY PROJECT INC
+A0050,SOUTH PLAINS RURAL HEALTH SERVICES INC
+A0052,A WORLD FOR CHILDREN
+A0056,CHILD CARE ASSOCIATES
+A0064,SEVEN ACRES JEWISH SR CARE SERVICES
+A0065,THE RESOURCE GROUP HOUSTON
+A0080,"ANY BABY CAN, INC."
+A0092,FAMILY SERVICE ASSOC SAN ANTONIO
+A0113,CENTRAL TEXAS COMMUNITY HEALTH CENTER
+A0114,LEARN
+A0155,ST. MARYS UNIVERSITY
+A0157,ROLLING PLAINS MANAGEMENT CORP
+A0220,WORKFORCE SOLUTIONS FOR SOUTH TEXAS
+A0398,North Central Texas Trauma Regional Advisory Council (NCTTRAC)
+A0429,DEPELCHIN CHILDREN'S CENTER
+A0623,MOTIVATION EDUCATION & TRAINING INC.
+A0720,SUNNY GLEN CHILDREN'S HOME
+A0777,DISABILITY RIGHTS TEXAS
+A0788,ASPERMONT SMALL BUSINESS DEVELOP CENTER
+A0922,LETOURNEAU UNIVERSITY
+A1097,UNITED WAY OF GREATER HOUSTON
+A1100,SOUTH PLAINS COMMUNITY ACTION ASSOC
+A1111,LUTHERAN SOCIAL SERVICES OF THE SOUTH
+A1122,"COLORADO VALLEY TRANSIT, INC."
+A1263,RICHARD MILBURN ACADEMY TEXAS
+A1374,DEVEREUX TEXAS
+A1388,TEXAS LEGAL SERVICES CENTER
+A1414,COASTAL BEND BAYS & ESTUARIES
+A1478,"AVANCE HOUSTON, INC"
+A1750,ADVANCE CHILD CARE
+A1892,SOUTHEAST VOCATIONAL ALLIANCE INC.
+A1908,"TEXAS RIOGRANDE LEGAL AID, INC (TRLA)"
+A1991,RURAL CAPITAL AREA WORKFORCE SOLUTIONS
+A2020,PANHANDLE INDEPENDENT LIVING CENTER
+A2021,EAST TX HLTH CLNC DBA GENESIS PRIMECARE
+A2237,CHILD CARE GROUP
+A2404,SOUTHWESTERN UNIVERSITY
+A3021,CAREFLITE
+A3541,MIDLAND COMMUNITY HEALTHCARE
+A3579,Children's Advocacy Centers of Texas
+A3634,South Texas College of Law
+A3657,"American GI Forum National Veterans Outreach Program, Inc."
+A3749,Brazos Valley Council on Alcohol and Substance Abuse
+A3833,Emergency Management and Response
+A3875,Our Community Our Kids
+A4038,"ADAPT Foundation, Inc."
+A4252,ARROW CHILD & FAMILY MINISTRIES
+A4412,"SPAN, INC."
+A5522,SAN ANTONIO METROPOLITAN SAM MINISTRIES
+A7020,DALLAS BAPTIST UNIVERSITY
+A7274,COMMUNITY ACTION CORPS SOUTH TX (CACOST)
+A7286,"HEAD START GREATER DALLAS, INC"
+A7298,A PLUS CHARTER SCHOOLS
+A7302,TEXAS LUTHERAN UNIVERSITY
+A7305,ZACHARY SCOTT THEATRE CENTER
+A8064,"ATASCOSA HEALTH CENTER, INC."
+B0002,GUADALUPE REGIONAL MEDICAL CENTER
+B0004,MONTGOMERY COUNTY HOSPITAL DISTRICT
+B0006,TRAVIS COUNTY HEALTHCARE DISTRICT
+B0008,JPS HEALTH NETWORK
+B0016,LUBBOCK COUNTY HOSPITAL DISTRICT (UMC)
+B0101,HARRIS COUNTY HOSPITAL DISTRICT
+B0200,SWEENY HOSPITAL DISTRICT
+B0500,CORYELL CO MEMORIAL HOSPITAL AUTHORITY
+B0570,DALLAS COUNTY HOSPITAL DISTRICT PARKLAND
+B0840,GALVESTON COUNTY HEALTH DISTRICT
+B1099,BEXAR COUNTY HOSPITAL DISTRICT
+B1725,ANDREWS COUNTY HOSPITAL DISTRICT (PRMC)
+B1780,NUECES COUNTY HOSPITAL DIST
+B2017,CHAMBERS COUNTY PUBLIC HOSPITAL DIST. #1
+B2021,MAVERICK COUNTY HOSPITAL DISTRICT
+B2022,KARNES COUNTY HOSPITAL DISTRICT
+B2023,Schleicher County Hospital District
+B2255,PARKER COUNTY HOSPITAL DISTRICT
+B2590,HOPKINS COUNTY HOSPITAL DISTRICT
+C0001,CALHOUN COUNTY
+C0002,MARTIN COUNTY
+C0003,CULBERSON COUNTY
+C0004,RED RIVER COUNTY
+C0005,LA SALLE COUNTY
+C0006,NOLAN COUNTY
+C0008,FALLS COUNTY
+C0010,ANDERSON COUNTY
+C0011,DEAF SMITH COUNTY
+C0012,ROBERTS COUNTY
+C0013,IRION COUNTY
+C0014,SWISHER COUNTY
+C0015,GLASSCOCK COUNTY
+C0016,DICKENS COUNTY
+C0018,GRAY COUNTY
+C0019,SCURRY COUNTY
+C0020,ANDREWS COUNTY
+C0021,BRISCOE COUNTY
+C0022,COLLINGSWORTH COUNTY
+C0023,CASS COUNTY
+C0025,HILL COUNTY
+C0026,UVALDE COUNTY
+C0027,MORRIS COUNTY
+C0028,HALE COUNTY
+C0029,CASTRO COUNTY
+C0030,ANGELINA COUNTY
+C0032,KENT COUNTY
+C0033,LYNN COUNTY
+C0035,HARTLEY COUNTY
+C0037,FLOYD COUNTY
+C0038,HEMPHILL COUNTY
+C0039,BOSQUE COUNTY
+C0040,ARANSAS COUNTY
+C0041,WHEELER COUNTY
+C0042,MOORE COUNTY
+C0043,HOCKLEY COUNTY
+C0045,GAINES COUNTY
+C0048,DALLAM COUNTY
+C0050,ARCHER COUNTY
+C0052,EDWARDS COUNTY
+C0055,CALLAHAN COUNTY
+C0070,ATASCOSA COUNTY
+C0090,BAILEY COUNTY
+C0100,BANDERA COUNTY
+C0110,BASTROP COUNTY
+C0130,BEE COUNTY
+C0140,BELL COUNTY
+C0150,BEXAR COUNTY/PURCHASING
+C0160,BLANCO COUNTY
+C0170,BORDEN COUNTY
+C0190,BOWIE COUNTY
+C0200,BRAZORIA COUNTY
+C0211,BRAZOS COUNTY
+C0220,BREWSTER COUNTY
+C0240,BROOKS COUNTY
+C0250,BROWN COUNTY
+C0260,BURLESON COUNTY
+C0270,BURNET COUNTY
+C0280,CALDWELL COUNTY
+C0311,CAMERON COUNTY
+C0330,CARSON COUNTY
+C0360,CHAMBERS COUNTY
+C0370,CHEROKEE COUNTY (COURTHOUSE)
+C0380,CHILDRESS COUNTY
+C0390,CLAY COUNTY
+C0410,COKE COUNTY
+C0430,COLLIN COUNTY
+C0450,COLORADO COUNTY
+C0460,COMAL COUNTY
+C0470,COMANCHE COUNTY
+C0490,COOKE COUNTY
+C0500,CORYELL COUNTY
+C0520,CRANE COUNTY
+C0570,DALLAS COUNTY
+C0580,DAWSON COUNTY
+C0610,DENTON COUNTY
+C0620,DEWITT COUNTY
+C0670,EASTLAND COUNTY
+C0680,ECTOR COUNTY
+C0700,ELLIS COUNTY
+C0710,EL PASO COUNTY
+C0720,ERATH COUNTY
+C0740,FANNIN COUNTY
+C0750,FAYETTE COUNTY
+C0790,FORT BEND COUNTY
+C0800,FRANKLIN COUNTY
+C0810,FREESTONE COUNTY
+C0820,FRIO COUNTY
+C0840,GALVESTON COUNTY
+C0850,GARZA COUNTY
+C0860,GILLESPIE COUNTY
+C0880,GOLIAD COUNTY
+C0890,GONZALES COUNTY
+C0911,GRAYSON COUNTY
+C0920,GREGG COUNTY
+C0930,GRIMES COUNTY
+C0940,GUADALUPE COUNTY
+C0980,HANSFORD COUNTY
+C0990,HARDEMAN COUNTY
+C1000,HARDIN COUNTY
+C1008,ARMSTRONG COUNTY
+C1010,HARRIS COUNTY
+C1020,HARRISON COUNTY
+C1050,HAYS COUNTY
+C1070,HENDERSON COUNTY
+C1080,HIDALGO COUNTY
+C1110,HOOD COUNTY
+C1120,HOPKINS COUNTY
+C1130,HOUSTON COUNTY
+C1140,HOWARD COUNTY
+C1160,HUNT COUNTY
+C1170,HUTCHINSON COUNTY
+C1190,JACK COUNTY
+C1200,JACKSON COUNTY
+C1210,JASPER COUNTY
+C1220,JEFF DAVIS COUNTY
+C1223,WILBARGER COUNTY
+C1230,JEFFERSON COUNTY
+C1250,JIM WELLS COUNTY
+C1260,JOHNSON COUNTY
+C1270,JONES COUNTY
+C1290,KAUFMAN COUNTY
+C1300,KENDALL COUNTY
+C1330,KERR COUNTY
+C1340,KIMBLE COUNTY
+C1355,PRESIDIO COUNTY
+C1370,KLEBERG COUNTY
+C1390,LAMAR COUNTY
+C1410,LAMPASAS COUNTY
+C1430,LAVACA COUNTY
+C1440,LEE COUNTY
+C1450,LEON COUNTY AUDITORS OFFICE
+C1460,LIBERTY COUNTY
+C1470,LIMESTONE COUNTY
+C1480,LIPSCOMB COUNTY
+C1490,LIVE OAK COUNTY
+C1500,LLANO COUNTY
+C1520,LUBBOCK COUNTY
+C1540,MADISON COUNTY
+C1550,MARION COUNTY
+C1570,MASON COUNTY
+C1581,MATAGORDA COUNTY
+C1590,MAVERICK COUNTY
+C1600,MCCULLOCH COUNTY
+C1610,MCLENNAN COUNTY
+C1630,MEDINA COUNTY
+C1650,MIDLAND COUNTY
+C1690,MONTAGUE COUNTY
+C1702,MONTGOMERY COUNTY
+C1740,NACOGDOCHES COUNTY
+C1750,NAVARRO COUNTY
+C1760,NEWTON COUNTY
+C1781,NUECES COUNTY
+C1811,ORANGE COUNTY
+C1820,PALO PINTO COUNTY
+C1830,PANOLA COUNTY
+C1840,PARKER COUNTY
+C1870,POLK COUNTY
+C1880,POTTER COUNTY
+C1892,DELTA COUNTY
+C1900,RAINS COUNTY
+C1910,RANDALL COUNTY
+C1950,REEVES COUNTY
+C1960,REFUGIO COUNTY
+C1980,ROBERTSON COUNTY
+C1990,ROCKWALL COUNTY
+C2010,RUSK COUNTY
+C2020,SABINE COUNTY
+C2040,SAN JACINTO COUNTY
+C2050,SAN PATRICIO COUNTY
+C2100,SHELBY COUNTY
+C2120,SMITH COUNTY
+C2130,SOMERVELL COUNTY
+C2202,TARRANT COUNTY
+C2210,TAYLOR COUNTY
+C2220,TERRELL COUNTY
+C2250,TITUS COUNTY
+C2260,TOM GREEN COUNTY
+C2270,TRAVIS COUNTY
+C2280,TRINITY COUNTY
+C2300,UPSHUR COUNTY
+C2311,UPTON COUNTY
+C2330,VAL VERDE COUNTY
+C2340,VAN ZANDT COUNTY
+C2350,VICTORIA COUNTY
+C2360,WALKER COUNTY
+C2370,WALLER COUNTY
+C2380,WARD COUNTY
+C2390,WASHINGTON COUNTY
+C2400,WEBB COUNTY
+C2410,WHARTON COUNTY
+C2430,WICHITA COUNTY
+C2450,WILLACY COUNTY
+C2460,WILLIAMSON COUNTY
+C2470,WILSON COUNTY
+C2480,WINKLER COUNTY
+C2490,WISE COUNTY
+C2500,WOOD COUNTY
+C2510,YOAKUM COUNTY
+C2520,YOUNG COUNTY
+C2530,ZAPATA COUNTY
+C2531,KARNES COUNTY
+C2550,COCHRAN COUNTY
+C2551,STARR COUNTY
+C2554,LAMB COUNTY
+C3651,COUNTY OF COTTLE
+C4840,PARMER COUNTY
+D0004,BRAZORIA CO DRAINAGE DIST #5
+D0012,CPS ENERGY
+D0013,JOHNSON COUNTY SPECIAL UTILITY DISTRICT
+D0015,LAGUNA MADRE WATER DISTRICT
+D0018,BLUEBONNET GROUND CONSERVATION DIST
+D0020,BRAZORIA CO DRAINAGE DISTRICT #4
+D0023,HIDALGO CO DRAINAGE DIST #1
+D0028,EVERGREEN UWCD
+D0032,HARLINGEN WATERWORKS SYSTEM
+D0033,STEPHENS RGNL SPEC UTIL DIST
+D0041,TITUS COUNTY FRESH WATER SUPPLY DIST #1
+D0043,BRUSHY CREEK MUNICIPAL UTILITY DISTRICT
+D0044,FOUR WAY SPECIAL UTILITY DISTRICT
+D0101,UNITED IRRIGATION DISTRICT
+D0111,SOUTH TEXAS WATER AUTHORITY
+D0150,SAN ANTONIO WATER SYSTEM BOARD
+D0190,NUECES COUNTY WATER C&I DIST NO. 4
+D0306,JEFFERSON COUNTY DRAINAGE DISTRICT NO. 6
+D0316,BROWNSVILLE PUBLIC UTILITIES BOARD
+D0330,PANHANDLE GROUNDWATER CONSERV DISTRICT
+D0610,UPPER TRINITY REGIONAL WATER DISTRICT
+D0706,EAGLE PASS WATER WORKS SYSTEM
+D0912,GREATER TEXOMA UTILITY AUTHORITY
+D1011,GULF COAST WASTE DISPOSAL AUTHORITY
+D1070,EAST CEDAR CREEK FRESH WATER SUPPLY DIST
+D1122,LAKE LIVINGSTON WATER SUPPLY CORP.
+D1133,LUBBOCK COUNTY WCID #1
+D1140,COLORADO RIVER MUNICIPAL WATER DIST
+D1170,CANADIAN RIVER MUNICIPAL WATER AUTHORITY
+D1210,WEST TRAVIS COUNTY PUBLIC UTILITY AGENCY
+D1211,MCKINNEY MUD NO. 1 OF COLLIN COUNTY
+D1231,LOWER NECHES VALLEY AUTHORITY
+D1300,FALLBROOK UTILITY DISTRICT
+D1440,Harris County Water Control and Improvement District 110
+D1679,BRAZORIA CO GR WATER CONSERVATION DIST
+D1910,COUNTY LINE SPECIAL UTILITY DISTRICT
+D1919,ELM RIDGE WATER CONTROL AND IMP DISTRICT
+D1980,FORT BEND COUNTY MUD NO. 131
+D1988,KAUFMAN VANZANDT ROCKWAL SOIL WATER DIST
+D2016,PRAIRIELANDS G.C.D.
+D2029,SAN PATRICIO MUNICIPAL WATER DISTRICT
+D2200,TARRANT REGIONAL WATER DISTRICT
+D2277,TRAVIS COUNTY WATER CONTROL IMP. DIST 17
+D2414,ANGLETON DRAINAGE DISTRICT
+D2462,Greenville Electric Utility System (GEUS)
+D2590,BASTROP COUNTY WCID #2
+D2650,COLLIN COUNTY MUNICIPAL UTILITY DIST #1
+D3430,Jefferson County Drainage District No. 3
+D3443,Rolling Plains Groundwater Conservation District
+D3473,East Central Special Utility District
+D3580,Dallas County Park Cities MUD
+D3757,Coastal Water Authority
+D3990,Red River Authority of Texas
+D4040,ROCKETT SPECIAL UTILITY DISTRICT
+D4147,HARRIS COUNTY MUD 217
+D6873,LUBBOCK POWER & LIGHT
+D7985,MUSTANG SPECIAL UTILITY DISTRICT
+E0150,ESC REGION 20
+E0570,ESC REGION 10
+E0710,ESC REGION 19
+E0920,ESC REGION 7
+E1018,ESC REGION 4
+E1083,ESC REGION 1
+E1230,ESC REGION 5
+E1520,ESC REGION 17
+E1610,ESC REGION 12
+E1652,ESC REGION 18
+E1881,ESC REGION 16
+E2200,ESC REGION 11
+E2210,ESC REGION 14
+E2250,ESC REGION 8
+E2261,ESC REGION 15
+E2274,ESC REGION 13
+E2350,ESC REGION 3
+E2361,ESC REGION 6
+E2430,ESC REGION 9
+F3876,North Liberty County Volunteer Fire Dept.
+F3887,Harris County Emergency Service District No. 46
+G0001,TEXOMA COUNCIL OF GOVERNMENTS
+G0150,ALAMO AREA COUNCIL OF GOVERNMENTS
+G0190,ARK-TEX COUNCIL OF GOVERNMENTS
+G0210,BRAZOS VALLEY COUNCIL OF GOVERNMENTS
+G0640,MIDDLE RIO GRANDE DEV COUNCIL
+G0710,RIO GRANDE COUNCIL OF GOVERNMENTS
+G0920,EAST TEXAS COUNCIL OF GOVERNMENTS
+G1010,HOUSTON-GALVESTON AREA COUNCIL
+G1080,LOWER RIO GRANDE VALLEY DEVELOP COUNCIL
+G1210,DEEP EAST TX COUNCIL OF GOVTS
+G1520,SOUTH PLAINS ASSOC OF GOVERNMENTS
+G1610,HEART OF TEXAS COUNCIL OF GOVERNMENTS
+G1650,Permian Basin Regional Planning Commission
+G1780,COASTAL BEND COUNCIL OF GOVERNMENTS
+G1880,PANHANDLE REGIONAL PLANNING COMMISSION
+G2200,NORTH CENTRAL TEXAS COUNCIL GOVERNMENT
+G2260,CONCHO VALLEY COUNCIL OF GOVTS
+G2270,CAPITAL AREA COUNCIL OF GOVERNMENTS
+G2350,GOLDEN CRESCENT REGIONAL PLAN COMMISSION
+G2400,SOUTH TEXAS DEVELOPMENT COUNCIL
+J0001,HILL COLLEGE
+J0030,ANGELINA COLLEGE
+J0031,CLARENDON COLLEGE
+J0130,COASTAL BEND COLLEGE
+J0140,CENTRAL TEXAS COLLEGE
+J0141,TEMPLE COLLEGE
+J0150,ALAMO COMMUNITY COLLEGE DISTRICT
+J0200,BRAZOSPORT COLLEGE
+J0202,ALVIN COMMUNITY COLLEGE
+J0310,TEXAS SOUTHMOST COLLEGE
+J0362,LEE COLLEGE
+J0430,COLLIN COUNTY COMMUNITY COLLEGE DISTRICT
+J0490,NORTH CENTRAL TEXAS COLLEGE
+J0570,DALLAS COUNTY COMMUNITY COLLEGE
+J0670,CISCO COLLEGE
+J0680,ODESSA JUNIOR COLLEGE DISTRICT
+J0710,EL PASO COMMUNITY COLLEGE
+J0910,GRAYSON COLLEGE
+J0920,KILGORE COLLEGE
+J1010,LONE STAR COLLEGE SYSTEM
+J1012,HOUSTON CITY COLLEGE
+J1017,SAN JACINTO COLLEGE DISTRICT
+J1070,TRINITY VALLEY COMMUNITY COLLEGE
+J1080,SOUTH TEXAS COMMUNITY COLLEGE
+J1100,SOUTH PLAINS COLLEGE
+J1140,HOWARD COUNTY JR COLLEGE DIST
+J1214,RANGER COLLEGE
+J1222,TEXARKANA COLLEGE
+J1390,PARIS JUNIOR COLLEGE
+J1610,MCLENNAN COMMUNITY COLLEGE
+J1650,MIDLAND COLLEGE
+J1750,NAVARRO COLLEGE
+J1780,DEL MAR COLLEGE
+J1830,PANOLA COLLEGE
+J1840,WEATHERFORD COLLEGE
+J1880,AMARILLO COLLEGE
+J2080,WESTERN TEXAS COLLEGE
+J2120,TYLER JUNIOR COLLEGE
+J2201,TARRANT COUNTY COLLEGE
+J2250,NORTHEAST TX COMMUNITY COLLEGE
+J2270,AUSTIN COMMUNITY COLLEGE ACC
+J2320,SOUTHWEST TEXAS COLLEGE
+J2350,VICTORIA COLLEGE
+J2400,LAREDO COMMUNITY COLLEGE
+J2410,WHARTON COUNTY JUNIOR COLLEGE
+J2440,VERNON REGIONAL JR COLLEGE
+J4301,UNIVERSITY OF INCARNATE WORD
+K0001,CORPUS CHRISTI REG TRANSPORT AUTHORITY
+K0006,NORTH EAST TX WORKFORCE DEVELOPMEN BOARD
+K0007,WORKFORCE SOLUTIONS SOUTH PLAINS
+K0008,MIDLAND-ODESSA URBAN TRANSIT DISTRICT
+K0010,TRAVIS COUNTY EMERGENCY SERVICE DIST #2
+K0011,PORT OF HOUSTON AUTHORITY
+K0012,WORKFORCE SOLUTIONS (MCALLEN)
+K0013,CANYON REGIONAL WATER AUTHORITY
+K0017,WORKFORCE SOLUTIONS DEEP EAST TX DEV BD
+K0018,DENCO AREA 911 DISTRICT
+K0019,WORKFORCE SOLUTIONS GREATER DALLAS
+K0023,PARK BOARD TRUSTEES GALVESTON CNCIL GOVT
+K0025,HOUSING AUTHORITY OF CITY OF BAIRD
+K0027,NORTH TEXAS TOLLWAY AUTHORITY
+K0028,WORKFORCE SOLUTIONS BORDERPLEX
+K0035,CENTRAL TEXAS REGIONAL MOBILITY AUTHORIT
+K0037,DENTON COUNTY TRANSPORTATION AUTHORITY
+K0039,TX ASSOC OF REGIONAL COUNCILS
+K0042,LOWER COLORADO RIVER AUTHORITY (LCRA)
+K0043,BROOKS DEVELOPMENT AUTHORITY
+K0045,TML INTERGOVERN EMPLOYEE BENEFITS POOL
+K0052,TRAVIS COUNTY EMERGENCY SERVICE DIST #9
+K0081,NUECES CO SUPERVISION/CORRECTION DEPT
+K0140,TEMPLE HOUSING AUTHORITY
+K0150,SAN ANTONIO RIVER AUTHORITY
+K0151,EDWARDS AQUIFER AUTHORITY
+K0152,VIA METROPOLITAN TRANSIT
+K0155,BEXAR METRO 911 NETWORK DISTRICT
+K0156,SAN ANTONIO HOUSING AUTHORITY
+K0160,HOUSING AUTHORITY OF DENISON
+K0191,HOUSING AUTHORITY OF THE CITY OF LAREDO
+K0201,PORT FREEPORT
+K0210,BRAZOS VALLEY COMMUNITY ACTION AGENCY
+K0211,BRAZOS CO EMERGENCY COMM DISTRICT
+K0220,LIBERTY COUNTY ESD #7
+K0311,HARLINGEN IRRIGATION DISTRICT
+K0312,BROWNSVILLE NAVIGATION DISTRICT
+K0360,CHAMBERS-LIBERTY COUNTIES NAVIGATE DIST
+K0421,CENTRAL TEXAS RURAL TRANSIT DISTRICT
+K0572,DALLAS/FORT WORTH INTERNATIONAL AIRPORT
+K0620,WILLIAMSON CO EMERGENCY SERVICE DIST #7
+K0710,EL PASO COUNTY WATER IMPROVE DIST #1
+K0711,EL PASO WATER UTILITIES PUB SERV BOARD
+K0712,Housing Authority of the City of El Paso d/b/a HOME
+K0723,ROBERTSON COUNTY EMERGENCY SERVICE DIST.
+K0817,BLANCO COUNTY EMERGENCY SERV. DIST. #2
+K0840,GALVESTON HOUSING AUTHORITY
+K0842,GULF COAST WATER AUTHORITY
+K0843,GALVESTON CO WATER CONTROL & IMP DIST #1
+K0940,GUADALUPE BLANCO RIVER AUTHORITY
+K1012,HARRIS COUNTY  DEPT OF EDUCATION
+K1017,HOUSTON HOUSING AUTHORITY
+K1018,METRO TRANSIT AUTHORITY HARRIS COUNTY
+K1025,RURAL ECONOMIC ASSISTANCE LEAGUE (REAL)
+K1026,MONTGOMERY COUNTY EMERGENCY SERV DIS #10
+K1082,DELTA LAKE IRRIGATION DISTRICT
+K1091,KERRVILLE PUBLIC UTILITY BOARD
+K1123,SOUTHWEST AREA REGIONAL TRANSIT DISTRICT
+K1143,HOUSTON FIREFIGHTERS' RELIEF/RETMNT FUND
+K1147,HILL COUNTRY TRANSIT DISTRICT
+K1150,HUDSPETH COUNTY CONSV/REC DIST #1
+K1202,ANGELINA COUNTY & CITIES HEALTH DISTRICT
+K1220,ROUND ROCK HOUSING AUTHORITY
+K1222,CITY OF EAGLE PASS HOUSING AUTHORITY
+K1223,LIBERTY COUNTY HOUSING AUTHORITY
+K1225,NORTHEAST TEXAS PUBLIC HEALTH DISTRICT
+K1230,PORT OF BEAUMONT NAVIGATION
+K1232,HOUSING AUTHOR OF PORT ARTHUR
+K1233,SOUTH EAST TEXAS REGION PLAN COMMISSION
+K1234,BEAUMONT HOUSING AUTHORITY
+K1273,BRAZOS VALLEY SOLID WASTE MGMT AGENCY
+K1323,WOODLANDS TOWNSHIP (THE)
+K1330,KERR EMERGENCY 911 NETWORK
+K1335,EMERGENCY COMM. DISTRICT OF ECTOR COUNTY
+K1338,TRINITY BAY CONSERVATION DISTRICT
+K1414,NUECES RIVER AUTHORITY
+K1449,WORKFORCE SOLUTIONS OF WEST CENTRAL TX
+K1487,NEW BOSTON PROPERTY MANAGEMENT
+K1499,UPPER SABINE VALLEY SOLID WASTE MGT DIST
+K1520,LUBBOCK EMERGENCY COMMUNICATION DISTRICT
+K1521,HOUSING AUTHORITY CITY OF LUBBOCK
+K1522,NEWTON HOUSING AUTHORITY
+K1545,SHERMAN HOUSING AUTHORITY
+K1555,COASTAL BEND WORKFORCE DEVELOPMENT BOARD
+K1610,WACO HOUSING AUTHORITY
+K1738,STAR TRANSIT
+K1777,HARRISON CO EMERGENCY SERVICE DIST NO.3
+K1780,PORT OF CORPUS CHRISTI AUTHORITY
+K1810,Port of Orange
+K1816,SABINE RIVER AUTHORITY OF TX
+K1817,ORANGE CO EMERGENCY SERVICES DIST 2
+K2013,PARKER COUNTY EMERGENCY SERVICE DIST #1
+K2014,MCLENNAN CO 911 EMERGENCY ASSIST DIST
+K2017,CAMERON COUNTY REGIONAL MOBILITY AUTH.
+K2020,PORT OF PORT ARTHUR NAVIGATION DISTRICT
+K2057,CITY OF VICTORIA HOUSING AUTHORITY
+K2144,BASTROP ESD NO.1
+K2158,ANDERSON MILL LIMITED DISTRICT
+K2200,FORT WORTH TRANSPORTATION AUTHORITY
+K2203,FORT WORTH HOUSING AUTHORITY
+K2204,DALLAS AREA RAPID TRANSIT (DART)
+K2205,TRINITY RIVER AUTHORITY OF TX
+K2222,ALAMO WORKFORCE DEVELOPMENT INC
+K2223,WORKFORCE SOLUTIONS CAMERON
+K2270,Austin Housing Authority
+K2273,CAPITAL AREA RURAL TRANSPORTATION SYSTEM
+K2274,TML INTERGOVERNMENTAL RISK POOL
+K2276,CAPITAL METROPOLITAN TRANSPORTATION AUTH
+K2280,WORKFORCE SOLUTIONS CAPITAL AREA BOARD
+K2431,HEART OF TX WORKFORCE DEVELOP BOARD
+K2432,ABILENE HOUSING AUTHORITY
+K2434,BENBROOK WATER AUTHORITY
+K2435,EL PASO COUNTY 911 DISTRICT
+K2439,TARRANT COUNTY 911 DISTRICT
+K2442,SAN JACINTO RIVER AUTHORITY
+K2451,CENTRAL TX WORKFORCE DEVELOP BOARD
+K2525,TARRANT COUNTY WORKFORCE DEVELOP BOARD
+K2590,HOUSTON FORENSIC SCIENCE CENTER
+K2616,WILLIAMSON COUNTY EMERGENCY SERV DIST #3
+K2932,FORT BEND CO. EMERGENCY SERVICES DIST #2
+K3051,ORANGE COUNTY DRAINAGE DISTRICT
+K3100,TEXAMERICAS CENTER
+K3111,HOUSING AUTHORITY OF BEXAR COUNTY
+K3217,HARRIS COUNTY HOUSING AUTHORITY
+K3392,HIDALGO CO. REGIONAL MOBILITY  AUTHORITY
+K3446,Gulf Coast Protection District
+K3460,Hico Housing Authority
+K3495,Housing Authority of the County of Hidalgo
+K3524,Walker County Housing Authority
+K3570,Harrison County ESD No.  2
+K3575,Concho Valley Workforce Development Board
+K3594,Denton County Emergency Services District No. 1
+K3597,Fort Bend County ESD 4
+K3606,Greater Brownsville Incentives Corporation
+K3637,Trinity Glen Rose Groundwater Conservation District
+K3649,Texas Housing Foundation
+K3663,Liberty County ESD #1
+K3667,Alabama Coushatta Tribe of Texas
+K3692,Commerce Assembly God / The Sonshine Center
+K3745,North Hays County ESD #1
+K3755,PARKER COUNTY EMERGENCY SERV. DIST. #3
+K3810,Blanco Pedernales Groundwater Conservation District
+K3813,Generation Park Management District
+K3824,Brownsville Community Improvement Corporation
+K3846,Milam County Emergency Services District No. 1
+K3856,"El Paso Area Transportation Services, LGC"
+K3860,City of Buda 4B Corporation
+K3916,Lakeside Municipal Utility District No. 5
+K3931,Upper Guadalupe River Authority
+K4018,Port Isabel San Benito Navigation District
+K4027,El Paso County Emergency Services District No.1
+K4035,OST/Almeda Corridors Redevelopment Authority - TIRZ #7
+K4092,WORKFORCE SOLUTIONS SOUTHEAST TEXAS
+K4147,HAYS COUNTY EMERGENCY SERVICES DIST 3
+K4551,HOUSTON POLICE OFFICERS PENSION SYSTEM
+K4567,PUBLIC TRANSIT SERVICES
+K4600,BRAZOS RIVER AUTHORITY
+K5050,MOUNT PLEASANT HOUSING AUTHORITY
+K5522,GULF COAST TRANSIT DISTRICT
+K5662,KILGORE ECONOMIC DEVELOPMENT CORPORATION
+K6033,JOHNSON CO EMERGENCY SERVICE DIST # 1
+K6301,WORKFORCE SOLUTIONS NORTH TEXAS
+K6931,BRAZORIA COUNTY EMERGENCY SERV DIST # 3
+K8664,TX RADIOACTIVE WASTE DISPOSAL COMMISSION
+K9407,WICHITA FALLS HOUSING AUTHORITY
+K9408,TEXAS MUNICIPAL POWER AGENCY
+L0003,BULVERDE AREA RURAL LIBRARY DISTRICT
+L0009,WESTBANK COMM LIBRARY DIST
+L2322,EAST TRAVIS GATEWAY LIBRARY DISTRICT
+L3498,Canyon Lake Community Library District
+L3525,Salado Public Library District
+M0001,CITY OF LAKE DALLAS
+M0003,CITY OF SCHERTZ
+M0006,CITY OF WASKOM
+M0007,CITY OF LUBBOCK
+M0008,CITY OF PEARSALL
+M0009,CITY OF QUINLAN
+M0010,CITY OF PALESTINE
+M0013,CITY OF HELOTES
+M0014,CITY OF TROY
+M0016,CITY OF OAK POINT
+M0020,CITY OF ANDREWS
+M0022,CITY OF CAMERON
+M0023,CITY OF ALAMO HEIGHTS
+M0024,CITY OF KRUGERVILLE
+M0027,CITY OF SPRINGTOWN
+M0029,CITY OF LAGO VISTA
+M0034,CITY OF GRAHAM
+M0035,CITY OF BENBROOK
+M0036,CITY OF JUNCTION
+M0037,CITY OF HILLSBORO
+M0039,CITY OF ASPERMONT
+M0043,CITY OF SANGER
+M0045,CITY OF NATALIA
+M0046,CITY OF ROLLINGWOOD
+M0047,CITY OF ANTHONY (TOWN)
+M0048,CITY OF ANNA
+M0050,CITY OF GIDDINGS
+M0051,CITY OF MELISSA
+M0052,CITY OF BORGER
+M0053,CITY OF FAIRVIEW (TOWN OF)
+M0055,CITY OF PILOT POINT
+M0056,CITY OF JONESTOWN
+M0058,CITY OF FORNEY
+M0059,CITY OF CACTUS
+M0060,CITY OF FLORENCE
+M0061,CITY OF GARDEN RIDGE
+M0062,CITY OF MURPHY
+M0063,CITY OF ROCKPORT
+M0064,CITY OF DALWORTHINGTON GARDENS
+M0065,CITY OF BRIDGEPORT
+M0066,CITY OF VENUS
+M0067,CITY OF ROBSTOWN
+M0068,CITY OF ROYSE CITY
+M0070,TOWN OF PROSPER
+M0073,CITY OF JASPER
+M0076,CITY OF BOYD
+M0078,CITY OF CADDO MILLS
+M0079,CITY OF PARKER
+M0081,CITY OF SEALY
+M0082,CITY OF BELLVILLE
+M0083,CITY OF HUTTO
+M0087,CITY OF SANTA ANNA
+M0090,CITY OF MULESHOE
+M0092,CITY OF TROPHY CLUB (TOWN)
+M0094,CITY OF BANDERA
+M0096,CITY OF INGLESIDE
+M0097,CITY OF WEATHERFORD
+M0098,CITY OF LIBERTY HILL
+M0100,CITY OF LEFORS
+M0101,CITY OF WEST COLUMBIA
+M0103,CITY OF HORSESHOE BAY
+M0105,CITY OF FERRIS
+M0107,CITY OF SUDAN
+M0108,CITY OF STRATFORD
+M0110,CITY OF ELGIN
+M0111,CITY OF BASTROP
+M0113,TOWN OF ARGYLE
+M0115,CITY OF CARTHAGE
+M0123,CITY OF GRANDVIEW
+M0124,CITY OF CRANDALL
+M0130,CITY OF BEEVILLE
+M0140,CITY OF HARKER HEIGHTS
+M0141,CITY OF TEMPLE
+M0142,CITY OF KILLEEN
+M0143,CITY OF LIVE OAK
+M0144,CITY OF BELTON
+M0150,CITY OF CASTLE HILLS
+M0152,CITY OF SAN ANTONIO
+M0153,CITY OF LEON VALLEY
+M0156,CITY OF TERRELL HILLS
+M0157,CITY OF WINDCREST
+M0159,CITY OF UNIVERSAL CITY
+M0160,CITY OF JOHNSON CITY
+M0180,CITY OF CLIFTON
+M0185,CITY OF SAN BENITO
+M0190,CITY OF TEXARKANA
+M0199,CITY OF ENNIS
+M0200,CITY OF ALVIN
+M0202,CITY OF IOWA COLONY
+M0203,CITY OF FREEPORT
+M0204,CITY OF PEARLAND
+M0205,CITY OF ANGLETON
+M0206,CITY OF OYSTER CREEK
+M0207,CITY OF LAKE JACKSON
+M0208,CITY OF CLUTE
+M0209,CITY OF RICHWOOD
+M0210,CITY OF COLLEGE STATION
+M0211,CITY OF BRYAN
+M0212,CITY OF GODLEY
+M0214,CITY OF BOVINA
+M0216,CITY OF SOUTHSIDE PLACE
+M0218,CITY OF CELINA
+M0222,CITY OF CIBOLO
+M0228,CITY OF JACKSBORO
+M0250,CITY OF BROWNWOOD
+M0260,CITY OF SOMERVILLE
+M0270,CITY OF MARBLE FALLS
+M0281,CITY OF LULING
+M0282,CITY OF LOCKHART
+M0290,CITY OF PORT LAVACA
+M0291,CITY OF SEADRIFT
+M0310,CITY OF BROWNSVILLE
+M0311,CITY OF HARLINGEN
+M0312,CITY OF LOS FRESNOS
+M0313,CITY OF SOUTH PADRE ISLAND (TOWN)
+M0314,CITY OF PORT ISABEL
+M0316,CITY OF COMANCHE
+M0325,CITY OF MABANK
+M0370,CITY OF JACKSONVILLE
+M0420,CITY OF COLEMAN
+M0431,CITY OF PLANO
+M0433,CITY OF MCKINNEY
+M0434,CITY OF WYLIE
+M0435,CITY OF PRINCETON
+M0438,CITY OF FRISCO
+M0451,CITY OF WEIMAR
+M0455,TOWN OF LAKESIDE
+M0460,CITY OF NEW BRAUNFELS
+M0480,CITY OF CLEAR LAKE SHORES
+M0490,CITY OF GAINESVILLE
+M0501,CITY OF COPPERAS COVE
+M0502,CITY OF GATESVILLE
+M0547,CITY OF KEENE
+M0570,CITY OF IRVING
+M0571,CITY OF MESQUITE
+M0572,CITY OF FARMERS BRANCH
+M0573,CITY OF UNIVERSITY PARK
+M0574,CITY OF GRAND PRAIRIE
+M0575,CITY OF LANCASTER
+M0576,CITY OF RICHARDSON
+M0577,CITY OF DUNCANVILLE
+M0578,CITY OF DESOTO
+M0579,CITY OF ADDISON (TOWN)
+M0602,CITY OF O'DONNELL
+M0610,CITY OF LEWISVILLE
+M0611,CITY OF THE COLONY
+M0612,CITY OF HIGHLAND VILLAGE
+M0613,CITY OF DENTON
+M0614,CITY OF ROANOKE
+M0615,CITY OF FLOWER MOUND
+M0616,TOWN OF LITTLE ELM
+M0617,CITY OF CORINTH
+M0618,CITY OF BOWIE
+M0621,CITY OF CUERO
+M0680,CITY OF ODESSA
+M0700,CITY OF RED OAK
+M0701,CITY OF MIDLOTHIAN
+M0702,CITY OF WAXAHACHIE
+M0706,CITY OF GHOLSON
+M0710,CITY OF EL PASO
+M0711,CITY OF VINTON
+M0712,CITY OF SOCORRO
+M0713,TOWN OF  HORIZON CITY
+M0720,CITY OF STEPHENVILLE
+M0731,CITY OF MARLIN
+M0740,CITY OF BONHAM
+M0750,CITY OF LA GRANGE
+M0751,CITY OF FLATONIA
+M0790,CITY OF STAFFORD
+M0791,CITY OF RICHMOND
+M0792,CITY OF NEEDVILLE
+M0793,CITY OF ROSENBERG
+M0794,CITY OF SUGAR LAND
+M0796,CITY OF MISSOURI CITY
+M0812,CITY OF REKLAW
+M0817,TOWN OF DOUBLE OAK
+M0830,CITY OF SEAGRAVES
+M0840,CITY OF FRIENDSWOOD
+M0841,CITY OF LEAGUE CITY
+M0842,CITY OF TEXAS CITY
+M0843,CITY OF GALVESTON
+M0845,CITY OF LA MARQUE
+M0846,CITY OF DICKINSON
+M0847,CITY OF HITCHCOCK
+M0848,CITY OF SANTA FE
+M0860,CITY OF FREDERICKSBURG
+M0890,CITY OF GONZALES
+M0899,CITY OF HAMILTON
+M0900,CITY OF PAMPA
+M0910,CITY OF DENISON
+M0911,CITY OF POTTSBORO
+M0913,CITY OF SHERMAN
+M0914,CITY OF WHITESBORO
+M0920,CITY OF WHITE OAK
+M0922,CITY OF KILGORE
+M0923,CITY OF LONGVIEW
+M0924,CITY OF GLADEWATER
+M0927,CITY OF BALMORHEA
+M0930,CITY OF NAVASOTA
+M0940,CITY OF SEGUIN
+M0950,CITY OF PLAINVIEW
+M1000,CITY OF SOUR LAKE
+M1002,CITY OF LUMBERTON
+M1010,CITY OF WEST UNIVERSITY PLACE
+M1011,CITY OF DEER PARK
+M1012,CITY OF TOMBALL
+M1013,CITY OF KATY
+M1014,CITY OF BELLAIRE
+M1015,CITY OF SPRING VALLEY VILLAGE
+M1016,CITY OF NASSAU BAY
+M1017,CITY OF PASADENA
+M1019,CITY OF BAYTOWN
+M1020,CITY OF MARSHALL
+M1021,CITY OF AUBREY
+M1022,CITY OF FAIR OAKS RANCH
+M1050,CITY OF SAN MARCOS
+M1051,CITY OF KYLE
+M1052,CITY OF BUDA
+M1072,CITY OF ATHENS
+M1073,CITY OF MALAKOFF
+M1074,CITY OF CHANDLER
+M1080,CITY OF MCALLEN
+M1081,CITY OF EDINBURG
+M1082,CITY OF SAN JUAN
+M1083,CITY OF PHARR
+M1084,CITY OF HIDALGO
+M1085,CITY OF MERCEDES
+M1086,CITY OF WESLACO
+M1087,CITY OF ALTON
+M1088,CITY OF ALAMO
+M1089,CITY OF MISSION
+M1099,CITY OF DAINGERFIELD
+M1101,CITY OF LEVELLAND
+M1110,CITY OF GRANBURY
+M1113,CITY OF HENRIETTA
+M1119,CITY OF NORTHLAKE (TOWN OF)
+M1120,CITY OF SULPHUR SPRINGS
+M1130,CITY OF CROCKETT
+M1140,CITY OF BIG SPRING
+M1152,CITY OF GRANITE SHOALS
+M1160,CITY OF GREENVILLE
+M1161,CITY OF COMMERCE
+M1162,CITY OF PITTSBURG
+M1182,CITY OF FULSHEAR
+M1199,YSLETA DEL SUR PUEBLO/TIGUA INDIAN RESRV
+M1202,CITY OF ALMA
+M1206,TOWN OF PROVIDENCE VILLAGE
+M1216,TOWN OF CLINT
+M1218,CITY OF FRITCH
+M1230,CITY OF PORT ARTHUR
+M1231,CITY OF BEAUMONT
+M1232,CITY OF GROVES
+M1233,CITY OF NEDERLAND
+M1234,CITY OF PORT NECHES
+M1236,CITY OF ALVARADO
+M1250,CITY OF ALICE
+M1260,CITY OF BURLESON
+M1261,CITY OF CLEBURNE
+M1262,CITY OF JOSHUA
+M1270,CITY OF ANSON
+M1280,CITY OF KENEDY
+M1291,CITY OF TERRELL
+M1293,CITY OF KAUFMAN
+M1294,CITY OF KEMP
+M1300,CITY OF BOERNE
+M1330,CITY OF KERRVILLE
+M1380,CITY OF KNOX CITY
+M1390,CITY OF PARIS
+M1400,CITY OF LITTLEFIELD
+M1410,CITY OF LAMPASAS
+M1444,CITY OF SLATON
+M1460,CITY OF LIBERTY
+M1461,CITY OF CLEVELAND
+M1470,CITY OF MEXIA
+M1471,CITY OF GROESBECK
+M1500,CITY OF LLANO
+M1523,CITY OF SEMINOLE
+M1530,CITY OF TAHOKA
+M1550,CITY OF JEFFERSON
+M1555,CITY OF HOWE
+M1559,CITY OF WILLS POINT
+M1580,CITY OF BAY CITY
+M1581,CITY OF PALACIOS
+M1590,CITY OF EAGLE PASS
+M1600,CITY OF BRADY
+M1604,CITY OF JOURDANTON
+M1610,CITY OF WOODWAY
+M1611,CITY OF ROBINSON
+M1612,CITY OF WACO
+M1613,CITY OF BELLMEAD
+M1615,CITY OF BEVERLY HILLS
+M1617,CITY OF LACY LAKEVIEW
+M1630,CITY OF CASTROVILLE
+M1631,CITY OF DEVINE
+M1632,CITY OF HONDO
+M1650,CITY OF MIDLAND
+M1660,CITY OF ROCKDALE
+M1700,CITY OF OAK RIDGE NORTH
+M1701,CITY OF CONROE
+M1702,CITY OF MONTGOMERY
+M1704,CITY OF SHENANDOAH
+M1706,CITY OF MAGNOLIA
+M1740,CITY OF NACOGDOCHES
+M1750,CITY OF CORSICANA
+M1760,CITY OF NEWTON
+M1774,CITY OF TODD MISSION
+M1780,CITY OF CORPUS CHRISTI
+M1781,CITY OF PORT ARANSAS
+M1790,CITY OF PERRYTON
+M1810,CITY OF BRIDGE CITY
+M1811,CITY OF VIDOR
+M1813,CITY OF WEST ORANGE
+M1814,CITY OF ORANGE
+M1820,CITY OF MINERAL WELLS
+M1860,CITY OF FORT STOCKTON
+M1870,CITY OF LIVINGSTON
+M1871,CITY OF CORRIGAN
+M1880,CITY OF AMARILLO
+M1883,CITY OF KIRBY
+M1899,CITY OF FARMERSVILLE
+M1910,CITY OF MCCAMEY
+M1950,CITY OF PECOS
+M1960,CITY OF REFUGIO (TOWN)
+M1961,CITY OF MILES
+M1980,CITY OF HEARNE
+M1990,CITY OF HEATH
+M1991,CITY OF ROCKWALL
+M2000,TOWN OF BARTONVILLE
+M2001,CITY OF WINTERS
+M2014,CITY OF THRALL
+M2020,City of Pineland
+M2021,CITY OF HEMPHILL
+M2030,CITY OF SAN AUGUSTINE
+M2050,CITY OF PORTLAND
+M2052,CITY OF SINTON
+M2057,CITY OF FATE
+M2080,CITY OF SNYDER
+M2112,CITY OF LOG CABIN
+M2113,CITY OF PALMER
+M2120,CITY OF TYLER
+M2121,CITY OF WHITEHOUSE
+M2123,CITY OF BULLARD
+M2133,TOWN OF SUNNYVALE
+M2142,CITY OF BROOKSIDE VILLAGE
+M2170,CITY OF KRUM
+M2190,CITY OF TULIA
+M2200,CITY OF BEDFORD
+M2201,CITY OF GRAPEVINE
+M2202,CITY OF HALTOM CITY
+M2203,CITY OF RICHLAND HILLS
+M2204,CITY OF KELLER
+M2205,CITY OF SOUTHLAKE
+M2206,CITY OF COLLEYVILLE
+M2207,CITY OF FORT WORTH/PURCHASING
+M2208,CITY OF MANSFIELD
+M2209,CITY OF WHITE SETTLEMENT
+M2210,CITY OF MERKEL
+M2211,CITY OF ABILENE
+M2230,CITY OF MEADOWS PLACE
+M2231,CITY OF BROWNFIELD
+M2232,CITY OF RICE
+M2250,CITY OF MOUNT PLEASANT
+M2257,CITY OF JOSEPHINE
+M2260,CITY OF SAN ANGELO
+M2270,CITY OF AUSTIN
+M2271,CITY OF WEST LAKE HILLS
+M2272,CITY OF LAKEWAY
+M2273,CITY OF PFLUGERVILLE
+M2274,CITY OF MANOR
+M2275,CITY OF SUNSET VALLEY
+M2276,CITY OF BEE CAVE (VILLAGE)
+M2320,CITY OF UVALDE
+M2330,CITY OF DEL RIO
+M2349,CITY OF NOLANVILLE
+M2350,CITY OF VICTORIA
+M2360,CITY OF HUNTSVILLE
+M2370,CITY OF BROOKSHIRE
+M2371,CITY OF HEMPSTEAD
+M2380,CITY OF MONAHANS
+M2390,CITY OF BRENHAM
+M2400,CITY OF LAREDO
+M2410,CITY OF WHARTON
+M2415,CITY OF EL CAMPO
+M2430,CITY OF WICHITA FALLS
+M2431,CITY OF ELECTRA
+M2432,CITY OF IOWA PARK
+M2440,CITY OF VERNON
+M2460,CITY OF LEANDER
+M2461,CITY OF GEORGETOWN
+M2462,CITY OF ROUND ROCK
+M2463,CITY OF CEDAR PARK
+M2464,CITY OF TAYLOR
+M2470,CITY OF FLORESVILLE
+M2511,CITY OF DENVER CITY
+M2520,CITY OF OLNEY
+M2590,CITY OF ONALASKA
+M2931,City Of Mustang Ridge
+M2932,CITY OF LINDEN
+M3001,CITY OF WILLIS
+M3021,CITY OF GROOM
+M3022,CITY OF EASTLAND
+M3030,CITY OF PANORAMA VILLAGE
+M3031,CITY OF DRIPPING SPRINGS
+M3112,CITY OF CALDWELL
+M3162,CITY OF ARCOLA
+M3408,City of Bulverde
+M3412,City of Burkburnett
+M3414,City of Winnsboro
+M3420,City of Stamford
+M3431,Town of Cross Roads
+M3436,City of Gilmer
+M3445,City of Justin
+M3452,City of Early
+M3454,City of Trenton
+M3458,City of Rhome
+M3462,City of Dimmitt
+M3476,City of Valley View
+M3480,City of Childress
+M3489,City of Reno-Lamar Co.
+M3512,City of Collinsville
+M3526,City of Whitewright
+M3536,CITY OF KARNES CITY
+M3542,City of La Joya
+M3550,City of Bells
+M3566,City Of Silsbee
+M3583,City of Milford
+M3596,CITY OF QUITMAN
+M3640,City of Nash
+M3645,City of Arp
+M3647,City of Dalhart
+M3648,City of Big Sandy
+M3655,City of Talty Texas
+M3658,City of Pleasanton
+M3661,City of Tioga
+M3666,City of Lytle
+M3673,City of Sweeny
+M3684,City of Breckenridge
+M3688,City of Spearman
+M3694,City of Dumas
+M3710,City of West
+M3719,City Of New London
+M3739,City of Edgewood
+M3742,City of De Kalb
+M3751,City of Rosebud
+M3754,City of Blue Mound
+M3760,City of Gunter
+M3764,City of Lovelady
+M3767,City of Robert Lee
+M3783,City of Snook
+M3795,City of Niederwald
+M3907,City of Hamlin
+M3910,City of Itasca
+M3918,City of Pecan Hill
+M3926,City of Pyote
+M3928,CITY OF WHEELER
+M3933,CITY OF COOLIDGE
+M3943,City of Uhland
+M3946,City of Cumby
+M3955,City of Crane
+M4010,City of Valley Mills
+M4023,City Of Caney City
+M4042,City of Payne Springs
+M4107,CITY OF SAN ELIZARIO
+M4242,CITY OF RUSK
+M4485,CITY OF AMHERST
+M4939,CITY OF SANSOM PARK
+M4977,CITY OF BALLINGER
+M5002,CITY OF DONNA
+M5021,CITY OF JARRELL
+M5022,CITY OF FLOYDADA
+M5150,CITY OF BALCONES HEIGHTS
+M5151,CITY OF CONVERSE
+M5201,CITY OF MANVEL
+M5203,CITY OF WATAUGA
+M5236,CITY OF GLEN ROSE
+M5570,CITY OF CEDAR HILL
+M5571,CITY OF COPPELL
+M5572,CITY OF DALLAS
+M5573,CITY OF GARLAND
+M5574,CITY OF CARROLLTON
+M5575,CITY OF COCKRELL HILL
+M5576,TOWN OF HIGHLAND PARK
+M5577,CITY OF SACHSE
+M5578,CITY OF SEAGOVILLE
+M5579,CITY OF ROWLETT
+M5665,CITY OF LEONARD
+M5824,TOWN OF WESTOVER HILLS
+M6010,CITY OF HOUSTON
+M6011,CITY OF HUMBLE
+M6012,CITY OF WEBSTER
+M6014,CITY OF LA PORTE
+M6015,CITY OF SEABROOK
+M6018,CITY OF JERSEY VILLAGE
+M6080,CITY OF PALMVIEW
+M6111,CITY OF HENDERSON
+M6112,TOWN OF HICKORY CREEK
+M6154,CITY OF MADISONVILLE
+M6222,CITY OF WALLER
+M6871,CITY OF RICHLAND SPRINGS
+M6873,CITY OF MINEOLA
+M6874,TOWN OF WESTLAKE
+M7016,CITY OF ALEDO
+M7021,CITY OF LA FERIA
+M7108,CITY OF WILLOW PARK
+M7200,CITY OF ARLINGTON
+M7201,CITY OF SAGINAW
+M7202,CITY OF HURST
+M7203,CITY OF AZLE
+M7204,CITY OF CROWLEY
+M7205,CITY OF NORTH RICHLAND HILLS
+M7206,CITY OF PANTEGO
+M7207,CITY OF EULESS
+M7208,CITY OF FOREST HILL
+M7210,"CITY OF DAYTON, TEXAS"
+M7215,CITY OF HUDSON OAKS
+M7217,CITY OF LINDALE
+M7219,CITY OF LAVON
+M7222,CITY OF HUTCHINS
+M7223,CITY OF VAN ALSTYNE
+M7224,CITY OF GLENN HEIGHTS
+M7225,CITY OF WOLFFORTH
+M7227,CITY OF CANYON
+M7228,CITY OF MEADOWLAKES
+M7229,CITY OF GRAND SALINE
+M7232,CITY OF MONT BELVIEU
+M7233,CITY OF IDALOU
+M7570,CITY OF BALCH SPRINGS
+M7571,CITY OF HASLET
+M7574,CITY OF LAKE WORTH
+M7576,CITY OF RALLS
+M7578,CITY OF DECATUR
+M7580,CITY OF DUBLIN
+M7581,CITY OF LA VERNIA
+M7582,CITY OF LORENZO
+M7583,CITY OF EMORY
+M7584,CITY OF PELICAN BAY
+M7585,CITY OF NEW DEAL
+M7586,CITY OF SPLENDORA
+M7587,CITY OF KEMAH
+M7588,CITY OF YOAKUM
+M8358,TOWN OF FULTON
+M8401,CITY OF ITALY
+M8484,CITY OF OVILLA
+M8850,CITY OF MORTON
+M9001,TOWN OF PONDER
+M9090,CITY OF SHALLOWATER
+M9109,CITY OF RANGER
+M9292,CITY OF THORNDALE
+M9830,CITY OF ALPINE
+P0002,WEBB COUNTY APPRAISAL DISTRICT
+P0003,GILLESPIE CENTRAL APPRAISAL DISTRICT
+P0005,CALDWELL COUNTY APPRAISAL DISTRICT
+P0006,COMAL APPRAISAL DISTRICT
+P0010,KERR CENTRAL APPRAISAL DISTRICT
+P0012,WICHITA COUNTY APPRAISAL DISTRICT
+P0015,CENTRAL APPRAISAL DIST OF JOHNSON COUNTY
+P0016,UVALDE COUNTY APPRAISAL DIST
+P0018,MADISON CO APPRAISAL DISTRIST
+P0024,HAYS CENTRAL APPRAISAL DISTRICT
+P0031,NAVARRO CENTRAL APPRAISAL DISTRICT
+P0032,ROCKWALL CO CENTRAL APPRAISAL DISTRICT
+P0035,ECTOR COUNTY APPRAISAL DISTRICT
+P0080,AUSTIN COUNTY APPRAISAL DISTRICT
+P0150,BEXAR APPRAISAL DISTRICT
+P0303,CARSON COUNTY APPRAISAL DISTRICT
+P0310,CAMERON COUNTY APPR DIST
+P0360,CHAMBERS COUNTY APPRAISAL DISTRICT
+P0405,PRESIDIO COUNTY APPRAISAL DISTRICT
+P0431,Collin Central Appraisal District
+P0570,DALLAS CENTRAL APPRAISAL DISTRICT
+P0610,DENTON CENTRAL APPRAISAL DISTRICT
+P0701,ELLIS APPRAISAL DISTRICT
+P0710,EL PASO CENTRAL APPRAISAL DIST
+P0790,FORT BEND CENTRAL APPRAISAL DISTRICT
+P0920,GREGG COUNTY APPRAISAL DISTRICT
+P0940,GUADALUPE COUNTY APPRAISAL DISTRICT
+P1010,HARRIS CO APPRAISAL DISTRICT
+P1033,DEWITT COUNTY APPRAISAL DISTRICT
+P1080,HIDALGO COUNTY APPRAISAL DISTRICT
+P1140,HOWARD COUNTY APPRAISAL DISTRICT
+P1230,JEFFERSON COUNTY CENTRAL  APPRAISAL DIST
+P1370,KLEBERG CO APPRAISAL DISTRICT
+P1460,LIBERTY COUNTY CENTRAL APPRAISAL DISTRICT
+P1512,HOUSTON COUNTY APPRAISAL DISTRICT
+P1520,LUBBOCK CENTRAL APPRAISAL DIST
+P1595,FREESTONE CENTRAL APPRAISAL DISTRICT
+P1610,MCLENNAN COUNTY APPRAISAL DISTRICT
+P1700,MONTGOMERY CENTRAL APPRAISAL DIST
+P1736,PANOLA COUNTY APPRAISAL DISTRICT
+P1745,MIDLAND CENTRAL APPRAISAL DISTRICT
+P1810,ORANGE COUNTY APPRAISAL DIST
+P2120,SMITH COUNTY APPRAISAL DISTRICT
+P2201,TARRANT APPRAISAL DISTRICT
+P2275,TRAVIS CENTRAL APPRAISAL DISTRICT
+P2311,UPTON COUNTY APPRAISAL DISTRICT
+P2330,VAL VERDE CO APPRAISAL DIST
+P2360,WALKER CO APPRAISAL DISTRICT
+P2462,WILLIAMSON COUNTY APPRAISAL DISTRICT
+P2531,BRAZORIA COUNTY APPRAISAL DISTRICT
+P3701,Zavala Central Appraisal District
+P3738,ANDERSON COUNTY APPRAISAL DISTRICT
+P4260,CALHOUN COUNTY APPRAISAL DISTRICT
+P5150,LA SALLE COUNTY APPRAISAL DISTRICT
+P5657,MARION CENTRAL APPRAISAL DISTRICT
+P5961,NACOGDOCHES CENTRAL APPRAISAL DISTRICT
+R0001,CENTER FOR HEALTH CARE SERVICES BEXAR CO
+R0002,LUBBOCK REGIONAL MHMR DBA STARCARE
+R0004,LAKES REGIONAL COMMUNITY CENTER
+R0005,THE CENTER FOR LIFE RESOURCES
+R0006,GULF COAST CENTER
+R0030,BURKE CENTER
+R0070,CAMINO REAL COMMUNITY SERVICES
+R0210,MHMR AUTHORITY OF BRAZOS VALLEY
+R0370,ACCESS ANDERSON CHEROKEE COMM SERVICES
+R0430,COLLIN COUNTY MHMR LIFE PATH SYSTEMS
+R0570,DALLAS METROCARE SERVICES
+R0610,DENTON COUNTY MHMR CENTER
+R0720,PECAN VALLEY MHMR REGION
+R0910,TEXOMA COMMUNITY CENTER
+R0920,COMMUNITY HEALTHCORE
+R0927,CHILDREN'S BEREAVEMENT CENTER OF S TEXAS
+R1010,HARRIS CENTER FOR MENTAL HEALTH
+R1080,TROPICAL TEXAS BEHAVIORAL HEALTH
+R1140,WEST TEXAS CENTERS FOR MHMR
+R1231,SPINDLETOP CENTER
+R1330,HILL COUNTRY MHDD CENTERS
+R1610,HEART OF TEXAS REGION MHMR CENTER
+R1650,PERMIAN BASIN COMMUNITY CENTER
+R1700,TRI-COUNTY BEHAVIORAL HEALTHCARE
+R1780,BEHAVIORAL HEALTH CENTER NUECES COUNTY
+R1880,TEXAS PANHANDLE CENTERS BEHAV DEV HEALTH
+R2050,COASTAL PLAINS COMMUNITY MHMR
+R2120,ANDREWS CENTER BEHAVIORAL HEALTHCARE
+R2203,MHMR OF TARRANT COUNTY
+R2211,BETTY HARDWICK CENTER
+R2270,INTEGRAL CARE
+R2351,GULF BEND CENTER
+R2410,TEXANA CENTER
+R2430,HELEN FARABEE CENTERS
+R4545,NORTH TEXAS BEHAVIORAL HEALTH AUTHORITY
+R6873,EMERGENCE HEALTH NETWORK
+S0001,KOPPERL ISD
+S0004,ERA ISD
+S0005,LIPAN ISD
+S0006,GILMER ISD
+S0008,REFUGIO ISD
+S0011,PALESTINE ISD
+S0012,FRANKSTON ISD
+S0014,ELKHART ISD
+S0018,TRINITY BASIN PREPARATORY
+S0021,MONAHANS-WICKETT-PYOTE ISD
+S0022,SOUTHWEST PREP SCHOOL WINNERS FOUNDATION
+S0023,WOODSBORO ISD
+S0024,ABERNATHY ISD
+S0026,CENTER POINT ISD
+S0028,WINDTHORST ISD
+S0030,DIBOLL ISD
+S0031,LUFKIN ISD
+S0032,HUNTINGTON ISD
+S0033,CENTRAL ISD
+S0034,HUDSON ISD
+S0035,ZAVALLA ISD
+S0038,JUBILEE ACADEMIC CENTER
+S0039,MCLEAN ISD
+S0041,SPRING HILL ISD
+S0042,ARLINGTON CLASSICS ACADEMY
+S0043,PETROLIA CONSOLIDATED ISD
+S0050,HOLLIDAY ISD
+S0052,PONDER ISD
+S0070,POTEET ISD
+S0071,PLEASANTON ISD
+S0072,JOURDANTON ISD
+S0073,LYTLE ISD
+S0080,BELLVILLE ISD
+S0082,BRAZOS ISD
+S0091,MULESHOE ISD
+S0110,SMITHVILLE ISD
+S0111,BASTROP ISD
+S0112,ELGIN ISD
+S0120,SEYMOUR ISD
+S0123,SABINE PASS ISD
+S0132,SKIDMORE-TYNAN ISD
+S0140,TEMPLE ISD
+S0141,TROY ISD
+S0142,KILLEEN ISD
+S0144,BELTON ISD
+S0145,ROGERS ISD
+S0147,SALADO ISD
+S0148,BARTLETT ISD
+S0151,SOUTHSIDE ISD
+S0152,LACKLAND ISD
+S0153,NORTHSIDE ISD (SAN ANTONIO)
+S0154,NORTH EAST ISD
+S0155,EDGEWOOD ISD
+S0156,HARLANDALE ISD
+S0157,EAST CENTRAL ISD
+S0158,FORT SAM HOUSTON ISD
+S0159,SOMERSET ISD
+S0160,BLANCO ISD
+S0180,CLIFTON ISD
+S0181,VALLEY MILLS ISD
+S0190,TEXARKANA ISD
+S0193,NEW BOSTON ISD
+S0195,RED LICK ISD
+S0197,MAUD ISD
+S0200,BRAZOSPORT ISD
+S0201,COLUMBIA-BRAZORIA ISD
+S0202,ANGLETON ISD
+S0203,SWEENY ISD
+S0204,ALVIN ISD
+S0206,PEARLAND ISD
+S0210,COLLEGE STATION ISD
+S0211,BRYAN ISD
+S0223,BOWIE ISD
+S0240,BROOKS COUNTY ISD
+S0252,BANGS ISD
+S0261,CALDWELL ISD
+S0262,SNOOK ISD
+S0270,BURNET CISD
+S0271,MARBLE FALLS ISD
+S0280,LOCKHART ISD
+S0282,PRAIRIE LEA ISD
+S0290,CALHOUN COUNTY ISD
+S0298,PRIORITY CHARTER SCHOOLS
+S0300,EULA ISD
+S0306,ROBERT LEE ISD
+S0310,POINT ISABEL ISD
+S0311,SAN BENITO CISD
+S0312,SANTA ROSA ISD
+S0313,LOS FRESNOS CISD
+S0314,BROWNSVILLE ISD
+S0315,HARLINGEN CISD
+S0317,LA FERIA ISD
+S0320,PITTSBURG ISD
+S0330,WHITE DEER ISD
+S0340,ATLANTA ISD
+S0341,QUEEN CITY ISD
+S0342,HUGHES SPRINGS ISD
+S0343,LINDEN-KILDARE CISD
+S0361,EAST CHAMBERS ISD
+S0363,ANAHUAC ISD
+S0364,BARBERS HILL ISD
+S0370,JACKSONVILLE ISD
+S0371,ALTO ISD
+S0373,RUSK ISD
+S0380,CHILDRESS ISD
+S0390,HENRIETTA ISD
+S0422,COMMUNITY ISD
+S0428,EDGEWOOD ISD (VAN ZANDT COUNTY)
+S0430,FARMERSVILLE ISD
+S0432,PLANO ISD
+S0433,ANNA ISD
+S0434,BLUE RIDGE ISD
+S0437,CELINA ISD
+S0438,MCKINNEY ISD
+S0439,ALLEN ISD
+S0460,COMAL ISD
+S0461,NEW BRAUNFELS ISD
+S0491,GAINESVILLE ISD
+S0500,COPPERAS COVE ISD
+S0501,GATESVILLE ISD
+S0510,PADUCAH ISD
+S0530,CROCKETT COUNTY CONSOLIDATED CSD
+S0561,Dalhart independent School District
+S0570,COPPELL ISD
+S0571,GRAND PRAIRIE ISD
+S0573,CARROLLTON-FARMERS BRANCH ISD
+S0574,IRVING ISD
+S0575,CEDAR HILL ISD
+S0577,RICHARDSON ISD
+S0578,DUNCANVILLE ISD
+S0579,GARLAND ISD/PURCHASING
+S0591,HEREFORD ISD
+S0601,COOPER ISD
+S0612,LEWISVILLE ISD
+S0613,NORTHWEST ISD
+S0614,DENTON ISD
+S0615,LITTLE ELM ISD
+S0618,ARGYLE ISD
+S0619,PILOT POINT ISD
+S0620,CUERO ISD
+S0622,YORKTOWN ISD
+S0640,CARRIZO SPRINGS CISD
+S0660,FREER ISD
+S0671,EASTLAND ISD
+S0700,ENNIS ISD
+S0701,RED OAK ISD
+S0702,MIDLOTHIAN ISD
+S0703,WAXAHACHIE ISD
+S0704,MAYPEARL ISD
+S0705,FERRIS ISD
+S0706,PALMER ISD
+S0708,ITALY ISD
+S0710,YSLETA ISD
+S0711,SOCORRO ISD
+S0713,EL PASO ISD
+S0715,CLINT ISD
+S0717,SAN ELIZARIO ISD
+S0721,STEPHENVILLE ISD
+S0723,HUCKABAY ISD
+S0732,ROSEBUD-LOTT ISD
+S0743,BONHAM ISD
+S0753,LA GRANGE ISD
+S0790,NEEDVILLE ISD
+S0791,FORT BEND ISD
+S0793,LAMAR CISD
+S0800,MOUNT VERNON ISD
+S0810,TEAGUE ISD
+S0811,FAIRFIELD ISD
+S0812,WORTHAM ISD
+S0817,DRISCOLL ISD
+S0830,SEMINOLE ISD
+S0831,SEAGRAVES ISD
+S0841,GALVESTON ISD
+S0842,DICKINSON ISD
+S0846,CLEAR CREEK ISD
+S0849,FRIENDSWOOD ISD
+S0850,POST ISD
+S0860,FREDERICKSBURG ISD
+S0880,GOLIAD ISD
+S0891,GONZALES ISD
+S0892,WAELDER ISD
+S0900,PAMPA ISD
+S0910,DENISON ISD
+S0911,POTTSBORO ISD
+S0915,SHERMAN ISD
+S0918,WHITEWRIGHT ISD
+S0919,S & S CISD
+S0920,PINE TREE ISD
+S0921,KILGORE ISD
+S0923,WHITE OAK ISD
+S0925,LONGVIEW ISD
+S0926,SABINE ISD
+S0930,NAVASOTA ISD
+S0932,ANDERSON-SHIRO CISD
+S0940,SEGUIN ISD
+S0941,SCHERTZ-CIBOLO-UNIVERSAL CITY ISD
+S0943,NAVARRO ISD
+S0950,PLAINVIEW ISD
+S0980,SPEARMAN ISD
+S0990,QUANAH ISD
+S1002,LUMBERTON ISD
+S1003,HARDIN-JEFFERSON ISD
+S1004,SILSBEE ISD
+S1010,ALDINE ISD
+S1011,CROSBY ISD
+S1012,CHANNELVIEW ISD
+S1013,PASADENA ISD
+S1014,SPRING BRANCH ISD
+S1015,GALENA PARK ISD
+S1016,KLEIN ISD
+S1017,HOUSTON ISD
+S1018,HUMBLE ISD
+S1019,HUFFMAN ISD
+S1020,HALLSVILLE ISD
+S1022,MARSHALL ISD
+S1030,CHANNING ISD
+S1050,HAYS CONSOLIDATED ISD
+S1051,SAN MARCOS CISD
+S1053,WIMBERLEY ISD
+S1058,SOUTH SAN ANTONIO ISD
+S1060,CANADIAN ISD
+S1071,ATHENS ISD
+S1074,MALAKOFF ISD
+S1079,OLNEY ISD
+S1080,MCALLEN ISD
+S1081,SHARYLAND ISD
+S1082,EDINBURG CISD
+S1083,WESLACO ISD
+S1084,VALLEY VIEW ISD (PHARR)
+S1085,DONNA ISD
+S1086,SOUTH TEXAS ISD
+S1088,MISSION CISD
+S1089,LA JOYA ISD
+S1091,HILLSBORO ISD
+S1092,ITASCA ISD
+S1094,MOUNT CALM ISD
+S1095,HUBBARD ISD
+S1096,AQUILLA ISD
+S1098,PENELOPE ISD
+S1100,LEVELLAND ISD
+S1102,SUNDOWN ISD
+S1112,GRANBURY ISD
+S1113,EUSTACE ISD
+S1117,HARROLD ISD
+S1120,SULPHUR SPRINGS ISD
+S1131,LOVELADY ISD
+S1133,GRAPELAND ISD
+S1134,CROCKETT ISD
+S1140,BIG SPRING ISD
+S1143,PROSPER ISD
+S1144,TERRELL COUNTY ISD
+S1151,FORT HANCOCK ISD
+S1161,GREENVILLE ISD
+S1163,CADDO MILLS ISD
+S1165,QUINLAN ISD
+S1168,CELESTE ISD
+S1170,BORGER ISD
+S1182,NUECES CANYON CISD
+S1190,JACKSBORO ISD
+S1201,EDNA ISD
+S1203,GANADO ISD
+S1204,BELLEVUE ISD
+S1210,KIRBYVILLE CISD
+S1211,BUNA ISD
+S1212,JASPER ISD
+S1230,HAMSHIRE-FANNETT ISD
+S1231,NEDERLAND ISD
+S1232,PORT NECHES-GROVES ISD
+S1233,PORT ARTHUR ISD
+S1234,BEAUMONT ISD
+S1240,JIM HOGG COUNTY ISD
+S1261,JOSHUA ISD
+S1262,BURLESON ISD
+S1263,CLEBURNE ISD
+S1266,RIO VISTA ISD
+S1269,VENUS ISD
+S1270,HAMLIN ISD
+S1281,RUNGE ISD
+S1282,FALLS CITY ISD
+S1283,KARNES CITY ISD
+S1290,TERRELL ISD
+S1291,SCURRY-ROSSER ISD
+S1292,KEMP ISD
+S1293,MABANK ISD
+S1294,CRANDALL ISD
+S1295,KAUFMAN ISD
+S1297,RICE ISD
+S1300,COMFORT ISD
+S1301,BOERNE ISD
+S1319,MONTAGUE INDEPENDENT SCHOOL DISTRICT
+S1322,MOUNT ENTERPRISE ISD
+S1331,INGRAM ISD
+S1333,HIGHLAND PARK ISD (AMARILLO TX)
+S1355,BUENA VISTA ISD
+S1360,BRACKETT ISD
+S1372,KINGSVILLE ISD
+S1380,MUNDAY CISD
+S1390,PARIS ISD
+S1393,CHISUM ISD
+S1410,LAMPASAS ISD
+S1420,COTULLA ISD
+S1434,SHINER ISD
+S1440,LEXINGTON ISD
+S1441,GIDDINGS ISD
+S1445,LONDON ISD
+S1450,BUFFALO ISD
+S1461,LIBERTY ISD
+S1464,TARKINGTON ISD
+S1465,CLEVELAND ISD
+S1466,DAYTON ISD
+S1467,DEVERS ISD
+S1471,GROESBECK ISD
+S1480,BOOKER ISD
+S1490,GEORGE WEST ISD
+S1491,THREE RIVERS ISD
+S1501,LLANO ISD
+S1521,FRENSHIP ISD
+S1522,ROOSEVELT ISD
+S1523,LUBBOCK ISD
+S1525,LUBBOCK-COOPER ISD
+S1526,IDALOU ISD
+S1527,SHALLOWATER ISD
+S1541,MADISONVILLE CISD
+S1550,JEFFERSON ISD
+S1557,JOHNSON CITY ISD
+S1560,STANTON ISD
+S1570,MASON ISD
+S1582,BAY CITY ISD
+S1583,VAN VLECK ISD
+S1584,TIDEHAVEN ISD
+S1590,EAGLE PASS ISD
+S1611,MOODY ISD
+S1612,CONNALLY ISD
+S1613,MIDWAY ISD
+S1614,LORENA ISD
+S1615,WACO ISD
+S1616,ROBINSON ISD
+S1618,MART ISD
+S1630,NATALIA ISD
+S1633,MEDINA VALLEY ISD
+S1634,HONDO ISD
+S1651,GREENWOOD ISD
+S1660,CAMERON ISD
+S1661,ROCKDALE ISD
+S1663,MILANO ISD
+S1664,THORNDALE ISD
+S1671,GOLDTHWAITE ISD
+S1680,COLORADO ISD
+S1690,FORESTBURG ISD
+S1691,NOCONA ISD
+S1700,NEW CANEY ISD
+S1702,WILLIS ISD
+S1703,SPLENDORA ISD
+S1704,CONROE ISD
+S1705,MONTGOMERY ISD
+S1710,DUMAS ISD
+S1721,PEWITT CISD
+S1739,NORTH HOPKINS ISD
+S1740,NACOGDOCHES ISD
+S1741,MARTINSVILLE ISD
+S1742,GARRISON ISD
+S1743,CUSHING ISD
+S1744,WODEN ISD
+S1752,CORSICANA ISD
+S1753,KERENS ISD
+S1755,DAWSON ISD
+S1761,NEWTON ISD
+S1762,BURKEVILLE ISD
+S1780,CALALLEN ISD
+S1781,TULOSO-MIDWAY ISD
+S1782,WEST OSO ISD
+S1784,FLOUR BLUFF ISD
+S1785,CORPUS CHRISTI ISD
+S1786,BISHOP CISD
+S1788,ROBSTOWN ISD
+S1801,BOYS RANCH ISD
+S1810,WEST ORANGE-COVE CISD
+S1811,LITTLE CYPRESS-MAURICEVILLE CISD
+S1812,BRIDGE CITY ISD
+S1813,VIDOR ISD
+S1820,STRAWN ISD
+S1821,MINERAL WELLS ISD
+S1822,HARTS BLUFF ISD
+S1831,BECKVILLE ISD
+S1841,WEATHERFORD ISD
+S1843,MILLSAP ISD
+S1844,ALEDO ISD
+S1846,SPRINGTOWN ISD
+S1848,HALE CENTER ISD
+S1849,DARROUZETT ISD
+S1851,BOVINA ISD
+S1852,FARWELL ISD
+S1860,FORT STOCKTON ISD
+S1861,IRAAN-SHEFFIELD ISD
+S1870,CORRIGAN-CAMDEN ISD
+S1871,LIVINGSTON ISD
+S1872,BIG SANDY ISD
+S1874,ONALASKA ISD
+S1876,GOODRICH ISD
+S1880,AMARILLO ISD
+S1882,BUSHLAND ISD
+S1883,RIVER ROAD ISD
+S1884,LAPOYNOR ISD
+S1890,PRESIDIO ISD
+S1892,MARATHON ISD
+S1910,CANYON ISD
+S1943,RIVERCREST ISD
+S1982,HEARNE ISD
+S1983,MUMFORD ISD
+S1985,MARFA ISD
+S1990,ROYSE CITY ISD
+S1991,ROCKWALL ISD
+S1992,THE BETA FOUNDATION (BETA ACADEMY)
+S1999,CHAPEL HILL ISD - MOUNT PLEASANT
+S2000,MILES ISD
+S2014,HENDERSON ISD
+S2020,WEST SABINE ISD
+S2021,HEMPHILL ISD
+S2040,SHEPHERD ISD
+S2041,COLDSPRING-OAKHURST CISD
+S2051,OAKWOOD ISD
+S2052,SINTON ISD
+S2054,MATHIS ISD
+S2055,GREGORY-PORTLAND ISD
+S2057,INGLESIDE ISD
+S2058,LANEVILLE ISD
+S2060,SAN SABA ISD
+S2062,CHEROKEE ISD
+S2077,DEW ISD
+S2100,CENTER ISD
+S2101,JOAQUIN ISD
+S2110,STRATFORD ISD
+S2121,WHITEHOUSE ISD
+S2122,LINDALE ISD
+S2123,CHAPEL HILL ISD - TYLER
+S2124,TYLER ISD
+S2125,BULLARD ISD
+S2126,ARP ISD
+S2128,TROUP ISD
+S2130,GLEN ROSE ISD
+S2141,RIO GRANDE CITY GRULLA ISD
+S2160,STERLING CITY ISD
+S2181,TULIA ISD
+S2200,WHITE SETTLEMENT ISD
+S2201,BIRDVILLE ISD
+S2202,LAKE WORTH ISD
+S2203,KELLER ISD
+S2204,EVERMAN ISD
+S2205,KENNEDALE ISD
+S2206,MANSFIELD ISD
+S2207,EAGLE MOUNTAIN-SAGINAW ISD
+S2208,CROWLEY ISD
+S2209,FORT WORTH ISD
+S2211,ABILENE ISD
+S2230,BROWNFIELD ISD
+S2240,THROCKMORTON COLLEGIATE ISD
+S2250,MT PLEASANT ISD
+S2262,SAN ANGELO ISD
+S2263,GRAPE CREEK ISD
+S2270,DEL VALLE ISD
+S2271,MANOR ISD
+S2272,AUSTIN ISD
+S2274,EANES ISD
+S2275,PFLUGERVILLE ISD
+S2281,GROVETON ISD
+S2293,WOODVILLE ISD
+S2294,SPURGER ISD
+S2300,UNION GROVE ISD
+S2302,NEW DIANA ISD
+S2311,MCCAMEY ISD
+S2313,BRONTE ISD
+S2320,UTOPIA ISD
+S2321,UVALDE C.I.S.D.
+S2330,SAN FELIPE DEL RIO CISD
+S2341,FRUITVALE ISD
+S2342,VAN ISD
+S2343,CANTON ISD
+S2350,VICTORIA ISD
+S2361,HUNTSVILLE ISD
+S2362,WINDHAM SCHOOL DISTRICT
+S2370,ROYAL ISD
+S2371,WALLER INDEPENDENT SCHOOL DISTRICT
+S2372,HEMPSTEAD ISD
+S2390,BRENHAM ISD
+S2391,BURTON ISD
+S2400,LAREDO ISD
+S2401,UNITED ISD
+S2410,BOLING ISD
+S2412,EL CAMPO ISD
+S2414,LOUISE ISD
+S2421,WHEELER ISD
+S2430,CITY VIEW ISD
+S2431,WICHITA FALLS ISD
+S2432,BURKBURNETT ISD
+S2433,IOWA PARK CONSOLIDATED ISD
+S2451,RAYMONDVILLE ISD
+S2459,AVINGER ISD
+S2461,TAYLOR ISD
+S2462,LIBERTY HILL ISD
+S2464,LEANDER ISD / PURCHASING
+S2465,HUTTO ISD
+S2466,GEORGETOWN ISD
+S2467,FLORENCE ISD
+S2469,THRALL ISD
+S2472,POTH ISD
+S2473,STOCKDALE ISD
+S2480,KERMIT ISD
+S2490,DECATUR ISD
+S2492,BOYD ISD
+S2493,ALVORD ISD
+S2494,PARADISE ISD
+S2501,WINNSBORO ISD
+S2502,MINEOLA ISD
+S2503,QUITMAN ISD
+S2504,HAWKINS ISD
+S2505,ALBA-GOLDEN ISD
+S2506,YANTIS ISD
+S2510,DENVER CITY ISD
+S2511,PLAINS ISD
+S2530,ZAPATA COUNTY ISD
+S2541,LA PRYOR ISD
+S2627,WATER VALLEY ISD
+S2707,ELECTRA ISD
+S3000,COUPLAND ISD
+S3051,VALENTINE ISD
+S3144,PANTHER CREEK CISD
+S3251,PAINT ROCK ISD
+S3693,Brookesmith ISD
+S3835,Happy Independent School District
+S4215,NEW SUMMERFIELD ISD
+S5050,FORNEY ISD
+S5150,SOUTHWEST ISD
+S5151,RANDOLPH FIELD ISD
+S5152,JUDSON ISD
+S5153,ALAMO HEIGHTS ISD
+S5252,ADRIAN ISD
+S5430,LOVEJOY ISD
+S5571,MESQUITE ISD
+S5572,"HIGHLAND PARK ISD (DALLAS, TX)"
+S5573,DALLAS ISD
+S5574,SUNNYVALE ISD
+S6010,SPRING ISD
+S6011,DEER PARK ISD
+S6012,CYPRESS-FAIRBANKS ISD
+S6013,KATY ISD
+S6014,GOOSE CREEK CISD
+S6015,ALIEF ISD
+S6018,LA PORTE ISD
+S6030,PETERSBURG ISD
+S6080,PHARR-SAN JUAN-ALAMO ISD
+S6084,HIDALGO ISD
+S6220,LAMESA ISD
+S6610,MCGREGOR ISD
+S6612,WEST ISD
+S6613,CHINA SPRING ISD
+S6616,DEKALB ISD
+S6617,HARMONY ISD
+S6682,RIESEL ISD
+S7201,CARROLL ISD
+S7202,GRAPEVINE-COLLEYVILLE ISD
+S7203,HURST EULESS BEDFORD ISD (AKA HEB ISD)
+S7204,ARLINGTON ISD
+S7205,AZLE ISD
+S7209,JAYTON-GIRARD ISD
+S7210,CROSBYTON CISD
+S7214,ROSCOE COLLEGIATE ISD
+S7215,SANGER ISD
+S7217,HARPER ISD
+S9010,SHELDON ISD
+S9011,TAHOKA ISD
+S9012,LYFORD CISD
+S9015,SIMMS ISD
+S9016,GRAFORD ISD
+S9019,CAYUGA ISD
+S9021,ORE CITY ISD
+S9022,ANDREWS ISD
+S9023,GORDON ISD
+T0002,"KIPP TEXAS, INC."
+T0003,CALVIN NELMS CHARTER SCHOOLS
+T0004,"IDEA PUBLIC SCHOOLS, INC."
+T0006,RESPONSIVE EDUCATION SOLUTIONS
+T0008,"YES PREP PUBLIC SCHOOLS, INC."
+T0010,WINFREE ACADEMY CHARTER SCHOOL
+T0090,"EL PASO ACADEMY, INC"
+T0105,BRAZOS SCHOOL FOR INQUIRY
+T0154,Triumph Public High Schools
+T0422,COMPASS ROSE EDUCATION
+T0575,ST. PHILIP'S SCHOOL AND COMMUNITY CENTER
+T0719,PINEYWOODS COMMUNITY ACADEMY
+T0916,GREATHEARTS TEXAS
+T1090,HARMONY PUBLIC SCHOOLS
+T1097,ISLAND FOUNDATION
+T1117,Somerset Academy of Texas
+T1157,LIFE SCHOOL OF DALLAS
+T1214,SCHOOL OF SCIENCE AND TECHNOLOGY
+T1717,HUGHEN CENTER INC DBA BOB HOPE SCHOOL
+T1820,INTERNATIONAL LEADERSHIP OF TEXAS
+T3030,AMERICA CAN!
+T3449,Faith Family Academy Charter School
+T3787,LEGACY PREPARATORY CHARTER ACADEMY
+T3798,Tekoa Charter School
+T3913,The Museum School of East Dallas
+T3966,Houston Classical Charter School
+Y3858,33rd and 424th Judicial District Intermediate Sanction Facility
+Z0003,CASS CO SUPERVISION CORRECTIONS DEPT
+Z0280,CALDWELL COUNTY CSCD
+Z1222,TRAVIS COUNTY CSCD
+Z2350,24TH JUDICIAL DIST CORRECTIONS DEPTS

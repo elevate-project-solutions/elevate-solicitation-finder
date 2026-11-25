@@ -83,7 +83,7 @@ def import_agencies(
             ["agency_number", "agency_name"]
         )
 
-        writer.writerow(
+        writer.writerows(
             sorted(agencies.items())
         )
 
