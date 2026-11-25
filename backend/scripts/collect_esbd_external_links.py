@@ -165,7 +165,7 @@ def run_collection():
             ]
 
             with engine.begin() as connection:
-                saved = save_external_links(
+                save_external_links(
                     connection.connection.dbapi_connection,
                     solicitation_id,
                     checked_links,
