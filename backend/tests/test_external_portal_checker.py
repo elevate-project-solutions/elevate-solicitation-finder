@@ -365,3 +365,58 @@ def test_response_sample_limit():
     assert len(sample) == (
         external_portal_checker.MAX_INSPECTION_BYTES
     )
+
+@pytest.mark.parametrize(
+    "url",
+    [
+        "http://example.com",
+        "https://localhost",
+        "https://user:password@example.com",
+        "https://example.com:8000",
+    ],
+)
+def test_rejects_unsafe_urls(url):
+    with pytest.raises(ValueError):
+        validate_public_url(url)
+
+def test_rejects_private_dns_address(monkeypatch):
+    monkeypatch.setattr(
+        external_portal_checker.socket,
+        "getaddrinfo",
+        lambda *args, **kwargs: [
+            (
+                None,
+                None,
+                None,
+                None
+                ("192.168.1.10", 443),
+            )
+        ],
+    )
+
+    with pytest.raises(
+        ValueError,
+        match="Non public network",
+    ):
+        validate_public_url(
+            "https://example.com"
+        )
+
+def test_accepts_public_dns_address(monkeypatch):
+    monkeypatch.setattr(
+        external_portal_checker.socket,
+        "getaddrinfo",
+        lambda *args, **kwargs: [
+            (
+                None,
+                None,
+                None,
+                None,
+                ("8.8.8.8, 443"),
+            )
+        ],
+    )
+
+    validate_public_url(
+        "https://example.com"
+    )
