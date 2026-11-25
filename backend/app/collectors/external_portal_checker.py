@@ -263,6 +263,23 @@ def classify_access(
         "Successful response; content not identified",
     )
 
+def read_response_sample(response) -> bytes:
+    """Reads only enough content for access inspection"""
+
+    sample = bytearray()
+
+    for chunk in response.iter_content(
+        chunk_size=8192
+    ):
+        remaining = MAX_INSPECTION_BYTES - len(sample)
+
+        sample.extend(chunk[:remaining])
+
+        if len(sample) >= MAX_INSPECTION_BYTES:
+            break
+
+    return bytes(sample)
+
 def check_external_link(url):
     current_url = url
 
