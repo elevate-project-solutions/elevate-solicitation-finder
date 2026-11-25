@@ -266,3 +266,15 @@ def test_detects_redirect_loop(portal_session):
     assert check.access_status == "redirect_loop"
     assert len(check.redirect_history) == 2
     assert portal_session.get.call_count == 2
+
+def test_missing_redirect_location(portal_session):
+    portal_session.get.return_value = make_response(
+        302
+    )
+
+    check = check_external_link(
+        "https://example.ionwave.net/bid"
+    )
+
+    assert check.access_status == "unavailable"
+    assert check.error_message is not None
