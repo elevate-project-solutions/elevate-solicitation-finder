@@ -259,7 +259,8 @@ def main() -> None:
         external_result = collect_external_links()
 
         logger.info(
-            "External procurement link collection complete: solicitations=%s, links=%s, failures=%s",
+            "External procurement link collection complete: "
+            "solicitations=%s, links=%s, failures=%s",
             external_result.solicitations,
             external_result.links_saved,
             external_result.failures,
