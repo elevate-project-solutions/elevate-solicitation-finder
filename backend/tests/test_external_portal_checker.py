@@ -225,3 +225,24 @@ def test_follows_redirect(portal_session):
     assert check.content_type == "application/pdf"
     assert portal_session.get.call_count == 2
     portal_session.close.assert_called_once()
+
+def test_redirect_to_login(portal_session):
+    portal_session.get.side_effect = [
+        make_response(
+            302,
+            headers={"Location": "/login"},
+        ),
+        make_response(
+            200,
+            body=b"<html>You must sign in</html>",
+            headers={"Content-Type": "text/html"},
+        ),
+    ]
+
+    check = check_external_link(
+        "https://example.ionwave.net/bid"
+    )
+
+    assert check.access_status == "login_required"
+    assert check.destination_url.endswith("/login")
+    assert len(check.redirect_history) == 1
