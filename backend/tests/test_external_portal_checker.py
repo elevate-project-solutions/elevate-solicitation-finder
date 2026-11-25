@@ -345,3 +345,23 @@ def test_blocks_unsafe_redirect(
     assert check.access_status == "check_failed"
     assert portal_session.get.call_count == 1
     assert validator.call_count == 2
+
+def test_response_sample_limit():
+    response = Mock()
+
+    response.iter_content.return_value = [
+        b"a" * (
+            external_portal_checker.MAX_INSPECTION_BYTES
+            + 100
+        )
+    ]
+
+    sample = (
+        external_portal_checker.read_response_sample(
+            response
+        )
+    )
+
+    assert len(sample) == (
+        external_portal_checker.MAX_INSPECTION_BYTES
+    )
