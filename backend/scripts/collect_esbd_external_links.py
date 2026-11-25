@@ -13,6 +13,9 @@ from app.collectors.esbd_attachments import (
     ESBD_DETAILS_URL,
     collect_esbd_attachments,
 )
+from app.collectors.esbd_document_links import (
+    collect_docx_external_links,
+)
 from app.collectors.esbd_external_link_storage import (
     save_external_links,
 )
@@ -24,9 +27,6 @@ from app.collectors.esbd_external_links import (
 from app.collectors.external_portal_checker import (
     LinkCheck,
     check_external_link,
-)
-from app.collectors.esbd_document_links import (
-    collect_docx_external_links,
 )
 from app.db.session import engine
 

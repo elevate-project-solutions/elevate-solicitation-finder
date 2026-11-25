@@ -2,6 +2,7 @@ from dataclasses import dataclass
 
 from app.collectors.esbd_attachments import ESBDAttachment
 
+
 @dataclass(frozen=True)
 class SaveResult:
     created: int

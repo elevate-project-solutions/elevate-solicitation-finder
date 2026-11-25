@@ -8,6 +8,7 @@ from app.collectors.esbd_attachments import (
     collect_esbd_attachments,
 )
 
+
 def mock_curl_response(attachments):
     return subprocess.CompletedProcess(
         args=["curl"],

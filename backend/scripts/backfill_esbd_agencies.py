@@ -12,6 +12,7 @@ from app.collectors.esbd_agencies import (
 from app.db.dependencies import get_db
 from app.models.solicitation import Solicitation
 
+
 def backfill_agencies(
     session: Session,
     apply_changes: bool = False,

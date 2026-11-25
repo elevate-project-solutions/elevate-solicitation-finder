@@ -2,12 +2,12 @@ import time
 
 from sqlalchemy import text
 
-from app.db.session import engine
-
-from app.collectors.esbd_attachments import collect_esbd_attachments
 from app.collectors.esbd_attachment_storage import (
     save_esbd_attachments,
 )
+from app.collectors.esbd_attachments import collect_esbd_attachments
+from app.db.session import engine
+
 
 def main():
     with engine.connect() as connection:

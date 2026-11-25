@@ -5,9 +5,8 @@ from typing import Any
 from urllib.parse import quote
 
 from app.collectors.base import CollectedSolicitation
-from app.collectors.esbd_urls import build_esbd_url
-from app.utils.timestamps import normalize_esbd_timestamp
 from app.collectors.esbd_agencies import resolve_agency_name
+from app.utils.timestamps import normalize_esbd_timestamp
 
 REQUIRED_COLUMNS = {
     "Name",

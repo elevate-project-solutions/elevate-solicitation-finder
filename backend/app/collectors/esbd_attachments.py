@@ -1,7 +1,7 @@
-from dataclasses import dataclass
-from urllib.parse import urlencode, urljoin
 import json
 import subprocess
+from dataclasses import dataclass
+from urllib.parse import urlencode, urljoin
 
 ESBD_DETAILS_URL = (
     "https://www.txsmartbuy.gov/app/extensions/"

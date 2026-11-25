@@ -63,7 +63,7 @@ def collect_docx_external_links(attachment) -> list[ExternalLink]:
         url = (
             attachment.get("url")
             or attachment.get("file_url")
-            or attachment.get(fileUrl)
+            or attachment.get("fileUrl")
         )
         filename = (
             attachment.get("name")

@@ -2,6 +2,7 @@ import pytest
 
 from app.collectors import esbd_agencies
 
+
 @pytest.fixture
 def agency_directory(tmp_path, monkeypatch):
     directory = tmp_path / "agencies.csv"
