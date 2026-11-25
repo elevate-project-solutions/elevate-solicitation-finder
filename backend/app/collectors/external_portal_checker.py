@@ -281,7 +281,28 @@ def read_response_sample(response) -> bytes:
     return bytes(sample)
 
 def check_external_link(url):
-    current_url = url
+    """Inspects external procurement access requirements"""
+
+    current_url = urldefrag(url)[0]
+    redirect_history = []
+    visited_urls = set()
+    last_status = None
+    content_type = None
+
+    def result(
+            access_status,
+            evidence=None,
+            error=None,
+    ):
+        return LinkCheck(
+            destination_url=current_url,
+            provider=identify_provider(current_url),
+            access_status=access_status,
+            http_status=last_status,
+            redirect_history=list(redirect_history),
+            content_type=content_type,
+            access_evidence=evidence
+        )
 
     # Does not inherit proxy config or cookies
     session = requests.Session()
@@ -289,7 +310,19 @@ def check_external_link(url):
 
     try:
         for _ in range(MAX_REDIRECTS + 1):
+            last_status = None
+            content_type = None
+
+            if current_url in visited_urls:
+                return result(
+                    "redirect_loop",
+                    evidence="Repeated redirect destination",
+                    error="Circular redirect detected",
+                )
+            
             validate_public_url(current_url)
+
+            visited_urls.add(current_url)
 
             with session.get(
                 current_url,
@@ -300,68 +333,88 @@ def check_external_link(url):
                     "User-Agent": (
                         "ElevateSolicitationFinder/0.1"
                     ),
-                    "Accept": "text/html",
+                    "Accept": (
+                        "text/html,application/pdf,"
+                        "application/octet-stream,*/*"
+                    ),
                 },
             ) as response:
+                last_status = response.status_code
 
-                status = response.status_code
-
-                if status in REDIRECT_CODES:
-                    location = response.headers.get("Location")
-
-                    if not location:
-                        return LinkCheck(
-                            current_url,
-                            identify_provider(current_url),
-                            "unavailable",
-                            status,
-                            "Redirect missing Location header"
-                        )
-
-                    current_url = urljoin(
-                        current_url,
-                        location,
-                    )
-                    continue
-
-                if status in (401, 403):
-                    access = "restricted"
-
-                elif status == 404:
-                    access = "unavailable"
-
-                elif 200 <= status < 300:
-                    access = "reachable"
-
-                else:
-                    access = "http_error"
-
-                return LinkCheck(
-                    destination_url=current_url,
-                    provider=identify_provider(current_url),
-                    access_status=access,
-                    http_status=status,
+                content_type = response.headers.get(
+                    "Content-Type"
                 )
 
-            return LinkCheck(
-                current_url,
-                identify_provider(current_url),
-                "redirect_limit",
-                None,
-                "Too many redirects",
-            )
+                if last_status in REDIRECT_CODES:
+                    location = response.headers.get(
+                        "Location"
+                    )
+
+                    if not location:
+                        return result(
+                            "unavailable",
+                            error=(
+                                "Redirect missing "
+                                "Location header"
+                            ),
+                        )
+
+                    next_url = urldefrag(
+                        urljoin(current_url, location)
+                    )[0]
+
+                    redirect_history.append(
+                        {
+                            "from_url": current_url,
+                            "to_url": next_url,
+                            "http_status": last_status,
+                        }
+                    )
+
+                    if next_url in visited_urls:
+                        return result(
+                            "redirect_loop",
+                            evidence=(
+                                "Repeated redirect destination"
+                            ),
+                            error="Circular redirect detected",
+                        )
+
+                    if len(redirect_history) > MAX_REDIRECTS:
+                        return result(
+                            "redirect_limit",
+                            error="Too many redirects",
+                        )
+
+                    current_url = next_url
+                    continue
+
+                body = read_response_sample(response)
+
+                access, evidence = classify_access(
+                    last_status,
+                    content_type or "",
+                    body,
+                )
+
+                return result(
+                    access,
+                    evidence=evidence,
+                )
+
+        return result(
+            "redirect_limit",
+            error="Too many redirects",            
+        )
 
     except (
         requests.RequestException,
         OSError,
         ValueError
     ) as exc:
-        return LinkCheck(
-            destination_url=None,
-            provider=identify_provider(url),
-            access_status="check_failed",
-            http_status=None,
-            error_message=str(exc) [:500],
+        return result(
+            "check_failed",
+            error=str(exc)[:500],
         )
 
     finally:
