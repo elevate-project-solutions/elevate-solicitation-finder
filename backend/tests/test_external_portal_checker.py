@@ -190,3 +190,38 @@ def portal_session(monkeypatch):
     )
 
     return session
+
+def test_follows_redirect(portal_session):
+    portal_session.get.side_effect = [
+        make_response(
+            302,
+            headers={
+                "Location": "/documents/specifications.pdf"
+            },
+        ),
+        make_response(
+            200,
+            body=b"%PDF-1.7",
+            headers={
+                "Content-Type": "application/pdf"
+            },
+        ),
+    ]
+
+    check = check_external_link(
+        "https://example.bonfirehub.com/bid"
+    )
+
+    assert check.access_status == "reachable"
+
+    assert check.destination_url == (
+        "https://example.bonfirehub.com"
+        "/documents/specifications.pdf"
+    )
+
+    assert len(check.redirect_history) == 1
+    assert check.redirect_history[0]["http_status"] == 302
+
+    assert check.content_type == "application/pdf"
+    assert portal_session.get.call_count == 2
+    portal_session.close.assert_called_once()
