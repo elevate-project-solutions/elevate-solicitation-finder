@@ -313,3 +313,35 @@ def test_handles_timeout(portal_session):
     assert "timed out" in check.error_message.lower()
 
     portal_session.close.assert_called_once()
+
+def test_blocks_unsafe_redirect(
+        portal_session,
+        monkeypatch,
+):
+    validator = Mock(
+        side_effect=[
+            None,
+            ValueError("Unsafe destination"),
+        ]
+    )
+
+    monkeypatch.setattr(
+        external_portal_checker,
+        "validate_public_url",
+        validator,
+    )
+
+    portal_session.get.return_value = make_response(
+        302,
+        headers={
+            "Location": "https://127.0.0.1/private"
+        },
+    )
+
+    check = check_external_link(
+        "https://example.ionwave.net/bid"
+    )
+
+    assert check.access_status == "check_failed"
+    assert portal_session.get.call_count == 1
+    assert validator.call_count == 2
