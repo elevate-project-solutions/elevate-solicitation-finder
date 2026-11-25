@@ -172,3 +172,21 @@ def make_response(
     )
 
     return response
+
+@pytest.fixture
+def portal_session(monkeypatch):
+    session = Mock()
+
+    monkeypatch.setattr(
+        external_portal_checker.requests,
+        "Session",
+        lambda: session,
+    )
+
+    monkeypatch.setattr(
+        external_portal_checker,
+        "validate_public_url",
+        Mock(),
+    )
+
+    return session
