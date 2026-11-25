@@ -151,3 +151,24 @@ def test_link_check_default_fields():
     assert check.redirect_history == []
     assert check.content_type is None
     assert check.access_evidence is None
+
+def make_response(
+        status,
+        body=b"",
+        headers=None,
+):
+    response = Mock()
+
+    response.status_code = status
+    response.headers = headers or {}
+    response.iter_content.return_value = [body]
+
+    response.__enter__ = Mock(
+        return_value=response
+    )
+
+    response.__exit__ = Mock(
+        return_value=False
+    )
+
+    return response
