@@ -278,3 +278,24 @@ def test_missing_redirect_location(portal_session):
 
     assert check.access_status == "unavailable"
     assert check.error_message is not None
+
+def test_redirect_limit(portal_session):
+    portal_session.get.side_effect = [
+        make_response(
+            302,
+            headers={"Location": f"/redirect-{number}"},
+        )
+        for number in range(
+            external_portal_checker.MAX_REDIRECTS + 1
+        )
+    ]
+
+    check = check_external_link(
+        "https://example.ionwave.net/bid"
+    )
+
+    assert check.access_status == "redirect_limit"
+
+    assert portal_session.get.call_count == (
+        external_portal_checker.MAX_REDIRECTS + 1
+    )
