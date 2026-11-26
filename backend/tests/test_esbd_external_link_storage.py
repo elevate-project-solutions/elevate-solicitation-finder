@@ -11,6 +11,7 @@ from app.collectors.external_portal_checker import (
     LinkCheck,
 )
 
+
 def test_saves_access_inspection():
     connection = MagicMock()
 

@@ -4,7 +4,7 @@ import ipaddress
 import socket
 from dataclasses import dataclass, field
 from html.parser import HTMLParser
-from urllib.parse import urljoin, urlparse, urldefrag
+from urllib.parse import urldefrag, urljoin, urlparse
 
 import requests
 
@@ -96,12 +96,13 @@ REGISTRATION_INDICATORS = (
     "registration is required to view",
     "register to view documents",
     "vendor registration is required",
+    "vendor registration required",
 )
 
 BOT_PROTECTION_INDICATORS = (
     "verify you are human",
     "checking your browser",
-    "checkin if the site connection is secure",
+    "checking if the site connection is secure",
     "complete the security check",
     "just a moment",
     "enable javascript and cookies to continue",
@@ -194,39 +195,39 @@ def classify_access(
                     f"Page indicator: {indicator}",
                 )
 
-            if status_code == 403:
+        if status_code == 403:
+            return (
+                "restricted",
+                "HTTP 403 Forbidden",
+            )
+
+        if 200 <= status_code < 300:
+            for indicator in REGISTRATION_INDICATORS:
+                if indicator in page_text:
+                    return (
+                        "registration_required",
+                        f"Page indicator: {indicator}",
+                    )
+
+            for indicator in LOGIN_INDICATORS:
+                if indicator in page_text:
+                    return (
+                        "login_required",
+                        f"Page indicator: {indicator}",
+                    )
+
+            if parser.has_password_input:
                 return (
-                    "restricted",
-                    "HTTP 403 Forbidden",
+                    "unknown",
+                    "Password input detected; "
+                    "mandatory authentication not comfirmed",
                 )
 
-            if 200 <= status_code < 300:
-                for indicator in REGISTRATION_INDICATORS:
-                    if indicator in page_text:
-                        return (
-                            "registration_required",
-                            f"Page indicator: {indicator}",
-                        )
-
-                for indicator in LOGIN_INDICATORS:
-                    if indicator in page_text:
-                        return (
-                            "login_required",
-                            f"Page indicator: {indicator}",
-                        )
-
-                    if parser.has_password_input:
-                        return (
-                            "unknown",
-                            "Password input detected; "
-                            "mandatory authentication not comfirmed",
-                        )
-
-                    return (
-                        "reachable",
-                        "HTML page reachable; "
-                        "document access not verified",
-                    )
+            return (
+                "reachable",
+                "HTML page reachable; "
+                "document access not verified",
+            )
 
     if status_code == 403:
         return (
@@ -299,6 +300,7 @@ def check_external_link(url):
             provider=identify_provider(current_url),
             access_status=access_status,
             http_status=last_status,
+            error_message=error,
             redirect_history=list(redirect_history),
             content_type=content_type,
             access_evidence=evidence

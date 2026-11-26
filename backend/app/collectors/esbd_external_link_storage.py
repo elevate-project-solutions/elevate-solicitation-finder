@@ -1,6 +1,7 @@
 import json
 from datetime import datetime, timezone
 
+
 def save_external_links(
         connection,
         solicitation_id,

@@ -11,6 +11,7 @@ from app.collectors.external_portal_checker import (
     validate_public_url,
 )
 
+
 @pytest.mark.parametrize(
     "status, content_type, body, expected",
     [
@@ -30,6 +31,12 @@ from app.collectors.external_portal_checker import (
             200,
             "text/html",
             b"<html>Public bid listing</html>",
+            "reachable",
+        ),
+        (
+            200,
+            "text/html",
+            b"<html>Sign in to download</html>",
             "login_required",
         ),
         (
@@ -388,7 +395,7 @@ def test_rejects_private_dns_address(monkeypatch):
                 None,
                 None,
                 None,
-                None
+                None,
                 ("192.168.1.10", 443),
             )
         ],
@@ -412,7 +419,7 @@ def test_accepts_public_dns_address(monkeypatch):
                 None,
                 None,
                 None,
-                ("8.8.8.8, 443"),
+                ("8.8.8.8", 443),
             )
         ],
     )
