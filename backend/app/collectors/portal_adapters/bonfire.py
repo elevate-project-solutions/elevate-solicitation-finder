@@ -115,7 +115,7 @@ def match_opportunity(
         number = normalize_text(solicitation_number)
 
         matches = [
-            opportunity,
+            opportunity
             for opportunity in opportunities
             if normalize_text(
                 opportunity.reference_number
