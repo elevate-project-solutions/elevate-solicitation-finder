@@ -13,6 +13,7 @@ from app.collectors.external_portal_checker import (
 BONFIRE_DOMAINS = (
     "bonfire.com",
     "gobonfire.com",
+    "bonfirehub.com"
 )
 
 def is_bonfire_url(url: str) -> bool:
