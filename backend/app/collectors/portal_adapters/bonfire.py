@@ -146,3 +146,28 @@ def match_opportunity(
             return None, "ambiguous_title"
 
     return None, "not_found"
+
+def get_project_id(url: str) -> str | None:
+    """Extracts the project identifier from a Bonfire URL."""
+
+    path = urlparse(url).path
+
+    match = re.fullmatch(
+        r"/(?:opportunities/(\d)|projects/(/d+)/details)/?",
+        path,
+    )
+
+    if match:
+        return match.group(1) or match.group(2)
+
+    return None
+
+def get_listing_url(url: str) -> str:
+    """Returns the agency's public opportunity listing"""
+
+    parsed = urlparse(url)
+
+    return (
+        f"https://{parsed.hostname}"
+        "/portal/?tab=openOpportunities"
+    )
