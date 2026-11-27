@@ -1,6 +1,20 @@
-"""Browser-based inspection of Euna Bonfire portals"""
-
+import re
 from urllib.parse import urlparse
+
+from playwright.sync_api import Error as PlaywrightError
+
+from app.collectors.external_portal_checker import (
+    validate_public_url,
+)
+from app.collectors.portal_adapters.base import PortalAdapter
+from app.collectors.portal_adapters.browser import (
+    browser_page,
+    is_bonfire_url,
+)
+from app.collectors.portal_adapters.models import (
+    PortalInspection,
+    PortalOpportunity,
+)
 
 BOT_PROTECTION_INDICATORS = (
     "performing security verification",
@@ -84,3 +98,51 @@ def detect_access_restriction(
             )
 
     return None
+
+def normalize_text(value: str) -> str:
+    """Normalizes text for conservative matching"""
+
+    return " ".join(value.casefold().split())
+
+def match_opportunity(
+        opportunities: list[PortalOpportunity],
+        solicitation_number: str | None = None,
+        solicitation_title: str | None = None,
+) -> tuple[PortalOpportunity | None, str | None]:
+    """Finds a unique matching procurement opportunity."""
+
+    if solicitation_number and solicitation_number.strip():
+        number = normalize_text(solicitation_number)
+
+        matches = [
+            opportunity,
+            for opportunity in opportunities
+            if normalize_text(
+                opportunity.reference_number
+            ) == number
+        ]
+
+        if len(matches) == 1:
+            return matches[0], "reference_number"
+
+        if len(matches) > 1:
+            return None, "ambiguous_reference_number"
+
+        return None, "reference_number_not_found"
+
+    if solicitation_title and solicitation_title.strip():
+        title = normalize_text(solicitation_title)
+
+        matches = [
+            opportunity
+            for opportunity in opportunities
+            if normalize_text(opportunity.title) == title
+        ]
+
+        if len(matches) == 1:
+            return matches[0], "title"
+
+        if len(matches) > 1:
+            return None, "ambiguous_title"
+
+    return None, "not_found"
