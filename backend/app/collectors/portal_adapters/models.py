@@ -8,6 +8,12 @@ class PortalDocument:
     url: str
 
 @dataclass(frozen=True)
+class PortalOpportunity:
+    reference_number: str
+    title: str
+    url: str
+
+@dataclass(frozen=True)
 class PortalInspection:
     provider: str
     source_url: str
@@ -24,3 +30,6 @@ class PortalInspection:
 
     access_evidence: str | None = None
     error_message: str | None = None
+
+    project_match_method: str | None
+    document_status: str = "not_checked"
