@@ -63,6 +63,27 @@ def inspect_page(url: str):
             "buttons": page.get_by_role(
                 "button"
             ).all_text_contents(),
+            "opportunity_rows": page.locator(
+                "tr"
+            ).evaluate_all(
+                """
+                rows => rows.map(row => ({
+                    cells: Array.from(
+                        row.querySelectorAll("td")
+                    ).map(cell => cell.innerText.trim()),
+                    links: Array.from(
+                        row.querySelectorAll("a[href]")
+                    ).map(link => ({
+                        text: link.innerText.trim(),
+                        href: link.href
+                    }))
+                })).filter(row =>
+                    row.links.some(link =>
+                        link.text === "View Opportunity"
+                    )
+                )
+                """
+            ),
             "password_inputs": page.locator(
                 'input[type="password"]'
             ).count(),
