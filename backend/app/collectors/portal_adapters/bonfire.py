@@ -171,3 +171,66 @@ def get_listing_url(url: str) -> str:
         f"https://{parsed.hostname}"
         "/portal/?tab=openOpportunities"
     )
+
+def extract_opportunities(page) -> list[PortalOpportunity]:
+    """Extracts opportunities from the render listing"""
+
+    rows = page.locator("tr:visible").evaluate_all(
+        """
+        rows => rows.map(row => ({
+            cells: Array.from(
+                row.querySelectorAll("td")
+            ).map(cell => cell.innerText.trim()),
+            links: Array.from(
+                row.querySelectorAll("a[href]")
+            ).map(link => ({
+                text: link.innerText.trim(),
+                href: link.href
+            }))
+        }))
+        """
+    )
+
+    opportunities = {}
+
+    for row in rows:
+        cells = row["cells"]
+
+        if len(cells) < 3:
+            continue
+
+        for link in row["links"]:
+            if link["text"] != "View Opportunity":
+                continue
+
+            url = link["href"]
+
+            if not is_bonfire_url(url):
+                continue
+
+            if urlparse(url).hostname != urlparse(
+                page.url
+            ).hostname:
+                continue
+
+            if not re.fullmatch(
+                r"/opportunities/\d+/?",
+                urlparse(url).path,
+            ):
+                continue
+
+            opportunity = PortalOpportunity(
+                reference_number=cells[1],
+                title=cells[2],
+                url=url,
+            )
+
+            opportunities[
+                (
+                    opportunity.reference_number,
+                    opportunity.title,
+                    opportunity.url,
+                )
+            ] = opportunity
+
+    return list(opportunities.values())
